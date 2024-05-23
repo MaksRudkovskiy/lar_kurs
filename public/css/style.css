@@ -1,0 +1,149 @@
+.bgEDF1FF
+{
+    background-color: #EDF1FF;
+}
+
+.bgC1CFFF
+{
+    background-color: #C1CFFF;
+}
+
+.header-height
+{
+    height: 78px;
+}
+
+.c000C35
+{
+    color: #000C35;
+}
+.c4D52BC
+{
+    color: #4D52BC;
+}
+.text-hover
+{
+    transition: 0.5s ease; 
+}
+.text-hover:hover
+{
+    transition: 0.3s;
+    color: #4D52BC;
+}
+
+.features-block
+{
+    border-left: #4D52BC 4px solid;
+}
+.w-31p
+{
+    width: 31%;
+}
+.cEDF1FF
+{
+    background-color: #EDF1FF;
+}
+
+.h452
+{
+    height: 452px;
+}
+
+.bgcF8F9FF
+{
+    background-color: #F8F9FF;
+}
+
+.bgcC1CFFF
+{
+    background-color: #C1CFFF;
+}
+
+.borrtop
+{
+    width: 100%;
+    background-color: transparent;
+    display: block;
+    height: 1px;
+    border-top: 1px solid rgb(63, 70, 75);
+    position: absolute;
+    top: 50%;
+    margin-top: -1px;
+}
+
+.got-account
+{
+    background-color: white;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    padding: 0px 1px 0px 1px;
+    position: relative;
+    z-index: 2;
+}
+
+.border-1
+{
+    border-width: 1px;
+}
+
+.text-xxs
+{
+    font-size: 10px;
+}
+
+.profile-block
+{
+    margin-top: 102px;
+    width: 1600px;
+}
+
+.uniq-input
+{
+    outline: none;
+    border-bottom: 2px solid rgb(77, 83, 188, 0.3);
+    height: 32px;
+    width: 400px;
+    background-color: transparent;
+}
+
+.h532
+{
+    height: 532px;
+}
+
+.mw-1265
+{
+    max-width: 1235px;
+}
+
+.bgcFDFDFD
+{
+    background-color: #FDFDFD;
+}
+
+.max-w-8xl
+{
+    max-width: 1355px;
+}
+
+.transaction
+{
+    border-bottom: 0.5px #4D52BC solid;
+}
+
+.mx-671
+{
+    max-width: 671px;
+}
+
+.top-w
+{
+    width: 527.50px;
+}
+
+.stupid
+{
+    min-width: 1920px;
+}
