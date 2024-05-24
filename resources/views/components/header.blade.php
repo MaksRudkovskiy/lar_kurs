@@ -8,16 +8,23 @@
                 <a class="font-medium text-hover" href="">Возможности</a>
                 <a class="font-medium text-hover" href="">ЧАВО</a>
             </nav>
-
+            
             <div class="authorize-block font-medium flex items-center justify-between w-60 ml-80">
-
-                    <a href="reg.html" class="text-hover">Регистрация</a>
-
-                    <form action="log.html">
-                        <button class="bgC1CFFF font-medium h-11 w-28 rounded text-hover">
-                            Вход
-                        </button>
+                @Auth
+                    <p>{{ Auth::user()->name }}</p>
+                    <a 
+                    href="{{ route('logout') }}" onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">Выход
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                        @csrf
                     </form>
+                @else
+                <a href="{{ route('register') }}" class="text-hover">Регистрация</a>
+                <a href="{{ route('login') }}" class="bgC1CFFF font-medium h-11 w-28 rounded text-hover text-center p-2">
+                   Вход
+                </a>
+                @endAuth
             </div>
         </div>
 
