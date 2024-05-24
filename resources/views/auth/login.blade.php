@@ -7,7 +7,7 @@
 @section('content')
     <div class="mx-auto w-1/6 min-w-64">
 
-            <a href="index.html"><img src="content/img/logo.svg" alt="" class="mt-6 mx-auto"></a>
+            <a href="{{ route('index') }}"><img src="content/img/logo.svg" alt="" class="mt-6 mx-auto"></a>
 
             <h1 class="mt-6 text-2xl c4D52BC font-normal">
                 Вход
@@ -22,7 +22,12 @@
                         @csrf
                 <div >
                     <label for="" class="font-medium">Номер телефона</label>
-                    <input name="tel" type="tel" id="tel" required class="block w-full h-12 p-3 border-black border-1 rounded-md">
+                    <input name="name" type="name" id="name" required class="block w-full h-12 p-3 border-black border-1 rounded-md">
+                </div>
+
+                <div class="mt-4">
+                    <label for="" class="font-medium">Эл.почта</label>
+                    <input name="email" type="email" id="email" required class="block w-full h-12 p-3 border-black border-1 rounded-md">
                 </div>
 
                 <div class="mt-4">

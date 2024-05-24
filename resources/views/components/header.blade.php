@@ -1,7 +1,7 @@
 <header class="w-4/6 mx-auto flex align-middle my-0 bgEDF1FF header-height">
 
         <div class="my-auto flex w-full"> 
-            <a href="index.html"><img class="ml-20 block my-auto" src="{{asset('content/img/logo.svg')}}" alt=""></a> 
+            <a href="{{ route('index') }}"><img class="ml-20 block my-auto" src="{{asset('content/img/logo.svg')}}" alt=""></a> 
 
             <nav class="w-4/12 flex justify-between items-center ml-20">
                 <a class="font-medium text-hover" href="">Мануал</a>
@@ -11,10 +11,10 @@
             
             <div class="authorize-block font-medium flex items-center justify-between w-60 ml-80">
                 @Auth
-                    <p>{{ Auth::user()->name }}</p>
+                    <a href="{{ route('profile') }}">{{ Auth::user()->name }}</a>
                     <a 
                     href="{{ route('logout') }}" onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();">Выход
+                    document.getElementById('logout-form').submit();"><img src="{{asset('content/img/quit.svg')}}" alt="">
                     </a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST">
                         @csrf
