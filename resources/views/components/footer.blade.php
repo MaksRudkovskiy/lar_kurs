@@ -1,6 +1,6 @@
 <footer class="mt-14 w-4/6 mx-auto flex align-middle my-0 bgEDF1FF header-height">
 
-        <div class="my-auto flex w-full"> 
+        <div class="my-auto flex w-full justify-center"> 
             <img src="content/img/logo.svg" class="ml-8">
 
             <nav class="w-4/12 flex justify-between items-center ml-20">

@@ -1,5 +1,7 @@
+composer i
 cp .env.example .env
 php artisan migrate
 php artisan key:generate
 npm install
 npm run dev
+npm install flowbite

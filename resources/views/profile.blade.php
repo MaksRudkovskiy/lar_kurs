@@ -42,14 +42,91 @@
 
         <h2 class="font-medium text-2xl ml-8">Операции</h2>
 
-        <button class="bgC1CFFF font-medium h-11 w-full max-w-44 rounded text-hover">
+        <button data-modal-target="default-modal" data-modal-toggle="default-modal" class="bgC1CFFF font-medium h-11 w-full max-w-44 rounded text-hover">
             Новая транзакция
         </button>
 
     </div>
 
+
+<!-- Модальное окно -->
+    <div id="default-modal" tabindex="-1" aria-hidden="true" class="hidden bg-dark overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative p-4 w-full max-w-2xl max-h-full">
+            <form class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                @csrf
+                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                        Добавление транзакции
+                    </h3>
+                </div>
+                <div class="p-4 md:p-5 space-y-4">
+
+                    <div class="category">
+                        <h2>Выберите категорию транзакции:</h2>
+                        <select name="category" class="text-black block h-8 bor-b-bottom">
+                            <option value="transport" selected>Транспорт</option>
+                            <option value="groceries">Продукты</option>
+                            <option value="health">Здоровье</option>
+                            <option value="transactions">Переводы</option>
+                            <option value="games">Игры</option>
+                            <option value="entertainment">Развлечения</option>
+                            <option value="taxi">Такси</option>
+                            <option value="sports">Спорт</option>
+                        </select>
+                    </div>
+
+                    <hr>
+
+                    <div class="date">
+                        <h2>Выберите дату:</h2>
+                        <input type="date" class="block h-8 bor-b-bottom">
+                    </div>
+
+                    <hr>
+
+                    <div class="source">
+                        <h2>Выберите счёт</h2>
+                        <select name="source" class="block h-8 border-black border-1">
+                            <option value="bank">Банк</option>
+                            <option value="cash">Нал</option>
+                        </select>
+                    </div>
+
+                    <hr>
+
+                    <div class="type">
+                        <h2>Выберите тип</h2>
+                        <select name="type" class="block h-8 border-black border-1">
+                            <option value="income">hui</option>
+                            <option value="outcome">Расходы</option>
+                        </select>
+
+                    </div>
+
+                    <hr>
+
+                    <div class="amount">    
+
+                        <h2>Введите сумму</h2>
+
+                        <input type="number" class="block h-8 border-black border-1 py-1 px-2 rounded">
+
+                    </div>
+
+                </div>
+                <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
+                    <button data-modal-hide="default-modal" type="button" class="py-2.5 px-5 font-medium rounded text-hover bgC1CFFF bg-slate-900">Добавить</button>
+                    <button data-modal-hide="default-modal" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border text-hover">Отмена</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+<!-- Модальное окно -->
+
+
     <div class="transaction-block mw-1265 mx-auto mt-6">
-        <table class="mw-1265 w-full">
+        <table id="transactionTable" class="mw-1265 w-full">
             <thead class="">
                 <tr>   
                     <th class="bgEDF1FF px-10 py-5 text-lg font-medium">Категория</th>
@@ -61,6 +138,7 @@
                 </tr>
             </thead>
             <tbody>
+
                 <tr class="transaction">
                     <td class="px-10 py-4">
                         <img class="mx-auto block text-center" src="content/img/bus.svg" alt="">
@@ -84,166 +162,8 @@
                     </td>
                 </tr>
 
-                <tr class="transaction">
-                    <td class="px-10 py-4">
-                        <img class="mx-auto block text-center" src="content/img/cart.svg" alt="">
-                    </td>
-                    <td class="px-10 py-4">
-                        <h2 class="mx-auto block text-center">09 фев 2024  </h2>
-                    </td>
-                    <td class="px-10 py-4">
-                        <h2 class="mx-auto block text-center">Банк</h2>
-                    </td>
-                    <td class="px-10 py-4">
-                        <img class="mx-auto block text-center" src="content/img/minus.svg" alt="">
-                    </td>
-                    <td class="px-10 py-4">
-                        <h2 class="mx-auto block text-center">9999 р.</h2>
-                    </td>
 
-                    <td class="px-10 py-4 flex ml-auto">
-                        <img class="block mx-auto cursor-pointer" src="content/img/edit.svg" alt="">
-                        <img class="block mx-auto cursor-pointer" src="content/img/delete.svg" alt="">
-                    </td>
-                </tr>
 
-                <tr class="transaction">
-                    <td class="px-10 py-4">
-                        <img class="mx-auto block text-center" src="content/img/health.svg" alt="">
-                    </td>
-                    <td class="px-10 py-4">
-                        <h2 class="mx-auto block text-center">21 дек 2023  </h2>
-                    </td>
-                    <td class="px-10 py-4">
-                        <h2 class="mx-auto block text-center">Банк</h2>
-                    </td>
-                    <td class="px-10 py-4">
-                        <img class="mx-auto block text-center" src="content/img/minus.svg" alt="">
-                    </td>
-                    <td class="px-10 py-4">
-                        <h2 class="mx-auto block text-center">8674 р.</h2>
-                    </td>
-
-                    <td class="px-10 py-4 flex ml-auto">
-                        <img class="block mx-auto cursor-pointer" src="content/img/edit.svg" alt="">
-                        <img class="block mx-auto cursor-pointer" src="content/img/delete.svg" alt="">
-                    </td>
-                </tr>
-
-                <tr class="transaction">
-                    <td class="px-10 py-4">
-                        <img class="mx-auto block text-center" src="content/img/transaction.svg" alt="">
-                    </td>
-                    <td class="px-10 py-4">
-                        <h2 class="mx-auto block text-center">12 июн 2024  </h2>
-                    </td>
-                    <td class="px-10 py-4">
-                        <h2 class="mx-auto block text-center">Банк</h2>
-                    </td>
-                    <td class="px-10 py-4">
-                        <img class="mx-auto block text-center" src="content/img/minus.svg" alt="">
-                    </td>
-                    <td class="px-10 py-4">
-                        <h2 class="mx-auto block text-center">2300 р.</h2>
-                    </td>
-
-                    <td class="px-10 py-4 flex ml-auto">
-                        <img class="block mx-auto cursor-pointer" src="content/img/edit.svg" alt="">
-                        <img class="block mx-auto cursor-pointer" src="content/img/delete.svg" alt="">
-                    </td>
-                </tr>
-
-                <tr class="transaction">
-                    <td class="px-10 py-4">
-                        <img class="mx-auto block text-center" src="content/img/gamepad.svg" alt="">
-                    </td>
-                    <td class="px-10 py-4">
-                        <h2 class="mx-auto block text-center">15 май 2024  </h2>
-                    </td>
-                    <td class="px-10 py-4">
-                        <h2 class="mx-auto block text-center">Банк</h2>
-                    </td>
-                    <td class="px-10 py-4">
-                        <img class="mx-auto block text-center" src="content/img/minus.svg" alt="">
-                    </td>
-                    <td class="px-10 py-4">
-                        <h2 class="mx-auto block text-center">2357 р.</h2>
-                    </td>
-
-                    <td class="px-10 py-4 flex ml-auto">
-                        <img class="block mx-auto cursor-pointer" src="content/img/edit.svg" alt="">
-                        <img class="block mx-auto cursor-pointer" src="content/img/delete.svg" alt="">
-                    </td>
-                </tr>
-
-                <tr class="transaction">
-                    <td class="px-10 py-4">
-                        <img class="mx-auto block text-center" src="content/img/entertainment.svg" alt="">
-                    </td>
-                    <td class="px-10 py-4">
-                        <h2 class="mx-auto block text-center">1 апр 2024  </h2>
-                    </td>
-                    <td class="px-10 py-4">
-                        <h2 class="mx-auto block text-center">Банк</h2>
-                    </td>
-                    <td class="px-10 py-4">
-                        <img class="mx-auto block text-center" src="content/img/minus.svg" alt="">
-                    </td>
-                    <td class="px-10 py-4">
-                        <h2 class="mx-auto block text-center">1257 р.</h2>
-                    </td>
-
-                    <td class="px-10 py-4 flex ml-auto">
-                        <img class="block mx-auto cursor-pointer" src="content/img/edit.svg" alt="">
-                        <img class="block mx-auto cursor-pointer" src="content/img/delete.svg" alt="">
-                    </td>
-                </tr>
-
-                <tr class="transaction">
-                    <td class="px-10 py-4">
-                        <img class="mx-auto block text-center" src="content/img/taxi.svg" alt="">
-                    </td>
-                    <td class="px-10 py-4">
-                        <h2 class="mx-auto block text-center">21 мар 2024  </h2>
-                    </td>
-                    <td class="px-10 py-4">
-                        <h2 class="mx-auto block text-center">Банк</h2>
-                    </td>
-                    <td class="px-10 py-4">
-                        <img class="mx-auto block text-center" src="content/img/minus.svg" alt="">
-                    </td>
-                    <td class="px-10 py-4">
-                        <h2 class="mx-auto block text-center">3256 р.</h2>
-                    </td>
-
-                    <td class="px-10 py-4 flex ml-auto">
-                        <img class="block mx-auto cursor-pointer" src="content/img/edit.svg" alt="">
-                        <img class="block mx-auto cursor-pointer" src="content/img/delete.svg" alt="">
-                    </td>
-                </tr>
-
-                <tr class="transaction">
-                    <td class="px-10 py-4">
-                        <img class="mx-auto block text-center" src="content/img/sport.svg" alt="">
-                    </td>
-                    <td class="px-10 py-4">
-                        <h2 class="mx-auto block text-center">16 янв 2024  </h2>
-                    </td>
-                    <td class="px-10 py-4">
-                        <h2 class="mx-auto block text-center">Банк</h2>
-                    </td>
-                    <td class="px-10 py-4">
-                        <img class="mx-auto block text-center" src="content/img/minus.svg" alt="">
-                    </td>
-                    <td class="px-10 py-4">
-                        <h2 class="mx-auto block text-center">7670000000 р.</h2>
-                    </td>
-
-                    <td class="px-10 py-4 flex ml-auto">
-                        <img class="block mx-auto cursor-pointer" src="content/img/edit.svg" alt="">
-                        <img class="block mx-auto cursor-pointer" src="content/img/delete.svg" alt="">
-                    </td>
-                </tr>
             </tbody>
         </table>
     </div>

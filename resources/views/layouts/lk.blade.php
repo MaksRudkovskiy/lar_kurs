@@ -31,9 +31,11 @@
 
 </main>
 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </body>
 </html>
 
 <form id="logout-form" action="{{ route('logout') }}" method="POST">
                         @csrf
-    </form>
+</form>
