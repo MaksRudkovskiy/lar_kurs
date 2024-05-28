@@ -5,3 +5,4 @@ php artisan key:generate
 npm install
 npm run dev
 npm install flowbite
+php artisan serve

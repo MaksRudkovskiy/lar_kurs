@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\Models\{User, Transaction};
 use Auth;
 
 class HomeController extends Controller
@@ -25,7 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('profile');
+        $transactions = Transaction::where('user_id', Auth::user()->id)->get();
+        return view('profile', ['transactions' => $transactions]);
     }
 
     public function index2()
