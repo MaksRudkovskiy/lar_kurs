@@ -47,4 +47,9 @@ class HomeController extends Controller
         ]);
         return redirect()->back();
     }
+
+    public function delete_transaction($id) {
+        Transaction::where('id', $id)->delete();
+        return redirect()->back();
+    }
 }

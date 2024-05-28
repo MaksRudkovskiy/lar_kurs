@@ -192,8 +192,8 @@
                         </td>
 
                         <td class="px-10 py-4 flex ml-auto">
-                            <img class="block mx-auto cursor-pointer" src="content/img/edit.svg" alt="">
-                            <img class="block mx-auto cursor-pointer" src="content/img/delete.svg" alt="">
+                            <a class="block mx-auto cursor-pointer" href=""><img src="content/img/edit.svg" alt=""></a>
+                            <a class="block mx-auto cursor-pointer" href="{{route('DeleteTransaction', ['id'=>$transaction->id])}}"><img src="content/img/delete.svg" alt=""></a>
                         </td>
                     </tr>
                 @endforeach
