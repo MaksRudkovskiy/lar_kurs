@@ -20,10 +20,12 @@ class TransactionController extends Controller
         ]);
         $transaction = Transaction::where('user_id', Auth::user()->id)->get();
         return redirect()->back()->with('transactions', $transaction);
-        // return view('profile', ['transactions' => $transaction]);
     }
 
-    // public function send(Request $request) {
-    //     return view('profile', ['transaction' => $transaction]);
-    // }   
+    public function transactionTotalAmount()
+    {
+        
+    }
+
+
 }

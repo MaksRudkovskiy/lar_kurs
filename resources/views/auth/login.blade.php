@@ -33,11 +33,11 @@
                 <div class="mt-4">
                     <label for="" class="font-medium">Пароль</label>
                     <input id="password" name="password" type="password" required autocomplete="current-password" class="block w-full p-3 h-12 border-black border-1 rounded-md">
-                        @error('password')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
+                    @error('email')
+                        <span style="color: red;" class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
             
                 <input type="submit" value="Войти в акканут" class="bgC1CFFF font-medium h-11 w-full rounded text-hover mt-5 cursor-pointer">

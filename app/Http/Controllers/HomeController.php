@@ -5,19 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\{User, Transaction};
 use Auth;
+use Illuminate\Support\Facades\Hash;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     /**
      * Show the application dashboard.
      *
@@ -26,7 +17,9 @@ class HomeController extends Controller
     public function index()
     {
         $transactions = Transaction::where('user_id', Auth::user()->id)->get();
-        return view('profile', ['transactions' => $transactions]);
+        $totalIncome = $transactions->where('type', 'income')->sum('amount');
+        $totalExpense = $transactions->where('type', 'outcome')->sum('amount');
+        return view('profile', ['transactions' => $transactions, 'totalIncome' => $totalIncome, 'totalExpense' => $totalExpense]);
     }
 
     public function index2()

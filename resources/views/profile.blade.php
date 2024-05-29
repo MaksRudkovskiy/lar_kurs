@@ -7,8 +7,6 @@
 
 <div class="flex w-screen">
 
-
-
 <div class="left-bar h-screen w-full max-w-20 flex-col relative bottom-1 bgEDF1FF">
 
     <a href="{{ route('profile') }}" class="text-hover">
@@ -28,11 +26,11 @@
     <h1 class="font-normal text-2xl">Общие данные</h1>
 
     <div class="flex justify-between mt-12">
-        <h2 class="font-normal text-xl">Доходы</h2> <h2 class="font-bold text-2xl">Число</h2>
+        <h2 class="font-normal text-xl">Доходы</h2> <h2 class="font-bold text-2xl"> {{ $totalIncome }} руб.</h2>
     </div>
 
     <div class="flex justify-between mt-16">
-        <h2 class="font-normal text-xl">Расходы</h2> <h2 class="font-bold text-2xl">Число</h2>
+        <h2 class="font-normal text-xl">Расходы</h2> <h2 class="font-bold text-2xl">{{ $totalExpense }} руб.</h2>
     </div>
 </div>
 
@@ -69,7 +67,7 @@
 
                     <div class="category">
                         <h2>Выберите категорию транзакции:</h2>
-                        <select name="category" class="text-black block h-8 bor-b-bottom">
+                        <select name="category" required class="text-black block h-8 bor-b-bottom">
                             <option value="transport" selected>Транспорт</option>
                             <option value="groceries">Продукты</option>
                             <option value="health">Здоровье</option>
@@ -85,7 +83,7 @@
 
                     <div class="date">
                         <h2>Выберите дату:</h2>
-                        <input type="date" name="date" class="block h-8 bor-b-bottom">
+                        <input type="date" required name="date" class="block h-8 bor-b-bottom">
                     </div>
 
                     <hr>
@@ -190,6 +188,8 @@
                         <td class="px-10 py-4">
                             <h2 class="mx-auto block text-center">{{$transaction ->amount}} руб.</h2>
                         </td>
+
+
 
                         <td class="px-10 py-4 flex ml-auto">
                             <a class="block mx-auto cursor-pointer" href=""><img src="content/img/edit.svg" alt=""></a>

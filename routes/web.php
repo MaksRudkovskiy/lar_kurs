@@ -9,6 +9,8 @@ Route::get('/profile', [App\Http\Controllers\HomeController::class, 'index'])->n
 
 Route::get('/profile/delete_transaction/{id}', [App\Http\Controllers\HomeController::class, 'delete_transaction'])->name('DeleteTransaction');
 
+Route::get('/profile/transactionSum', [App\Http\Controllers\TransactionController::class, 'transactionTotalAmount'])->name('amoutCount');
+
 Route::get('/profile_settings', [App\Http\Controllers\HomeController::class, 'index2'])->name('profile_settings');
 
 Route::post('/profile/new_transactions', [App\Http\Controllers\TransactionController::class, 'transactions'])->name('new_transaction');

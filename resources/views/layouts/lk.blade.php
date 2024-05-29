@@ -9,7 +9,7 @@
     @vite('resources/css/app.css')
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
-<body class="overflow-hidden">
+<body class="overflow-x-hidden">
 
 <main>
 
@@ -24,18 +24,16 @@
         <img src="content/img/quit.svg" alt="">
     </a>
     
-
     </div>
 
     @yield('content')
 
 </main>
 
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </body>
 </html>
 
 <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                        @csrf
+@csrf
 </form>
