@@ -11,8 +11,15 @@
             
             <div class="authorize-block font-medium flex items-center justify-between w-60 ml-72">
                 @Auth
-                    <a href="{{ route('profile') }}" class="flex text-hover"> <img src="{{ asset('content/img/profile.svg') }}" alt=""> <h2 class="ml-1 text-base">{{ Auth::user()->name }}</h2></a>
-                    <a 
+                    <a href="{{ route('profile') }}" class="flex text-hover"> <img src="{{ asset('content/img/profile.svg') }}" alt=""> 
+                    <h2 class="ml-1 text-base">
+                        @if(isset(Auth::user()->name))    
+                            {{Auth::user()->name}}
+                        @else
+                            Пользователь
+                        @endif </h2>
+                </a>
+                <a 
                     href="{{ route('logout') }}" onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();"><img src="{{asset('content/img/quit.svg')}}" alt="">
                     </a>

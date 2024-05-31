@@ -144,7 +144,27 @@
                 @foreach ($transactions as $transaction)
                     <tr class="transaction">
                         <td class="px-10 py-4">
-                            <img class="mx-auto block text-center" src="
+                            <img class="mx-auto block text-center"
+                                title="
+                                @if ($transaction ->category == "transport")
+                                    {{Транспорт}}
+                                @elseif($transaction ->category == "groceries")
+                                    Покупки
+                                @elseif($transaction ->category == "health")
+                                    Здоровье
+                                @elseif($transaction ->category == "transactions")
+                                    Переводы
+                                @elseif($transaction ->category == "games")
+                                    Игры
+                                @elseif($transaction ->category == "entertainment")
+                                    Развлечения
+                                @elseif($transaction ->category == "taxi")
+                                    Такси
+                                @elseif($transaction ->category == "sports")
+                                    Спорт
+                                @endif
+                                "
+                            src="
                             @if ($transaction ->category == "transport")
                                 {{asset('content/img/bus.svg')}}
                             @elseif($transaction ->category == "groceries")
@@ -177,7 +197,15 @@
                             </h2>
                         </td>
                         <td class="px-10 py-4">
-                            <img class="mx-auto block text-center" src="
+                            <img class="mx-auto block text-center"
+                            title="
+                            @if ($transaction->type == "income")
+                                Доходы
+                            @elseif($transaction ->type == "outcome")
+                                Расходы
+                            @endif
+                            "
+                            src="
                             @if ($transaction ->type == "income")
                                 {{asset('content/img/plus.svg')}}
                             @elseif($transaction ->type == "outcome")
@@ -189,17 +217,12 @@
                             <h2 class="mx-auto block text-center">{{$transaction ->amount}} руб.</h2>
                         </td>
 
-
-
                         <td class="px-10 py-4 flex ml-auto">
-                            <a class="block mx-auto cursor-pointer" href=""><img src="content/img/edit.svg" alt=""></a>
-                            <a class="block mx-auto cursor-pointer" href="{{route('DeleteTransaction', ['id'=>$transaction->id])}}"><img src="content/img/delete.svg" alt=""></a>
+                            <a class="block mx-auto cursor-pointer" title="Редактировать" href=""><img src="content/img/edit.svg" alt=""></a>
+                            <a class="block mx-auto cursor-pointer" title="Удалить" href="{{route('DeleteTransaction', ['id'=>$transaction->id])}}"><img src="content/img/delete.svg" alt=""></a>
                         </td>
                     </tr>
                 @endforeach
-
-
-
             </tbody>
         </table>
     </div>
