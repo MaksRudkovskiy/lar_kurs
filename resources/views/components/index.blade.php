@@ -17,20 +17,20 @@
             и принимайте решения на основе цифр
         </h2>
 
-        <div class="w-3/12 mx-auto flex justify-between mt-10">
+        <div class="w-3/12 mx-auto flex justify-between mt-10 flex-wrap">
 
             <div class="flex ">
-                <img src="{{asset('content/img/Vector.svg')}}" alt="">
+                <img src="{{asset('content/img/Vector.svg')}}" class="max-w-5 min-w-5" alt="">
                 <h2 class="font-medium ml-1">Автоматизация</h2>
             </div>
 
             <div class="flex ">
-                <img src="{{asset('content/img/Vector.svg')}}" alt="">
+                <img src="{{asset('content/img/Vector.svg')}}" class="max-w-5 min-w-5" alt="">
                 <h2 class="font-medium ml-1">Удобство</h2>
             </div>
 
             <div class="flex ">
-                <img src="{{asset('content/img/Vector.svg')}}" alt="">
+                <img src="{{asset('content/img/Vector.svg')}}" class="max-w-5 min-w-5" alt="">
                 <h2 class="font-medium ml-1">Безопасность данных</h2>
             </div>
 
@@ -56,40 +56,44 @@
             инновационные виды… которые помогут вам быть в курсе своих финансов.
         </h2>
 
-        <div class="flex w-7/12 mt-20 mx-auto">
+        <div class="flex w-7/12 mt-20 mx-auto flex-wrap">
 
             <div class="flex flex-col w-1/2 justify-between">
 
                 <div class="features-block pl-6 h-1/5">
                     <h2 class="font-medium text-xl">
-                        Сэкономьте средства
+                        Управляйте средствами
                     </h2>
-                    <h3 class="font-medium text-sm">
-                        текст
+                    <h3 class="font-normal mt-3 text-sm max-w-64">
+                    Ведите учёт своих доходов и расходов
+                    в удобном интерфейсе
                     </h3>
                 </div>
                 <div class="features-block pl-6 h-1/5">
                     <h2 class="font-medium text-xl">
-                        Сэкономьте средства
+                        Безопасность данных
                     </h2>
-                    <h3 class="font-medium text-sm">
-                        текст
+                    <h3 class="font-normal mt-3 text-sm max-w-64">
+                        Надежные методы шифрования и хэширования
+                        не позволят войти в вашу учётную запись злоумышленникам 
                     </h3>
                 </div>
                 <div class="features-block pl-6 h-1/5">
                     <h2 class="font-medium text-xl">
-                        Сэкономьте средства
+                        Удобство
                     </h2>
-                    <h3 class="font-medium text-sm">
-                        текст
+                    <h3 class="font-normal mt-3 text-sm max-w-64">
+                        Отсутствие лишних функций и только самое необходимое
+                        для вашего учёта личных финансов
                     </h3>
                 </div>
                 <div class="features-block pl-6 h-1/5">
                     <h2 class="font-medium text-xl">
-                        Сэкономьте средства
+                        Стиль
                     </h2>
-                    <h3 class="font-medium text-sm">
-                        текст
+                    <h3 class="font-normal mt-3 text-sm max-w-64">
+                        Разработанный дизайн поможет вам легко ориентироваться
+                        в архитектуре приложения. Зарегистрируйтесь сейчас!
                     </h3>
                 </div>
 
@@ -108,34 +112,30 @@
         <div class="w-7/12 mx-auto">
 
             <h2 class="font-medium text-2xl">
-                Что думают о нас <span class="c4D52BC">пользователи</span>
+                Предлагаемые <span class="c4D52BC">возможности</span>
             </h2>
 
-            <div class="flex justify-between mt-6">
+            <div class="flex justify-between flex-wrap">
 
-                <div class="h-80 w-31p cEDF1FF">
-                    <h2 class="mt-24 pl-6 text-lg font-medium">
-                        Комментарий пользователя
+                <div class="px-6 mt-6 min-w-80 w-31p cEDF1FF py-16 mx-auto">
+                    <h2 class="text-lg font-medium">
+                        Занесение всех транзакций в ленту и удобное отслеживание каждой из них
                     </h2>
-                    <p class="mt-28 pl-6 text-lg font-medium">
-                        имя
-                    </p>
+
                 </div>
-                <div class="h-80 w-31p cEDF1FF">
-                    <h2 class="mt-24 pl-6 text-lg font-medium">
-                        Комментарий пользователя
+
+                <div class="px-6 mt-6 min-w-80 w-31p cEDF1FF py-16 mx-auto">
+                    <h2 class="text-lg font-medium">
+                        Наличие гибкой настройки для каждой вашей транзакции в онлайн банке или с помощью наличных
                     </h2>
-                    <p class="mt-28 pl-6 text-lg font-medium">
-                        имя
-                    </p>
+
                 </div>
-                <div class="h-80 w-31p cEDF1FF">
-                    <h2 class="mt-24 pl-6 text-lg font-medium">
-                        Комментарий пользователя
+
+                <div class="px-6 mt-6 min-w-80 w-31p cEDF1FF py-16 mx-auto">
+                    <h2 class="text-lg font-medium">
+                        И отсутствие чего-либо лишнего
                     </h2>
-                    <p class="mt-28 pl-6 text-lg font-medium">
-                        имя
-                    </p>
+
                 </div>
 
             </div>
@@ -150,7 +150,7 @@
 
     <article class="mt-20">
 
-        <div class="w-4/6 mx-auto h452 bgcF8F9FF">
+        <div class="w-4/6 mx-auto bgcF8F9FF">
 
             <div class="h-full m-full px-24 py-16 flex justify-between">
 
@@ -158,37 +158,55 @@
                     Часто <br> задаваемые <br> вопросы
                 </h1>
 
-                <div class="flex flex-col w-1/2 justify-between">
+                <div id="accordion-collapse" data-accordion="collapse" class="flex flex-col w-1/2 justify-between">
 
-                    <div class="px-6 py-8 bgcC1CFFF">
-                        <div class="flex justify-between">
-                            <h3 class="font-medium text-lg">
-                                Вопрос
-                            </h3>
-
-                            <img src="{{asset('content/img/galka.svg')}}" class="cursor-pointer" alt="">
+                    <div class="px-6 py-4 bgcC1CFFF w-full mt-3">
+                        <h2 id="accordion-collapse-heading-1 w-full">
+                            <button type="button" class="flex justify-between w-full" data-accordion-target="#accordion-collapse-body-1" aria-expanded="true" aria-controls="accordion-collapse-body-1">
+                                <span class="font-medium text-lg">Вопрос</span>
+                                <svg data-accordion-icon class="w-6 h-6 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+                                </svg>
+                            </button>
+                        </h2>
+                        <div id="accordion-collapse-body-1" class="hidden" aria-labelledby="accordion-collapse-heading-1">
+                            hui
                         </div>
                     </div>
-                    <div class="px-6 py-8 bgcC1CFFF">
-                        <div class="flex justify-between">
-                            <h3 class="font-medium text-lg">
-                                Вопрос
-                            </h3>
 
-                            <img src=" {{asset('content/img/galka.svg')}}" class="cursor-pointer" alt="">
+                    <div class="px-6 py-4 bgcC1CFFF w-full mt-3">
+                        <h2 id="accordion-collapse-heading-2 w-full">
+                            <button type="button" class="flex justify-between w-full" data-accordion-target="#accordion-collapse-body-2" aria-expanded="true" aria-controls="accordion-collapse-body-2">
+                                <span class="font-medium text-lg">Вопрос</span>
+                                <svg data-accordion-icon class="w-6 h-6 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+                                </svg>
+                            </button>
+                        </h2>
+                        <div id="accordion-collapse-body-2" class="hidden" aria-labelledby="accordion-collapse-heading-1">
+                            hui
                         </div>
                     </div>
-                    <div class="px-6 py-8 bgcC1CFFF">
-                        <div class="flex justify-between">
-                            <h3 class="font-medium text-lg">
-                                Вопрос
-                            </h3>
 
-                            <img src="{{asset('content/img/galka.svg')}}" class="cursor-pointer" alt="">
+                    <div class="px-6 py-4 bgcC1CFFF w-full mt-3">
+                        <h2 id="accordion-collapse-heading-3 w-full">
+                            <button type="button" class="flex justify-between w-full" data-accordion-target="#accordion-collapse-body-3" aria-expanded="true" aria-controls="accordion-collapse-body-3">
+                                <span class="font-medium text-lg">Вопрос</span>
+                                <svg data-accordion-icon class="w-6 h-6 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+                                </svg>
+                            </button>
+                        </h2>
+                        <div id="accordion-collapse-body-3" class="hidden" aria-labelledby="accordion-collapse-heading-1">
+                            hui
                         </div>
                     </div>
 
                 </div>
+
+                
+
+                
 
             </div>
 

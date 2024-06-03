@@ -10,7 +10,7 @@
 
 .header-height
 {
-    height: 78px;
+    min-height: 78px;
 }
 
 .c000C35

@@ -21,7 +21,7 @@
     href="{{ route('logout') }}" onclick="event.preventDefault();
     document.getElementById('logout-form').submit();"
     >
-        <img src="content/img/quit.svg" alt="">
+        <img src="content/img/quit.svg" alt="" title="Выйти">
     </a>
     
     </div>

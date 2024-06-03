@@ -17,3 +17,5 @@ Route::post('/profile/new_transactions', [App\Http\Controllers\TransactionContro
 Route::post('/save_settings', [App\Http\Controllers\HomeController::class, 'edit_info'])->name('edit_info');
 
 Auth::routes();
+
+

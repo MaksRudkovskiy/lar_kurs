@@ -1,15 +1,15 @@
-<header class="w-4/6 mx-auto flex align-middle my-0 bgEDF1FF header-height">
+<header class="w-4/6 mx-auto flex py-2 my-0 bgEDF1FF header-height">
 
-        <div class="my-auto flex w-full"> 
-            <a href="{{ route('index') }}"><img class="ml-20 block my-auto" src="{{asset('content/img/logo.svg')}}" alt=""></a> 
+        <div class="my-auto flex w-full justify-between flex-wrap px-20"> 
+            <a href="{{ route('index') }}"><img class="block my-auto" src="{{asset('content/img/logo.svg')}}" alt=""></a> 
 
-            <nav class="w-4/12 flex justify-between items-center ml-20">
+            <!-- <nav class="w-4/12 flex justify-between items-center ml-20">
                 <a class="font-medium text-hover" href="">Мануал</a>
                 <a class="font-medium text-hover" href="">Возможности</a>
                 <a class="font-medium text-hover" href="">ЧАВО</a>
-            </nav>
+            </nav> -->
             
-            <div class="authorize-block font-medium flex items-center justify-between w-60 ml-72">
+            <div class="authorize-block font-medium flex items-center justify-between w-60">
                 @Auth
                     <a href="{{ route('profile') }}" class="flex text-hover"> <img src="{{ asset('content/img/profile.svg') }}" alt=""> 
                     <h2 class="ml-1 text-base">
@@ -21,7 +21,7 @@
                 </a>
                 <a 
                     href="{{ route('logout') }}" onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();"><img src="{{asset('content/img/quit.svg')}}" alt="">
+                    document.getElementById('logout-form').submit();"><img src="{{asset('content/img/quit.svg')}}" title="Выйти" alt="">
                     </a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST">
                         @csrf
