@@ -76,6 +76,10 @@
                             <option value="entertainment">Развлечения</option>
                             <option value="taxi">Такси</option>
                             <option value="sports">Спорт</option>
+                            <option value="beauty">Красота</option>
+                            <option value="fuel">Топливо</option>
+                            <option value="house">ЖКХ</option>
+                            <option value="other">Прочее</option>
                         </select>
                     </div>
 
@@ -143,45 +147,61 @@
                 @foreach ($transactions as $transaction)
                     <tr class="transaction">
                         <td class="px-10 py-4">
-                            <img class="mx-auto block text-center"
+                            <img class="mx-auto block text-center w-8 h-8"
                                 title="
-                                @if ($transaction ->category == "transport")
-                                    {{Транспорт}}
-                                @elseif($transaction ->category == "groceries")
-                                    Покупки
-                                @elseif($transaction ->category == "health")
-                                    Здоровье
-                                @elseif($transaction ->category == "transactions")
-                                    Переводы
-                                @elseif($transaction ->category == "games")
-                                    Игры
-                                @elseif($transaction ->category == "entertainment")
-                                    Развлечения
-                                @elseif($transaction ->category == "taxi")
-                                    Такси
-                                @elseif($transaction ->category == "sports")
-                                    Спорт
-                                @endif
+                                    @if ($transaction ->category == "transport")
+                                        {{Транспорт}}
+                                    @elseif($transaction ->category == "groceries")
+                                        Покупки
+                                    @elseif($transaction ->category == "health")
+                                        Здоровье
+                                    @elseif($transaction ->category == "transactions")
+                                        Переводы
+                                    @elseif($transaction ->category == "games")
+                                        Игры
+                                    @elseif($transaction ->category == "entertainment")
+                                        Развлечения
+                                    @elseif($transaction ->category == "taxi")
+                                        Такси
+                                    @elseif($transaction ->category == "sports")
+                                        Спорт
+                                    @elseif($transaction ->category == "beauty")
+                                        Красота
+                                    @elseif($transaction ->category == "fuel")
+                                        Топливо
+                                    @elseif($transaction ->category == "house")
+                                        ЖКХ
+                                    @elseif($transaction ->category == "other")
+                                        Прочее
+                                    @endif
                                 "
-                            src="
-                            @if ($transaction ->category == "transport")
-                                {{asset('content/img/bus.svg')}}
-                            @elseif($transaction ->category == "groceries")
-                                {{asset('content/img/cart.svg')}}
-                            @elseif($transaction ->category == "health")
-                                {{asset('content/img/health.svg')}}
-                            @elseif($transaction ->category == "transactions")
-                                {{asset('content/img/transaction.svg')}}
-                            @elseif($transaction ->category == "games")
-                                {{asset('content/img/gamepad.svg')}}
-                            @elseif($transaction ->category == "entertainment")
-                                {{asset('content/img/entertainment.svg')}}
-                            @elseif($transaction ->category == "taxi")
-                                {{asset('content/img/taxi.svg')}}
-                            @elseif($transaction ->category == "sports")
-                                {{asset('content/img/sport.svg')}}
-                            @endif
-                            " alt="">
+                                src="
+                                    @if ($transaction ->category == "transport")
+                                        {{asset('content/img/bus.svg')}}
+                                    @elseif($transaction ->category == "groceries")
+                                        {{asset('content/img/cart.svg')}}
+                                    @elseif($transaction ->category == "health")
+                                        {{asset('content/img/health.svg')}}
+                                    @elseif($transaction ->category == "transactions")
+                                        {{asset('content/img/transaction.svg')}}
+                                    @elseif($transaction ->category == "games")
+                                        {{asset('content/img/gamepad.svg')}}
+                                    @elseif($transaction ->category == "entertainment")
+                                        {{asset('content/img/entertainment.svg')}}
+                                    @elseif($transaction ->category == "taxi")
+                                        {{asset('content/img/taxi.svg')}}
+                                    @elseif($transaction ->category == "sports")
+                                        {{asset('content/img/sport.svg')}}
+                                    @elseif($transaction ->category == "beauty")
+                                        {{asset('content/img/beauty.svg')}}
+                                    @elseif($transaction ->category == "fuel")
+                                        {{asset('content/img/fuel.svg')}}
+                                    @elseif($transaction ->category == "house")
+                                        {{asset('content/img/house.svg')}}
+                                    @elseif($transaction ->category == "other")
+                                        {{asset('content/img/other.svg')}}
+                                    @endif
+                                " alt="">
                         </td>
                         <td class="px-10 py-4">
                             <h2 class="mx-auto block text-center"> {{$transaction ->date}} </h2>
