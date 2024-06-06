@@ -45,4 +45,12 @@ class HomeController extends Controller
         Transaction::where('id', $id)->delete();
         return redirect()->back();
     }
+
+    public function filter(Request $request)
+    {
+        $transactions = Transaction::where('user_id', Auth::user()->id)->where('category', $request->category)->get();
+        $totalIncome = $transactions->where('type', 'income')->sum('amount');
+        $totalExpense = $transactions->where('type', 'outcome')->sum('amount');
+        return view('profile', ['transactions' => $transactions, 'totalIncome' => $totalIncome, 'totalExpense' => $totalExpense]);
+    }
 }

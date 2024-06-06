@@ -134,7 +134,7 @@
 <!-- Модальное окно -->
 <div id="second-modal" tabindex="-1" aria-hidden="true" class="hidden bg-dark overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full h-screen max-h-full">
         <div class="relative p-4 w-full max-w-2xl max-h-full">
-            <form class="relative bg-white rounded-lg shadow " method="POST" action="">
+            <form class="relative bg-white rounded-lg shadow " method="POST" action="{{ route('filter') }}">
                 @csrf
                 <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-">
                     <h3 class="text-xl font-semibold text-gray-9">
