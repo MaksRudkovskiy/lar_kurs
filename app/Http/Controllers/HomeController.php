@@ -48,9 +48,13 @@ class HomeController extends Controller
 
     public function filter(Request $request)
     {
+    if (($request->category) == 'all') {
+        $transactions = Transaction::where('user_id', Auth::user()->id)->get();
+    } else {
         $transactions = Transaction::where('user_id', Auth::user()->id)->where('category', $request->category)->get();
-        $totalIncome = $transactions->where('type', 'income')->sum('amount');
-        $totalExpense = $transactions->where('type', 'outcome')->sum('amount');
-        return view('profile', ['transactions' => $transactions, 'totalIncome' => $totalIncome, 'totalExpense' => $totalExpense]);
+    }
+    $totalIncome = $transactions->where('type', 'income')->sum('amount');
+    $totalExpense = $transactions->where('type', 'outcome')->sum('amount');
+    return view('profile', ['transactions' => $transactions, 'totalIncome' => $totalIncome, 'totalExpense' => $totalExpense]);
     }
 }
