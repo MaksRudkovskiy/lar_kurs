@@ -38,7 +38,7 @@
 
         </div>
 
-        <img src=" {{ asset('content/img/image 2.png') }}" class="text-center mx-auto mt-16" alt="">
+        <img src=" {{ asset('content/img/image 2.png') }}" class="text-center mx-auto mt-16 max-w-3xl " alt="">
 
     </article>
 
