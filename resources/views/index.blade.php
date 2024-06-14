@@ -35,6 +35,7 @@
     <article class="mt-24 ">
         
         @include('components.main_offered_opportunities')
+        <!-- Подключение компонента блоков с предлагаемыми возомжностями -->
 
     </article>
 </section>
