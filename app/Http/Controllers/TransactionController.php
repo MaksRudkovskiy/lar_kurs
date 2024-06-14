@@ -21,11 +21,6 @@ class TransactionController extends Controller
         $transaction = Transaction::where('user_id', Auth::user()->id)->get();
         return redirect()->back()->with('transactions', $transaction);
     }
-
-    public function transactionTotalAmount()
-    {
-        
-    }
-
+    // Данная функция transactions нужна для создания транзакции и занесения её в базу данных, откуда она будет выводиться в представление
 
 }

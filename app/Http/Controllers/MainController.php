@@ -8,7 +8,8 @@ class MainController extends Controller
 {
     public function index()
     {
-        return view("components.index");
+        return view("index");
     }
+    // функция index() вызывает представление index, которое является главной страницой
     
 }

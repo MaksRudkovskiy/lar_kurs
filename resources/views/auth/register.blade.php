@@ -1,9 +1,11 @@
 @extends('layouts.auth')
+<!-- Подключение шаблона страницы авторизации -->
 @section('title')
     Регистрация
 @endsection
+<!-- Объявление названия для представления, которое потом будет выводиться в браузере -->
 
-
+<!-- Секция с основным изменяемым содержимым -->
 @section('content')
     <div class="mx-auto w-1/6 min-w-64">
 
@@ -18,39 +20,12 @@
                 сервис!
             </h2>
 
-            <form method="POST" action="{{ route('register') }}">
-                        @csrf
-                <div >
-                    <label for="" class="font-medium">Номер телефона</label>
-                    <input name="tel" type="tel" id="tel" required class="block w-full h-12 p-3 border-black border-1 rounded-md">
-                </div>
-
-                <div class="mt-4">
-                    <label for="" class="font-medium">Эл.почта</label>
-                    <input name="email" type="email" id="email" required class="block w-full h-12 p-3 border-black border-1 rounded-md">
-                </div>
-
-                <div class="mt-4">
-                    <label for="" class="font-medium">Пароль</label>
-                    <input id="password" name="password" type="password" required autocomplete="current-password" class="block w-full p-3 h-12 border-black border-1 rounded-md">
-                        @error('password')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                </div>
-            
-                <input type="submit" value="Регистрация" class="bgC1CFFF font-medium h-11 w-full rounded text-hover mt-5 cursor-pointer">
-
-                <div class="flex relative text-center mt-6">
-
-                    <div class="got-account text-center mx-auto text-xs">Есть аккаунт?</div>
-                    <div class="absolute borrtop"></div>
-
-                </div>
-            </form>
+            @include('components.register_form')
+            <!-- Подключение компонента формы регистрации аккаунта -->
 
             <a onclick="" href="{{ route('login') }}" class="bgC1CFFF font-medium h-11 w-full rounded text-hover mt-5 py-2 text-center mx-auto block ">
                 Вход в аккаунт
             </a>    
     </div>
+@endsection
+<!-- Секция с основным изменяемым содержимым -->
