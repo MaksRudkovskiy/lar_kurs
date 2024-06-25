@@ -20,18 +20,18 @@
                     <h2>Выберите категорию транзакции:</h2>
                     <select name="category" required class="text-black block h-8 bor-b-bottom">
                         <option value="all">Все транзакции</option>
-                        <option value="transport">Транспорт</option>
-                        <option value="groceries">Продукты</option>
-                        <option value="health">Здоровье</option>
-                        <option value="transactions">Переводы</option>
-                        <option value="games">Игры</option>
-                        <option value="entertainment">Развлечения</option>
-                        <option value="taxi">Такси</option>
-                        <option value="sports">Спорт</option>
-                        <option value="beauty">Красота</option>
-                        <option value="fuel">Топливо</option>
-                        <option value="house">ЖКХ</option>
-                        <option value="other">Прочее</option>
+                        <option value="1">Транспорт</option>
+                        <option value="2">Продукты</option>
+                        <option value="3">Здоровье</option>
+                        <option value="4">Переводы</option>
+                        <option value="5">Игры</option>
+                        <option value="6">Развлечения</option>
+                        <option value="7">Такси</option>
+                        <option value="8">Спорт</option>
+                        <option value="9">Красота</option>
+                        <option value="10">Топливо</option>
+                        <option value="11">ЖКХ</option>
+                        <option value="12">Прочее</option>
                     </select>
                 </div>  
 

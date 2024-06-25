@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\{User, Transaction};
+use App\Models\{User, Transaction, Category};
 use Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -52,7 +52,7 @@ class HomeController extends Controller
         if (($request->category) == 'all') {
             $transactions = Transaction::where('user_id', Auth::user()->id)->get();
         } else {
-            $transactions = Transaction::where('user_id', Auth::user()->id)->where('category', $request->category)->get();
+            $transactions = Transaction::where('category_id',  $request->category)->get();
         }
         $totalIncome = $transactions->where('type', 'income')->sum('amount');
         $totalExpense = $transactions->where('type', 'outcome')->sum('amount');

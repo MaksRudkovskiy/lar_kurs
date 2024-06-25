@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\{User, Transaction};
+use App\Models\{User, Transaction, Category};
 use Auth;
 
 class TransactionController extends Controller
@@ -11,8 +11,8 @@ class TransactionController extends Controller
     public function transactions(Request $request) {
 
         Transaction::create([
-            'category' => $request->category,
             'user_id' => Auth::user()->id,
+            'category_id' => $request->category,
             'date' => $request->date,
             'source' => $request->source,
             'type' => $request->type,

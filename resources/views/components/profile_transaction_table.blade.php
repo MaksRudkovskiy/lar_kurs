@@ -22,56 +22,56 @@
                     <td class="px-10 py-4">
                         <img class="mx-auto block text-center w-8 h-8"
                             title="
-                                @if ($transaction ->category == "transport")
+                                @if ($transaction->category_id == "1")
                                     Транспорт
-                                @elseif($transaction ->category == "groceries")
+                                @elseif($transaction ->category_id == "2")
                                     Покупки
-                                @elseif($transaction ->category == "health")
+                                @elseif($transaction ->category_id== "3")
                                     Здоровье
-                                @elseif($transaction ->category == "transactions")
+                                @elseif($transaction ->category_id == "4")
                                     Переводы
-                                @elseif($transaction ->category == "games")
+                                @elseif($transaction ->category_id == "5")
                                     Игры
-                                @elseif($transaction ->category == "entertainment")
+                                @elseif($transaction ->category_id == "entertainment")
                                     Развлечения
-                                @elseif($transaction ->category == "taxi")
+                                @elseif($transaction ->category_id == "taxi")
                                     Такси
-                                @elseif($transaction ->category == "sports")
+                                @elseif($transaction ->category_id == "sports")
                                     Спорт
-                                @elseif($transaction ->category == "beauty")
+                                @elseif($transaction ->category_id == "beauty")
                                     Красота
-                                @elseif($transaction ->category == "fuel")
+                                @elseif($transaction ->category_id == "fuel")
                                     Топливо
-                                @elseif($transaction ->category == "house")
+                                @elseif($transaction ->category_id == "house")
                                     ЖКХ
-                                @elseif($transaction ->category == "other")
+                                @elseif($transaction ->category_id == "other")
                                     Прочее
                                 @endif
                             "
                             src="
-                                @if ($transaction ->category == "transport")
+                                @if ($transaction ->category_id == "1")
                                     {{asset('content/img/bus.svg')}}
-                                @elseif($transaction ->category == "groceries")
+                                @elseif($transaction ->category_id == "2")
                                     {{asset('content/img/cart.svg')}}
-                                @elseif($transaction ->category == "health")
+                                @elseif($transaction ->category_id == "3")
                                     {{asset('content/img/health.svg')}}
-                                @elseif($transaction ->category == "transactions")
+                                @elseif($transaction ->category_id == "4")
                                     {{asset('content/img/transaction.svg')}}
-                                @elseif($transaction ->category == "games")
+                                @elseif($transaction ->category_id == "5")
                                     {{asset('content/img/gamepad.svg')}}
-                                @elseif($transaction ->category == "entertainment")
+                                @elseif($transaction ->category_id == "entertainment")
                                     {{asset('content/img/entertainment.svg')}}
-                                @elseif($transaction ->category == "taxi")
+                                @elseif($transaction ->category_id == "taxi")
                                     {{asset('content/img/taxi.svg')}}
-                                @elseif($transaction ->category == "sports")
+                                @elseif($transaction ->category_id == "sports")
                                     {{asset('content/img/sport.svg')}}
-                                @elseif($transaction ->category == "beauty")
+                                @elseif($transaction ->category_id == "beauty")
                                     {{asset('content/img/beauty.svg')}}
-                                @elseif($transaction ->category == "fuel")
+                                @elseif($transaction ->category_id == "fuel")
                                     {{asset('content/img/fuel.svg')}}
-                                @elseif($transaction ->category == "house")
+                                @elseif($transaction ->category_id == "house")
                                     {{asset('content/img/house.svg')}}
-                                @elseif($transaction ->category == "other")
+                                @elseif($transaction ->category_id == "other")
                                     {{asset('content/img/other.svg')}}
                                 @endif
                             " alt="">

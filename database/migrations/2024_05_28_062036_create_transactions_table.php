@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->id()->primary();
             $table->unsignedBigInteger('user_id');
-            $table->string('category', 15);
+            $table->unsignedBigInteger('category_id');
             $table->date('date');
             $table->string('source', 4);
             $table->string('type', 7);
@@ -22,6 +22,7 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
     }
 
