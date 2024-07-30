@@ -26,6 +26,19 @@ class HomeController extends Controller
     }
     // Данная функция index2 нужна для передачи переменной $user, которая равна классу с данными пользователя. Нужно это для передачи в представление profile_settings данных пользователя
 
+    public function index3()
+    {
+        $categoriesSums = $this->categorySumm();
+
+        $currentMonth = now()->month;
+        $translatedMonth = $this->monthRu($currentMonth);
+        $icons = $this->getIcons();
+
+        $user = Auth::user();
+
+        return view("profile_report", ['user' => $user, 'categoriesSums' => $categoriesSums, 'translatedMonth' => $translatedMonth, 'icons' => $icons]);
+    }
+
     public function edit_info(Request $request) {
         $user = Auth::user();
         $user_info = User::where('id', $user->id)->update([
@@ -63,4 +76,55 @@ class HomeController extends Controller
     // Если выбраны все категории, то она и будет выводить все категории
     // Иначе же будет выводиться какая-то определённая категория
     // Переменные $totalIncome и $totalExpense нужны для подсчёта общих расходов и доходов определённого пользователя по пути filter/, который копирует profile/, но необходим для филбтрации.
+
+    public function categorySumm() {
+
+        $categories = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]; // your 12 category IDs
+
+        $categoriesSums = Transaction::whereIn('category_id', $categories)
+            ->where('type', 'outcome') // add this line to filter out "income" type
+            ->groupBy('category_id')
+            ->selectRaw('category_id, SUM(amount) as sum')
+            ->get()
+            ->pluck('sum', 'category_id')
+            ->sortByDesc(null, SORT_REGULAR)
+            ->all();
+        
+        return $categoriesSums;
+    }
+
+    private function getIcons() {
+        return [
+            1 => 'bus.svg',
+            2 => 'cart.svg',
+            3 => 'health.svg',
+            4 => 'transaction.svg',
+            5 => 'gamepad.svg',
+            6 => 'entertainment.svg',
+            7 => 'taxi.svg',
+            8 => 'sport.svg',
+            9 => 'beauty.svg',
+            10 => 'fuel.svg',
+            11 => 'house.svg',
+            12 => 'other.svg',
+        ];
+    }
+
+    private function monthRu($month) {
+        $months = [
+            1 => 'январь',
+            2 => 'февраль',
+            3 => 'март',
+            4 => 'апрель',
+            5 => 'май',
+            6 => 'июнь',
+            7 => 'июль',
+            8 => 'август',
+            9 => 'сентябрь',
+            10 => 'октябрь',
+            11 => 'ноябрь',
+            12 => 'декабрь',
+        ];
+        return $months[$month];
+    }
 }

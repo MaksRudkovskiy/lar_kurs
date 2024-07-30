@@ -10,4 +10,9 @@
         <h3 class="text-xxs text-center">настройки</h3>
     </a>
 
+    <a href="{{ route('profile_report') }}" class="text-hover">
+        <img class="block mx-auto pt-5" src="content/img/report.svg" alt="">
+        <h3 class="text-xxs text-center">Отчёты</h3>
+    </a>
+
 </div>

@@ -12,6 +12,8 @@ Route::get('/profile/transactionSum', [App\Http\Controllers\TransactionControlle
 
 Route::get('/profile_settings', [App\Http\Controllers\HomeController::class, 'index2'])->name('profile_settings');
 
+Route::get('/profile_report', [App\Http\Controllers\HomeController::class, 'index3'])->name('profile_report');
+
 Route::post('/profile/new_transactions', [App\Http\Controllers\TransactionController::class, 'transactions'])->name('new_transaction');
 
 Route::post('/save_settings', [App\Http\Controllers\HomeController::class, 'edit_info'])->name('edit_info');

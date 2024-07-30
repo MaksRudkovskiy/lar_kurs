@@ -32,19 +32,19 @@
                                     Переводы
                                 @elseif($transaction ->category_id == "5")
                                     Игры
-                                @elseif($transaction ->category_id == "entertainment")
+                                @elseif($transaction ->category_id == "6")
                                     Развлечения
-                                @elseif($transaction ->category_id == "taxi")
+                                @elseif($transaction ->category_id == "7")
                                     Такси
-                                @elseif($transaction ->category_id == "sports")
+                                @elseif($transaction ->category_id == "8")
                                     Спорт
-                                @elseif($transaction ->category_id == "beauty")
+                                @elseif($transaction ->category_id == "9")
                                     Красота
-                                @elseif($transaction ->category_id == "fuel")
+                                @elseif($transaction ->category_id == "10")
                                     Топливо
-                                @elseif($transaction ->category_id == "house")
+                                @elseif($transaction ->category_id == "11")
                                     ЖКХ
-                                @elseif($transaction ->category_id == "other")
+                                @elseif($transaction ->category_id == "12")
                                     Прочее
                                 @endif
                             "
@@ -59,19 +59,19 @@
                                     {{asset('content/img/transaction.svg')}}
                                 @elseif($transaction ->category_id == "5")
                                     {{asset('content/img/gamepad.svg')}}
-                                @elseif($transaction ->category_id == "entertainment")
+                                @elseif($transaction ->category_id == "6")
                                     {{asset('content/img/entertainment.svg')}}
-                                @elseif($transaction ->category_id == "taxi")
+                                @elseif($transaction ->category_id == "7")
                                     {{asset('content/img/taxi.svg')}}
-                                @elseif($transaction ->category_id == "sports")
+                                @elseif($transaction ->category_id == "8")
                                     {{asset('content/img/sport.svg')}}
-                                @elseif($transaction ->category_id == "beauty")
+                                @elseif($transaction ->category_id == "9")
                                     {{asset('content/img/beauty.svg')}}
-                                @elseif($transaction ->category_id == "fuel")
+                                @elseif($transaction ->category_id == "10")
                                     {{asset('content/img/fuel.svg')}}
-                                @elseif($transaction ->category_id == "house")
+                                @elseif($transaction ->category_id == "11")
                                     {{asset('content/img/house.svg')}}
-                                @elseif($transaction ->category_id == "other")
+                                @elseif($transaction ->category_id == "12")
                                     {{asset('content/img/other.svg')}}
                                 @endif
                             " alt="">
