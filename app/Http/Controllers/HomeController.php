@@ -4,33 +4,41 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\{User, Transaction, Category};
-use Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
 use Carbon\Carbon;
+use Auth;
+
 
 class HomeController extends Controller
 {
     public function index()
     {
+        if (!Auth::check()) {
+            return Redirect::route('login');
+        }
+
+        $monthlyData = $this->getMonthlyData();
         $transactions = Transaction::where('user_id', Auth::user()->id)
-            ->orderBy('date', 'desc') // Sort by date in descending order
-            ->get()
-            ->groupBy(function ($transaction) {
-                $date = Carbon::parse($transaction->date);
-                return $date->translatedFormat('d M. Y').' года';
-            });
-
+        ->orderBy('date', 'desc') 
+        ->get()
+        ->groupBy(function ($transaction) {
+            $date = Carbon::parse($transaction->date);
+            return $date->translatedFormat('d M. Y').' года';
+        });
         $totalIncome = $transactions->flatten()->where('type', 'income')->sum('amount');
-
         $totalExpense = $transactions->flatten()->where('type', 'outcome')->sum('amount');
-
-        return view('profile', ['transactions' => $transactions, 'totalIncome' => $totalIncome, 'totalExpense' => $totalExpense]);
+        return view('profile', ['transactions' => $transactions, 'totalIncome' => $totalIncome, 'totalExpense' => $totalExpense, 'monthlyData' => $monthlyData]);
     }
     // Данная функция index в этом контроллере нужна для передачи класса транзакции в переменную, к которой потом можно будет обращаться в представлении profile и выводить определённые данные из таблицы
     // Переменные $totalIncome и $totalExpense нужны для подсчёта общих расходов и доходов определённого пользователя.
 
     public function index2()
     {
+        if (!Auth::check()) {
+            return Redirect::route('login');
+        }
+
         $user = Auth::user();
         return view("profile_settings", ['user' => $user]);
     }
@@ -38,14 +46,15 @@ class HomeController extends Controller
 
     public function index3()
     {
-        $categoriesSums = $this->categorySumm();
+        if (!Auth::check()) {
+            return Redirect::route('login');
+        }
 
+        $categoriesSums = $this->categorySumm();
         $currentMonth = now()->month;
         $translatedMonth = $this->monthRu($currentMonth);
         $icons = $this->getIcons();
-
         $user = Auth::user();
-
         return view("profile_report", ['user' => $user, 'categoriesSums' => $categoriesSums, 'translatedMonth' => $translatedMonth, 'icons' => $icons]);
     }
 
@@ -70,49 +79,21 @@ class HomeController extends Controller
     }
     // Данная функция delete_transaction удаляет транзакцию с соответствующим id и возвращает пользователя обратно на страницу
 
-    public function filter(Request $request)
-    {
-        if (($request->category) == 'all') {
-            $transactions = Transaction::where('user_id', Auth::user()->id)
-                ->orderBy('date', 'desc') // Sort by date in descending order
-                ->get();
-            $transactions = $transactions->groupBy(function ($transaction) {
-                return Carbon::parse($transaction->date)->format('Y-m-d');
-            });
-        } else {
-            $transactions = Transaction::where('category_id',  $request->category)
-                ->where('user_id', Auth::user()->id)
-                ->orderBy('date', 'desc') // Sort by date in descending order
-                ->get()
-                ->groupBy(function ($transaction) {
-                    return Carbon::parse($transaction->date)->format('Y-m-d');
-                });
-        }
-        
-        $totalIncome = $transactions->flatten()->where('type', 'income')->sum('amount');
-
-        $totalExpense = $transactions->flatten()->where('type', 'outcome')->sum('amount');
-        
-        return view('profile', ['transactions' => $transactions, 'totalIncome' => $totalIncome, 'totalExpense' => $totalExpense]);
-    }
-    // Данная функция filter нужна для фильтрации транзакций по категориям
-    // В данном случае условие проверяет, какие категории выбраны в форме фильтра модального окна
-    // Если выбраны все категории, то она и будет выводить все категории
-    // Иначе же будет выводиться какая-то определённая категория
-    // Переменные $totalIncome и $totalExpense нужны для подсчёта общих расходов и доходов определённого пользователя по пути filter/, который копирует profile/, но необходим для филбтрации.
-
     public function categorySumm() {
 
-        $categories = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]; // your 12 category IDs
+        $categories = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+
+        $user_id = Auth::user()->id;
 
         $categoriesSums = Transaction::whereIn('category_id', $categories)
-            ->where('type', 'outcome') // add this line to filter out "income" type
-            ->groupBy('category_id')
-            ->selectRaw('category_id, SUM(amount) as sum')
-            ->get()
-            ->pluck('sum', 'category_id')
-            ->sortByDesc(null, SORT_REGULAR)
-            ->all();
+        ->where('user_id', $user_id)
+        ->where('type', 'outcome')
+        ->groupBy('category_id')
+        ->selectRaw('category_id, SUM(amount) as sum')
+        ->get()
+        ->pluck('sum', 'category_id')
+        ->sortByDesc(null, SORT_REGULAR)
+        ->all();
         
         return $categoriesSums;
     }
@@ -150,5 +131,29 @@ class HomeController extends Controller
             12 => 'декабрь',
         ];
         return $months[$month];
+    }
+
+    public function getMonthlyData()
+    {
+    $transactions2 = Transaction::where('user_id', Auth::user()->id)
+        ->orderBy('date', 'desc')
+        ->get()
+        ->groupBy(function ($transaction) {
+            $date = Carbon::parse($transaction->date);
+            return $date->format('Y-m');
+        });
+
+    $monthlyData = [];
+    foreach ($transactions2 as $month => $transactionsForMonth) {
+        $totalIncome = $transactionsForMonth->where('type', 'income')->sum('amount');
+        $totalExpense = $transactionsForMonth->where('type', 'outcome')->sum('amount');
+        $monthlyData[] = [
+            'month' => Carbon::parse($month)->translatedFormat('F Y'),
+            'totalIncome' => $totalIncome,
+            'totalExpense' => $totalExpense,
+        ];
+    }
+
+    return $monthlyData;
     }
 }

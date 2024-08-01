@@ -9,6 +9,7 @@
 @section('content')
 
     @include('components.profile_report_screen')
-    
+    <!-- Подключение компонента отчёта по категориям за месяца -->
+
 @endsection
 <!-- Секция с основным изменяемым содержимым -->

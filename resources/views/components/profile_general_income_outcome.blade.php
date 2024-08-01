@@ -2,11 +2,15 @@
 
     <h1 class="font-normal text-2xl">Общие данные</h1>
 
-    <div class="flex justify-between mt-12">
-        <h2 class="font-normal text-xl">Доходы</h2> <h2 class="font-bold text-2xl"> {{ $totalIncome }} руб.</h2>
-    </div>
-
-    <div class="flex justify-between mt-16">
-        <h2 class="font-normal text-xl">Расходы</h2> <h2 class="font-bold text-2xl">{{ $totalExpense }} руб.</h2>
-    </div>
+    @foreach($monthlyData as $data)
+        <div class="mt-6">
+            <h2 class="font-normal text-2xl">{{ $data['month'] }}</h2>
+            <div class="flex justify-between mt-4">
+                <h2 class="font-normal text-lg">Доходы</h2> <h2 class="font-bold text-xl"> {{ $data['totalIncome'] }} руб.</h2>
+            </div>
+            <div class="flex justify-between mt-4">
+                <h2 class="font-normal text-lg">Расходы</h2> <h2 class="font-bold text-xl">{{ $data['totalExpense'] }} руб.</h2>
+            </div>
+        </div>
+    @endforeach
 </div>

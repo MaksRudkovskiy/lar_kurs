@@ -2,8 +2,8 @@
     <div id="transactionTable" class="mw-1265 w-full">
         <div class="transactionHead bgEDF1FF">
             <div class="flex justify-around">   
-                <div class="bgEDF1FF py-5 text-lg font-medium w-36 text-center">
-                    <button class="flex items-center w-full justify-around" data-modal-target="second-modal" data-modal-toggle="second-modal">
+                <div class="bgEDF1FF py-5 flex text-lg font-medium items-center w-36 text-center">
+                    <button class="flex justify-center items-center w-full" data-modal-target="second-modal" data-modal-toggle="second-modal">
                         Категория
 
                         <img src="{{asset('content/img/galka.svg')}}" class="ml-1 w-4 h-4" alt="">
@@ -20,7 +20,6 @@
            @foreach ($transactions as $date => $group)
                 <h2 class="mx-4 mt-4 font-medium text-2xl">{{ $date }}</h2>
                 @foreach ($group as $transaction)
-
                     <div class="flex justify-around py-5 text-lg font-medium transaction">
                         <div class="w-36 text-center">
                             <img class="mx-auto block text-center w-8 h-8"

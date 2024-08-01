@@ -167,6 +167,11 @@ select:focus
     border-bottom: 2px solid black;
 }
 
+.puk
+{
+    min-height: calc(100vh - 70px);
+}
+
 
 
 
