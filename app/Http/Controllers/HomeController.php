@@ -6,14 +6,24 @@ use Illuminate\Http\Request;
 use App\Models\{User, Transaction, Category};
 use Auth;
 use Illuminate\Support\Facades\Hash;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        $transactions = Transaction::where('user_id', Auth::user()->id)->get();
-        $totalIncome = $transactions->where('type', 'income')->sum('amount');
-        $totalExpense = $transactions->where('type', 'outcome')->sum('amount');
+        $transactions = Transaction::where('user_id', Auth::user()->id)
+            ->orderBy('date', 'desc') // Sort by date in descending order
+            ->get()
+            ->groupBy(function ($transaction) {
+                $date = Carbon::parse($transaction->date);
+                return $date->translatedFormat('d M. Y').' года';
+            });
+
+        $totalIncome = $transactions->flatten()->where('type', 'income')->sum('amount');
+
+        $totalExpense = $transactions->flatten()->where('type', 'outcome')->sum('amount');
+
         return view('profile', ['transactions' => $transactions, 'totalIncome' => $totalIncome, 'totalExpense' => $totalExpense]);
     }
     // Данная функция index в этом контроллере нужна для передачи класса транзакции в переменную, к которой потом можно будет обращаться в представлении profile и выводить определённые данные из таблицы
@@ -63,12 +73,26 @@ class HomeController extends Controller
     public function filter(Request $request)
     {
         if (($request->category) == 'all') {
-            $transactions = Transaction::where('user_id', Auth::user()->id)->get();
+            $transactions = Transaction::where('user_id', Auth::user()->id)
+                ->orderBy('date', 'desc') // Sort by date in descending order
+                ->get();
+            $transactions = $transactions->groupBy(function ($transaction) {
+                return Carbon::parse($transaction->date)->format('Y-m-d');
+            });
         } else {
-            $transactions = Transaction::where('category_id',  $request->category)->get();
+            $transactions = Transaction::where('category_id',  $request->category)
+                ->where('user_id', Auth::user()->id)
+                ->orderBy('date', 'desc') // Sort by date in descending order
+                ->get()
+                ->groupBy(function ($transaction) {
+                    return Carbon::parse($transaction->date)->format('Y-m-d');
+                });
         }
-        $totalIncome = $transactions->where('type', 'income')->sum('amount');
-        $totalExpense = $transactions->where('type', 'outcome')->sum('amount');
+        
+        $totalIncome = $transactions->flatten()->where('type', 'income')->sum('amount');
+
+        $totalExpense = $transactions->flatten()->where('type', 'outcome')->sum('amount');
+        
         return view('profile', ['transactions' => $transactions, 'totalIncome' => $totalIncome, 'totalExpense' => $totalExpense]);
     }
     // Данная функция filter нужна для фильтрации транзакций по категориям

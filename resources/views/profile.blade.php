@@ -34,7 +34,7 @@
 
             @include('components.profile_transaction_table')
             <!-- Подключение компонента таблицы с транзакциями -->
-
+            
         </div>
 
     </div>

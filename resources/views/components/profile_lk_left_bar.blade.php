@@ -1,4 +1,4 @@
-<div class="left-bar h-screen w-20 flex-col relative bottom-1 bgEDF1FF">
+<div class="left-bar w-20 flex-col relative bottom-1 bgEDF1FF">
 
     <a href="{{ route('profile') }}" class="text-hover">
         <img class="block mx-auto pt-5" src="content/img/transaction_img.svg" alt="">

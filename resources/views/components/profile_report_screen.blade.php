@@ -16,23 +16,6 @@
                         
                         <div class="ml-5 grid grid-cols-3 gap-8">
                             @foreach($categoriesSums as $categoryId => $sum)
-                                
-                                @php
-                                $icons = [
-                                        1 => 'bus.svg',
-                                        2 => 'cart.svg',
-                                        3 => 'health.svg',
-                                        4 => 'transaction.svg',
-                                        5 => 'gamepad.svg',
-                                        6 => 'entertainment.svg',
-                                        7 => 'taxi.svg',
-                                        8 => 'sport.svg',
-                                        9 => 'beauty.svg',
-                                        10 => 'fuel.svg',
-                                        11 => 'house.svg',
-                                        12 => 'other.svg',
-                                    ];
-                                @endphp
                                 <div class="flex items-center gap-3 mt-3">
                                     <img src="{{ asset("content/img/{$icons[$categoryId]}") }}" alt="" class="w-8">
                                     <p> {{ $sum }} руб.</p>
