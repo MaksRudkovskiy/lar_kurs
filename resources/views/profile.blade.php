@@ -12,7 +12,7 @@
 
         @include('components.profile_general_income_outcome')
 
-        <div class="right-bar w-full px-16 bgcFDFDFD">
+        <div class="right-bar w-full px-16 bgfbfbfb">
 
             <div class="top-info px-12 flex justify-between mw-1235 mx-auto mt-8">
 

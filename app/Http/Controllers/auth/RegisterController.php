@@ -50,9 +50,12 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             // 'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'tel' => ['required', 'string', 'min:11'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
+            'tel' => ['required', 'string', 'min:11', 'numeric'],
             'password' => ['required', 'string', 'min:8'],
+        ], [
+            'tel' => 'Номер телефона должен состоять только из цифр',
+            'email.unique' => 'Электронная почта уже зарегистрирована',
         ]);
     }
 

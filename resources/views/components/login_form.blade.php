@@ -1,10 +1,5 @@
-<form method="POST" action="{{ route('login') }}">
+<form method="POST" action="{{ route('login') }}">      
     @csrf
-    <div >
-        <label for="" class="font-medium">Номер телефона</label>
-        <input name="name" type="name" id="name" required class="block w-full h-12 p-3 border-black border-1 rounded-md">
-    </div>
-
     <div class="mt-4">
         <label for="" class="font-medium">Эл.почта</label>
         <input name="email" type="email" id="email" required class="block w-full h-12 p-3 border-black border-1 rounded-md">
