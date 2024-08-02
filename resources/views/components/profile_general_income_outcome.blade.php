@@ -1,6 +1,6 @@
 <div class="left-block px-14 pt-8 min-w-96">
 
-    <h1 class="font-normal text-2xl">Общие данные</h1>
+    <h1 class="text-2xl font-bold">Общие данные</h1>
 
     @foreach($monthlyData as $data)
         <div class="mt-6">

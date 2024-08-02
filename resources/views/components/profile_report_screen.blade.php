@@ -1,14 +1,15 @@
 <div class="w-full h-full block p-10">
-        <h1 class="text-xl">
-            Отчёты по транзакциям
-        </h1>
-        <div class="flex justify-between mt-2">
-            <div class="bgcF8F9FF w-2/5 p-9">
-            <h2 class="">Отчёт по категориям за {{ $translatedMonth }}</h2>               
-                <div class="flex flex-col mt-3">
+    <h1 class="text-xl">
+        Отчёты по транзакциям
+    </h1>
+    <div class="grid grid-cols-3 gap-12 items-center justify-center justify-items-center mt-2">
+        @foreach($monthlyData as $monthData)
+            <div class="bgEDF1FF p-12 min-h-96">
+                <h2 class="">Отчёт по категориям за {{ $monthData['month'] }}</h2>               
+                <div class="mt-3">
                     <div class="flex items-center text-center">
-                        <div class="ml-5 grid grid-cols-3 gap-8">
-                            @foreach($categoriesSums as $categoryId => $sum)
+                        <div class="grid grid-cols-3 gap-8">
+                            @foreach($monthData['categoriesSums'] as $categoryId => $sum)
                                 <div class="flex items-center gap-3 mt-3">
                                     <img src="{{ asset("content/img/{$icons[$categoryId]}") }}" alt="" class="w-8">
                                     <p> {{ $sum }} руб.</p>
@@ -18,7 +19,6 @@
                     </div>
                 </div>
             </div>
-            <div class="bgcF8F9FF w-2/5 p-9">
-            </div>
-        </div>
+        @endforeach
     </div>
+</div>

@@ -72,16 +72,15 @@ class TransactionController extends Controller
             return $date->format('Y-m');
         });
 
-    $monthlyData = [];
-    foreach ($transactions2 as $month => $transactionsForMonth) {
+    $monthlyData = $transactions2->map(function ($transactionsForMonth, $month) {
         $totalIncome = $transactionsForMonth->where('type', 'income')->sum('amount');
         $totalExpense = $transactionsForMonth->where('type', 'outcome')->sum('amount');
-        $monthlyData[] = [
+        return [
             'month' => Carbon::parse($month)->translatedFormat('F Y'),
             'totalIncome' => $totalIncome,
             'totalExpense' => $totalExpense,
         ];
-    }
+    })->values();
 
     return $monthlyData;
     }

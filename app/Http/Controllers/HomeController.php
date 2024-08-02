@@ -50,12 +50,36 @@ class HomeController extends Controller
             return Redirect::route('login');
         }
 
-        $categoriesSums = $this->categorySumm();
-        $currentMonth = now()->month;
-        $translatedMonth = $this->monthRu($currentMonth);
+        $categories = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+        $user_id = Auth::user()->id;
+
+        $transactions = Transaction::whereIn('category_id', $categories)
+        ->where('user_id', $user_id)
+        ->where('type', 'outcome')
+        ->get()
+        ->groupBy(function ($transaction) {
+            $date = Carbon::parse($transaction->date);
+            return $date->format('Y-m');
+        });
+
+        $monthlyData = [];
+        foreach ($transactions->sortKeysDesc()->keys() as $month) {
+            $categoriesSums = $transactions[$month]->groupBy('category_id')
+                ->mapWithKeys(function ($transactionsForCategory) {
+                    return [$transactionsForCategory->first()->category_id => $transactionsForCategory->sum('amount')];
+                })
+                ->sortByDesc(null, SORT_REGULAR)
+                ->all();
+
+            $monthlyData[] = [
+                'month' => Carbon::parse($month)->translatedFormat('F Y'),
+                'categoriesSums' => $categoriesSums,
+            ];
+        }
+
         $icons = $this->getIcons();
         $user = Auth::user();
-        return view("profile_report", ['user' => $user, 'categoriesSums' => $categoriesSums, 'translatedMonth' => $translatedMonth, 'icons' => $icons]);
+        return view("profile_report", ['user' => $user, 'monthlyData' => $monthlyData, 'icons' => $icons]);
     }
 
     public function edit_info(Request $request) {
@@ -80,21 +104,23 @@ class HomeController extends Controller
     // Данная функция delete_transaction удаляет транзакцию с соответствующим id и возвращает пользователя обратно на страницу
 
     public function categorySumm() {
-
         $categories = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-
         $user_id = Auth::user()->id;
-
+        $currentMonth = now()->month;
+        $currentYear = now()->year;
+    
         $categoriesSums = Transaction::whereIn('category_id', $categories)
-        ->where('user_id', $user_id)
-        ->where('type', 'outcome')
-        ->groupBy('category_id')
-        ->selectRaw('category_id, SUM(amount) as sum')
-        ->get()
-        ->pluck('sum', 'category_id')
-        ->sortByDesc(null, SORT_REGULAR)
-        ->all();
-        
+            ->where('user_id', $user_id)
+            ->where('type', 'outcome')
+            ->whereMonth('date', $currentMonth)
+            ->whereYear('date', $currentYear)
+            ->groupBy('category_id')
+            ->selectRaw('category_id, SUM(amount) as sum')
+            ->get()
+            ->pluck('sum', 'category_id')
+            ->sortByDesc(null, SORT_REGULAR)
+            ->all();
+            
         return $categoriesSums;
     }
 
@@ -143,16 +169,15 @@ class HomeController extends Controller
             return $date->format('Y-m');
         });
 
-    $monthlyData = [];
-    foreach ($transactions2 as $month => $transactionsForMonth) {
+    $monthlyData = $transactions2->map(function ($transactionsForMonth, $month) {
         $totalIncome = $transactionsForMonth->where('type', 'income')->sum('amount');
         $totalExpense = $transactionsForMonth->where('type', 'outcome')->sum('amount');
-        $monthlyData[] = [
+        return [
             'month' => Carbon::parse($month)->translatedFormat('F Y'),
             'totalIncome' => $totalIncome,
             'totalExpense' => $totalExpense,
         ];
-    }
+    })->values();
 
     return $monthlyData;
     }
