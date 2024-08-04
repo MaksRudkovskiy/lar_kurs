@@ -38,7 +38,7 @@
 
                 <div class="date">
                     <h2>Выберите дату:</h2>
-                    <input type="date" required name="date" class="block h-8 bor-b-bottom">
+                    <input type="date" required name="date" value="@php echo date('Y-m-d'); @endphp" class="block h-8 bor-b-bottom">
                 </div>
 
                 <hr>
