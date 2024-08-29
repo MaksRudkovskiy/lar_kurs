@@ -177,103 +177,10 @@ select:focus
     background-color: #fbfbfb;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.min-w-500
+{
+    min-width: 500px;
+}
 
 input
 {
@@ -362,6 +269,16 @@ input
     background: rgb(0, 0, 0, 0.3);
 }
 
+.min-w-460
+{
+    min-width: 440px;
+}
+
+.max-w-460
+{
+    max-width: 440px;
+}
+
 @media (min-width: 768px) {
     .md\:inset-0 {
         inset: 0;
@@ -371,5 +288,43 @@ input
 @media (min-width: 768px) {
     .md\:inset-0 {
         inset: 0px;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .divided-screen
+    {
+        flex-wrap: wrap;
+    }
+    .right-bar
+    {
+        padding: 0 20px 0 20px;
+    }
+    .top-info
+    {
+    }
+    .adapt-grid
+    {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap:40px
+    }
+    .left-block
+    {
+        width: calc(100%);
+    }
+}
+
+@media screen and (max-width: 1595px) {
+    .reports-block
+    {
+        justify-content: space-around;
+    }
+}
+
+@media screen and (max-width: 1114px) {
+    .reports-block
+    {
+       justify-content: center; 
     }
 }

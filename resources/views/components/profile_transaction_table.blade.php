@@ -2,13 +2,7 @@
     <div id="transactionTable" class="mw-1265 w-full">
         <div class="transactionHead bgEDF1FF">
             <div class="flex justify-around">   
-                <div class="bgEDF1FF py-5 flex text-lg font-medium items-center w-36 text-center">
-                    <button class="flex justify-center items-center w-full" data-modal-target="second-modal" data-modal-toggle="second-modal">
-                        Категория
-
-                        <img src="{{asset('content/img/galka.svg')}}" class="ml-1 w-4 h-4" alt="">
-                    </button>
-                </div>
+                <div class="bgEDF1FF py-5 text-lg font-medium w-36 text-center">Категория</div>
                 <div class="bgEDF1FF py-5 text-lg font-medium w-36 text-center">Счёт</div>
                 <div class="bgEDF1FF py-5 text-lg font-medium w-36 text-center">Тип</div>
                 <div class="bgEDF1FF py-5 text-lg font-medium w-36 text-center">Сумма</div>

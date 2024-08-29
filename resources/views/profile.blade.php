@@ -8,7 +8,7 @@
 <!-- Секция с основным изменяемым содержимым -->
 @section('content')
 
-    <div class="flex w-screen">
+    <div class="flex w-screen divided-screen">
 
         @include('components.profile_general_income_outcome')
 
@@ -18,9 +18,16 @@
 
                 <h2 class="font-medium text-2xl ml-8">Операции</h2>
 
-                <button data-modal-target="default-modal" data-modal-toggle="default-modal" class="bgC1CFFF font-medium h-11 w-full max-w-44 rounded text-hover">
-                    Новая транзакция
-                </button>
+                <div class="flex justify-between">
+                    
+                    <button class="mr-12" data-modal-target="second-modal" data-modal-toggle="second-modal">
+                        <img src="{{asset('content/img/filter.svg')}}" class="w-8 h-8" alt="">
+                    </button>
+
+                    <button data-modal-target="default-modal" data-modal-toggle="default-modal" class="bgC1CFFF font-medium h-11 px-3 max-w-44 rounded text-hover">
+                        Новая транзакция
+                    </button>
+                </div>
                 <!-- Кнопка вызова модального окна добавления транзакции -->
 
             </div>
