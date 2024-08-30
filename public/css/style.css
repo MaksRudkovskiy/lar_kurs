@@ -169,7 +169,12 @@ select:focus
 
 .puk
 {
-    min-height: calc(100vh - 70px);
+    min-height: calc(100vh - 1px);
+}
+
+.w-22
+{
+    width: 5.5rem;
 }
 
 .bgfbfbfb

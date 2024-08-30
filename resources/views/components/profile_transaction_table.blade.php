@@ -15,7 +15,7 @@
             <div class="transactionBody">
             <div class="flex flex-col">
            @foreach ($transactions as $date => $group)
-                <h2 class="mx-4 mt-4 font-medium text-2xl">{{ $date }}</h2>
+                <h2 class="ml-8 mt-4 font-medium text-2xl">{{ $date }}</h2>
                 @foreach ($group as $transaction)
                     <div class="flex justify-around py-5 text-lg font-medium transaction">
                         <div class="w-36 text-center">
