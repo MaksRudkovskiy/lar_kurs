@@ -1,7 +1,7 @@
 <div class="left-block px-14 pt-8 min-w-96">
 
     <h1 class="text-2xl font-medium">Общие данные</h1>
-    <div class="adapt-grid">
+    <div class="adapt-grid pr-2 overflow-y-auto max-h-800">
         @foreach($monthlyData as $data)
             <div class="mt-6 transaction pb-2">
                 <h2 class="font-normal text-2xl">{{ $data['month'] }}</h2>

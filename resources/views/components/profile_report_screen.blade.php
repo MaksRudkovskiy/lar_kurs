@@ -2,8 +2,8 @@
     <h1 class="text-xl">
         Отчёты по транзакциям
     </h1>
-    <div class="flex">
-        <div class="reports-block flex w-11/12 flex-wrap gap-y-12 items-center mt-3 justify-between">
+
+        <div class="reports-block flex w-11/12 flex-wrap gap-y-12 items-center mt-3 justify-around w-full">
             @foreach($monthlyData as $monthData)
                 <div class="bgEDF1FF p-8 min-h-96 min-w-460 max-w-460">
                     <h2 class="">Отчёт по категориям за {{ $monthData['month'] }}</h2>               
@@ -22,5 +22,5 @@
                 </div>
             @endforeach
         </div>
-    </div>
+
 </div>

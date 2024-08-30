@@ -9,7 +9,10 @@
                 <div class="bgEDF1FF py-5 text-lg font-medium w-36 text-center">Действия</div>
             </div>
         </div>
-        <div class="transactionBody">
+        
+        <div class="transactionBodyContainer max-h-650 overflow-y-auto">
+
+            <div class="transactionBody">
             <div class="flex flex-col">
            @foreach ($transactions as $date => $group)
                 <h2 class="mx-4 mt-4 font-medium text-2xl">{{ $date }}</h2>
@@ -69,6 +72,8 @@
                     </div>
                 @endforeach
             @endforeach
+        </div>
+
         </div>
     </div>
 </div>

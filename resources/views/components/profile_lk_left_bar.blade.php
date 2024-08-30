@@ -1,5 +1,4 @@
 <div class="left-bar w-20 flex-col relative bgEDF1FF puk">
-
     <a href="{{ route('profile') }}" class="text-hover">
         <img class="block mx-auto pt-5" src="content/img/transaction_img.svg" alt="">
         <h3 class="text-xxs text-center">транзакции</h3>

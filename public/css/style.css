@@ -279,6 +279,21 @@ input
     max-width: 440px;
 }
 
+.max-h-650
+{
+    max-height: 650px;
+}
+
+.max-h-800
+{
+    max-height: 800px;
+}
+
+.transactionBodyContainer
+{
+    box-shadow: 2px 4px 16px -1px rgba(0, 0, 0, 0.08);
+}
+
 @media (min-width: 768px) {
     .md\:inset-0 {
         inset: 0;
@@ -315,7 +330,7 @@ input
     }
 }
 
-@media screen and (max-width: 1595px) {
+@media screen and (max-width: 1115px) {
     .reports-block
     {
         justify-content: space-around;
@@ -325,6 +340,6 @@ input
 @media screen and (max-width: 1114px) {
     .reports-block
     {
-       justify-content: center; 
+        justify-content: space-around;
     }
 }
