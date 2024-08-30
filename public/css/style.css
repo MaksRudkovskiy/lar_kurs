@@ -299,6 +299,7 @@ input
     box-shadow: 2px 4px 16px -1px rgba(0, 0, 0, 0.08);
 }
 
+
 @media (min-width: 768px) {
     .md\:inset-0 {
         inset: 0;
@@ -332,6 +333,40 @@ input
     .left-block
     {
         width: calc(100%);
+    }
+    .adapt-flexible
+    {
+        display: block;
+    }
+    .left-bar
+    {
+        display: flex;
+        flex-direction: row;
+        width: auto;
+        min-height: auto;
+        align-items: center;
+        padding-top: 4px;
+        padding-bottom: 4px;
+        justify-content: space-around;
+    }
+
+    .logout-img
+    {
+        margin: 0;
+    }
+    .logout-button
+    {
+        right: 4rem;
+        width: auto;
+        position: initial;
+        padding-top: 0;
+        display: block;
+        margin: 0;
+    }
+
+    .left-bar > a > img
+    {
+        padding: 0;
     }
 }
 

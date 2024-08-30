@@ -16,7 +16,7 @@
 
 <main>
 
-    <div class="flex">
+    <div class="flex adapt-flexible">
 
         @include('components.profile_lk_left_bar')
         <!-- Вызов компонента боковой панели страницы для навигации по личному кабинету -->

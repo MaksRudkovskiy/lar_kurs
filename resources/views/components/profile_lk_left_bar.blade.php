@@ -17,11 +17,11 @@
         <h3 class="text-xxs text-center">настройки</h3>
     </a>
 
-    <a class="absolute bottom-4 w-full mx-auto pt-5 flex justify-center" 
+    <a class="logout-button absolute bottom-4 w-full mx-auto pt-5 flex justify-center" 
         href="{{ route('logout') }}" onclick="event.preventDefault();
         document.getElementById('logout-form').submit();"
         >
-        <img src="content/img/quit.svg" class="block mx-auto" alt="" title="Выйти">
+        <img src="content/img/quit.svg" class="block mx-auto logout-img" alt="" title="Выйти">
     </a>
 
 </div>
