@@ -312,6 +312,32 @@ input
     }
 }
 
+@media screen and (max-width: 1600px) {
+    .left-flex
+    {
+        margin-left: 20px;
+    }
+    .right-flex
+    {
+        margin-left: 20px;
+    }
+    .profile-wrapper
+    {
+        padding: 40px 30px 40px 30px;
+        width: 90%;
+        height: auto;
+    }
+    .input-side
+    {
+        margin: 20px auto;
+        justify-content: center;
+    }
+    .profile-side
+    {
+        margin: 0 auto;
+    }
+}
+
 @media screen and (max-width: 1300px) {
     .divided-screen
     {
@@ -381,5 +407,16 @@ input
     .reports-block
     {
         justify-content: space-around;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .left-block
+    {
+        padding: 0px 10px 0px 10px;
+    }
+    .top-info
+    {
+        padding: 0;
     }
 }

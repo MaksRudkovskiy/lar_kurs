@@ -1,6 +1,6 @@
 <form method="POST" action="{{ route('edit_info') }}"  class="profile-wrapper h532 px-28 pt-28 pb-14 mx-auto mt-28 cEDF1FF">
     @csrf
-    <div class="flex justify-between">
+    <div class="flex justify-between flex-wrap">
         <div class="profile-side">
 
             <img src="content/img/profile_pic.png" alt="">
@@ -9,38 +9,38 @@
 
         <div class="input-side flex flex-wrap">
 
-            <div class="left-flex flex flex-col justify-between flex-wrap">
+            <div class="left-flex ml-32 flex flex-col justify-between flex-wrap">
 
-                <div class="ml-32 h-14">
+                <div class="h-14">
                     <label for="" class="c4D52BC text-xs">Фамилия:</label>
                     <input value="{{ $user->surname }}" name="surname" maxlength="25" type="text" class="uniq-input block text-2xl">
                 </div>
 
-                <div class="ml-32 h-14">
+                <div class="h-14">
                     <label for="" class="c4D52BC text-xs">Имя:</label>
                     <input value="{{ $user->name }}" name="name" maxlength="15" type="text" class="uniq-input block text-2xl">
                 </div>
 
-                <div class="ml-32 h-14">
+                <div class="h-14">
                     <label for="" class="c4D52BC text-xs">Отчество:</label>
                     <input value="{{ $user->fathername }}" name="fathername" maxlength="20" type="text" class="uniq-input block text-2xl">
                 </div>
 
             </div>
 
-            <div class="right-flex flex flex-col justify-between flex-wrap">
+            <div class="right-flex ml-16 flex flex-col justify-between flex-wrap">
 
-                <div class="ml-16 h-14">
+                <div class="h-14">
                     <label for="" class="c4D52BC text-xs">Телефон:</label>
                     <input value="{{ $user->phone }}" name="phone" maxlength="12" type="text" class="uniq-input block text-2xl">
                 </div>
 
-                <div class="ml-16 h-14">
+                <div class="h-14">
                     <label for="" class="c4D52BC text-xs">Эл.почта:</label>
                     <input value="{{ $user->email }}" name="email" type="text" maxlength="60" maxlength="60" class="uniq-input block text-2xl">
                 </div>
 
-                <div class="ml-16 h-14">
+                <div class="h-14">
                     <label for="" class="c4D52BC text-xs">Телеграмм тэг:</label >
                     <input value="{{ $user->tg_tag }}" name="tg_tag" type="text" maxlength="35" class="uniq-input block text-2xl">
                 </div>
