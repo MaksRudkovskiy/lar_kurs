@@ -1,4 +1,5 @@
-<form method="POST" action="{{ route('edit_info') }}"  class="profile-wrapper h532 px-28 pt-28 pb-14 mx-auto mt-28 cEDF1FF">
+<div class="w-full">
+<form method="POST" action="{{ route('edit_info') }}"  class="profile-wrapper max-w-1516 h532 px-28 pt-28 pb-14 mx-auto mt-28 cEDF1FF">
     @csrf
     <div class="flex justify-between flex-wrap">
         <div class="profile-side">
@@ -54,3 +55,4 @@
         <input type="submit" value="Сохранить изменения" class="bgC1CFFF cursor-pointer block mx-auto mt-24 font-medium h-11 px-20 rounded text-hover"> 
     </div>
 </form>
+</div>

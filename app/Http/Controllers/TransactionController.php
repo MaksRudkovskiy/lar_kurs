@@ -38,7 +38,7 @@ class TransactionController extends Controller
                 ->orderBy('date', 'desc')
                 ->get();
             $transactions = $transactions->groupBy(function ($transaction) {
-                return Carbon::parse($transaction->date)->format('Y-m-d');
+                return Carbon::parse($transaction->date)->translatedformat('d M. Y').' года';
             });
         } else {
             $transactions = Transaction::where('category_id',  $request->category)
@@ -46,7 +46,7 @@ class TransactionController extends Controller
                 ->orderBy('date', 'desc') 
                 ->get()
                 ->groupBy(function ($transaction) {
-                    return Carbon::parse($transaction->date)->format('Y-m-d');
+                    return Carbon::parse($transaction->date)->translatedformat('d M. Y').' года';
                 });
         }
         
