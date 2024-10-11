@@ -6,3 +6,10 @@ npm install
 npm run dev
 npm install flowbite
 php artisan serve
+
+DB_CONNECTION=mysql
+DB_HOST=pma.web.edu
+DB_PORT=3306
+DB_DATABASE=21072_kurs
+DB_USERNAME=21072
+DB_PASSWORD=dlukdo

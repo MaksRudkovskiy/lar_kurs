@@ -13,6 +13,8 @@ Route::get('/profile_settings', [App\Http\Controllers\HomeController::class, 'in
 Route::get('/profile_report', [App\Http\Controllers\HomeController::class, 'index3'])->name('profile_report');
 Route::get('/filter', [App\Http\Controllers\TransactionController::class, 'filter'])->name('filter');
 
+Route::get('/profile_personalisation', [App\Http\Controllers\PersonalisationController::class, 'personalisation'])->name('profile_personalisation');
+
 Route::post('/profile/new_transactions', [App\Http\Controllers\TransactionController::class, 'transactions'])->name('new_transaction');
 
 Route::post('/save_settings', [App\Http\Controllers\HomeController::class, 'edit_info'])->name('edit_info');

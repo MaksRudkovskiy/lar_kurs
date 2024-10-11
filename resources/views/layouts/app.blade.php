@@ -8,11 +8,20 @@
     <!-- Выведение соответствующего названия страницы из предствления -->
     <link rel="shortcut icon" href="{{ asset('content/img/logo.svg') }}" type="image/x-icon">
     @vite('resources/css/app.css')
+    @vite('resources/js/app.js')
     <!-- Подключение библиотеки tailwind -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <!-- Подключение собственных стилей -->
+    <script>
+    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+    } else {
+        document.documentElement.classList.remove('dark')
+    }
+</script>
 </head>
-<body>
+<body class="dark:bgc171717">
 
 @include('components.header')
 <!-- Подключение компонента шапки сайта -->

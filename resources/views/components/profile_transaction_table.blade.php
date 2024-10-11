@@ -1,7 +1,7 @@
 <div class="transaction-block mw-1265 mx-auto mt-6">
     <div id="transactionTable" class="mw-1265 w-full">
         <div class="transactionHead bgEDF1FF">
-            <div class="flex justify-around">   
+            <div class="flex justify-around max-w-1220">   
                 <div class="bgEDF1FF py-5 text-lg font-medium w-36 text-center">Категория</div>
                 <div class="bgEDF1FF py-5 text-lg font-medium w-36 text-center">Счёт</div>
                 <div class="bgEDF1FF py-5 text-lg font-medium w-36 text-center">Тип</div>
@@ -17,7 +17,7 @@
            @foreach ($transactions as $date => $group)
                 <h2 class="ml-8 mt-4 font-medium text-2xl">{{ $date }}</h2>
                 @foreach ($group as $transaction)
-                    <div class="flex justify-around py-5 text-lg font-medium transaction">
+                    <div class="flex items-center justify-around py-5 text-lg font-medium transaction">
                         <div class="w-36 text-center">
                             <img class="mx-auto block text-center w-8 h-8"
                                 title="@if ($transaction->category_id == 1) Транспорт

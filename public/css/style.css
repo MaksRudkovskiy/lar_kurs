@@ -177,6 +177,11 @@ select:focus
     width: 5.5rem;
 }
 
+.left-bar
+{
+    max-width: 84px;
+}
+
 .bgfbfbfb
 {
     background-color: #fbfbfb;
@@ -304,6 +309,19 @@ input
     box-shadow: 2px 4px 16px -1px rgba(0, 0, 0, 0.08);
 }
 
+.max-w-1220
+{
+    max-width: 1220px;
+}
+
+.bgc171717
+{
+    background-color: #171717;
+}
+.bgc202124
+{
+    background-color: #202124;
+}
 
 @media (min-width: 768px) {
     .md\:inset-0 {
