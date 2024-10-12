@@ -1,4 +1,4 @@
-<div class="left-bar dark:custom-bg pt-5 w-22 flex-col relative bgEDF1FF puk">
+<div class="left-bar dark:bg-c171717 pt-5 w-22 flex-col relative bgEDF1FF puk">
 
     <a href="{{ route('index') }}"><img class="block my-auto" src="content/img/logo.svg" alt=""></a> 
 

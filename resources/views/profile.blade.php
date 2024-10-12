@@ -12,11 +12,11 @@
 
         @include('components.profile_general_income_outcome')
 
-        <div class="right-bar w-full px-16 bgfbfbfb">
+        <div class="right-bar dark:bg-c202124 w-full px-16 bgfbfbfb">
 
-            <div class="top-info px-12 flex justify-between mw-1235 mx-auto mt-8">
+            <div class="top-info dark:bg-c202124 px-12 flex justify-between mw-1235 mx-auto mt-8">
 
-                <h2 class="font-medium text-2xl ml-8">Операции</h2>
+                <h2 class="font-medium dark:text-white text-2xl ml-8">Операции</h2>
 
                 <div class="flex justify-between">
                     
@@ -24,7 +24,7 @@
                         <img src="{{asset('content/img/filter.svg')}}" class="w-8 h-8" alt="">
                     </button>
 
-                    <button data-modal-target="default-modal" data-modal-toggle="default-modal" class="bgC1CFFF font-medium h-11 px-3 max-w-44 rounded text-hover">
+                    <button data-modal-target="default-modal" data-modal-toggle="default-modal" class="bgC1CFFF dark:bg-c303134 dark:text-white font-medium h-11 px-3 max-w-44 rounded text-hover">
                         Новая транзакция
                     </button>
                 </div>

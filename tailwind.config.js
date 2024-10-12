@@ -16,9 +16,11 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
-      colors: {
-        'custom-bg':'#202124'
-      }
+      backgroundColor: {
+          'c171717': '#171717',
+          'c202124': '#202124',
+          'c303134': '#303134'
+      },
     },
   },
   plugins: [
