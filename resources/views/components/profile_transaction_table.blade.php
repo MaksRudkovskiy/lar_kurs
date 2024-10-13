@@ -19,7 +19,7 @@
                 @foreach ($group as $transaction)
                     <div class="flex items-center justify-around py-5 text-lg font-medium transaction">
                         <div class="w-36 text-center">
-                            <img class="mx-auto dark:text-white block text-center w-8 h-8"
+                            <img class="mx-auto dark:hidden dark:text-white block text-center w-8 h-8"
                                 title="@if ($transaction->category_id == 1) Транспорт
                                 @elseif($transaction->category_id == 2) Покупки 
                                 @elseif($transaction->category_id == 3) Здоровье 
@@ -47,6 +47,35 @@
                                 @elseif($transaction->category_id == 12) {{ asset('content/img/other.svg') }} 
                                 @endif"
                                 alt="">
+                            <img class="mx-auto hidden dark:text-white dark:block text-center w-8 h-8"
+                                title="@if ($transaction->category_id == 1) Транспорт
+                                @elseif($transaction->category_id == 2) Покупки 
+                                @elseif($transaction->category_id == 3) Здоровье 
+                                @elseif($transaction->category_id == 4) Переводы 
+                                @elseif($transaction->category_id == 5) Игры 
+                                @elseif($transaction->category_id == 6) Развлечения 
+                                @elseif($transaction->category_id == 7) Такси 
+                                @elseif($transaction->category_id == 8) Спорт 
+                                @elseif($transaction->category_id == 9) Красота 
+                                @elseif($transaction->category_id == 10) Топливо 
+                                @elseif($transaction->category_id == 11) ЖКХ 
+                                @elseif($transaction->category_id == 12) Прочее 
+                                @endif" 
+                                src="@if ($transaction->category_id == 1) {{ asset('content/img-dark/bus-dark.svg') }}
+                                @elseif($transaction->category_id == 2) {{ asset('content/img-dark/cart-dark.svg') }} 
+                                @elseif($transaction->category_id == 3) {{ asset('content/img-dark/health-dark.svg') }} 
+                                @elseif($transaction->category_id == 4) {{ asset('content/img-dark/transaction-dark.svg') }} 
+                                @elseif($transaction->category_id == 5) {{ asset('content/img-dark/gamepad-dark.svg') }} 
+                                @elseif($transaction->category_id == 6) {{ asset('content/img-dark/entertainment-dark.svg') }} 
+                                @elseif($transaction->category_id == 7) {{ asset('content/img-dark/taxi-dark.svg') }} 
+                                @elseif($transaction->category_id == 8) {{ asset('content/img-dark/sport-dark.svg') }} 
+                                @elseif($transaction->category_id == 9) {{ asset('content/img-dark/beauty-dark.svg') }} 
+                                @elseif($transaction->category_id == 10) {{ asset('content/img-dark/fuel-dark.svg') }} 
+                                @elseif($transaction->category_id == 11) {{ asset('content/img-dark/house-dark.svg') }} 
+                                @elseif($transaction->category_id == 12) {{ asset('content/img-dark/other-dark.svg') }} 
+                                @endif"
+                                
+                            alt="">
                         </div>
                         <div class="w-36 text-center">
                             <h2 class="mx-auto dark:text-white block text-center"> 
@@ -58,16 +87,21 @@
                             </h2>
                         </div>
                         <div class="w-36 dark:text-white text-center">
-                            <img class="mx-auto block text-center"
+                            <img class="dark:hidden mx-auto block text-center"
                                 title="@if ($transaction->type == 'income') Доходы @elseif($transaction->type == 'outcome') Расходы @endif"
                                 src="@if ($transaction->type == 'income') {{ asset('content/img/plus.svg') }} @elseif($transaction->type == 'outcome') {{ asset('content/img/minus.svg') }} @endif"
+                                alt="">
+                            <img class="hidden mx-auto dark:block text-center" 
+                                title="@if ($transaction->type == 'income') Доходы @elseif($transaction->type == 'outcome') Расходы @endif"
+                                src="@if ($transaction->type == 'income') {{ asset('content/img-dark/plus-dark.svg') }} @elseif($transaction->type == 'outcome') {{ asset('content/img-dark/minus-dark.svg') }} @endif"
                                 alt="">
                         </div>
                         <div class="w-36 dark:text-white text-center">
                             <h2 class="mx-auto block text-center">{{$transaction->amount}} руб.</h2>
                         </div>
                         <div class="w-36 dark:text-white text-center">
-                            <a class="block mx-auto cursor-pointer" title="Удалить" href="{{route('DeleteTransaction', ['id'=>$transaction->id])}}"><img src="content/img/delete.svg" class="block mx-auto" alt=""></a>
+                            <a class="block dark:hidden mx-auto cursor-pointer" title="Удалить" href="{{route('DeleteTransaction', ['id'=>$transaction->id])}}"><img src="content/img/delete.svg" class="block mx-auto" alt=""></a>
+                            <a class="hidden dark:block mx-auto cursor-pointer" title="Удалить" href="{{route('DeleteTransaction', ['id'=>$transaction->id])}}"><img src="content/img-dark/delete-dark.svg" class="block mx-auto" alt=""></a>
                         </div>
                     </div>
                 @endforeach

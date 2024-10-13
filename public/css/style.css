@@ -370,9 +370,15 @@ input
     {
         flex-wrap: wrap;
     }
-    .general-data
+    .conjoined-block
     {
-        background-color: inherit;
+        flex-direction: row;
+        width: auto;
+        margin: 0;
+    }
+    .conjoined-block > a > img
+    {
+        padding: 0;
     }
     .right-bar
     {

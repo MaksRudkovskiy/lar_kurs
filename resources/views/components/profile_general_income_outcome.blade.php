@@ -1,6 +1,6 @@
-<div class="left-block pr-14 pb-8 min-w-96">
+<div class="left-block px-14 py-8 min-w-96">
 
-    <h1 class="general-data text-2xl bg-custom-EDF1FF p-2 dark:text-white dark:bg-c171717 font-medium">Общие данные</h1>
+    <h1 class="general-data text-2xl dark:text-white font-medium">Общие данные</h1>
     <div class="adapt-grid pr-6 overflow-y-auto max-h-900 scrollbar scrollbar-thumb-custom-EDF1FF dark:scrollbar-thumb-custom-EDF1FF">
 
         @foreach($monthlyData as $data)
