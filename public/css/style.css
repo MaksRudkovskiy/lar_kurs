@@ -299,9 +299,13 @@ input
     max-width: 1516px;
 }
 
-.max-h-800
+.max-h-790
 {
     max-height: 790px;
+}
+.max-h-900
+{
+    max-height: 880px;
 }
 
 .transactionBodyContainer
@@ -366,9 +370,17 @@ input
     {
         flex-wrap: wrap;
     }
+    .general-data
+    {
+        background-color: inherit;
+    }
     .right-bar
     {
         padding: 0 20px 0 20px;
+    }
+    .left-bar
+    {
+    max-width: 100%;
     }
     .top-info
     {

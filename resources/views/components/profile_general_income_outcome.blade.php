@@ -1,9 +1,10 @@
-<div class="left-block px-14 pt-8 min-w-96">
+<div class="left-block pr-14 pb-8 min-w-96">
 
-    <h1 class="text-2xl dark:text-white font-medium">Общие данные</h1>
-    <div class="adapt-grid pr-2 overflow-y-auto max-h-800">
+    <h1 class="general-data text-2xl bg-custom-EDF1FF p-2 dark:text-white dark:bg-c171717 font-medium">Общие данные</h1>
+    <div class="adapt-grid pr-6 overflow-y-auto max-h-900 scrollbar scrollbar-thumb-custom-EDF1FF dark:scrollbar-thumb-custom-EDF1FF">
+
         @foreach($monthlyData as $data)
-            <div class="mt-6 dark:text-white transaction pb-2">
+            <div class="mt-6 dark:text-white pl-2 pb-2">
                 <h2 class="font-normal text-2xl">{{ $data['month'] }}</h2>
                 <div class="flex justify-between mt-4 flex-wrap">
                     <h2 class="font-normal text-lg">Доходы</h2> <h2 class="font-bold text-xl"> {{ $data['totalIncome'] }} руб.</h2>

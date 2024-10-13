@@ -10,7 +10,7 @@
             </div>
         </div>
         
-        <div class="transactionBodyContainer max-h-800 overflow-y-auto">
+        <div class="transactionBodyContainer scrollbar scrollbar-thumb-custom-EDF1FF max-h-790 overflow-y-auto">
 
             <div class="transactionBody">
             <div class="flex flex-col">
