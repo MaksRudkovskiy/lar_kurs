@@ -1,10 +1,6 @@
-<?php 
+<?php
 
 return [
-    'en' => [
-        'native' => 'English',
-    ],
-    'ru' => [
-        'native' => 'Русский',
-    ],
+    'en' => ['native' => 'English'],
+    'ru' => ['native' => 'Русский'],
 ];
