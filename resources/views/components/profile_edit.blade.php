@@ -8,9 +8,9 @@
 
         </div>
 
-        <div class="input-side flex flex-wrap">
+        <div class="input-side flex flex-wrap dark:mx-auto">
 
-            <div class="left-flex ml-32 flex flex-col justify-between flex-wrap dark:text-white">
+            <div class="left-flex ml-32 dark:ml-0 flex flex-col justify-between flex-wrap dark:text-white">
 
                 <div class="h-14">
                     <label for="" class="c4D52BC text-xs">Фамилия:</label>
@@ -29,7 +29,7 @@
 
             </div>
 
-            <div class="right-flex ml-16 flex flex-col justify-between flex-wrap dark:text-white">
+            <div class="right-flex ml-16 dark:ml-8 flex flex-col justify-between flex-wrap dark:text-white">
 
                 <div class="h-14">
                     <label for="" class="c4D52BC text-xs">Телефон:</label>

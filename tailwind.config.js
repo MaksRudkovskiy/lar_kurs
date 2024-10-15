@@ -29,6 +29,7 @@ module.exports = {
           'EDF1FF': '#EDF1FF',
           'C1CFFF': '#C1CFFF',
           '4D52BC': '#4D52BC',
+          '2d2f37': '#2d2f37'
         }
       },
       hover: {

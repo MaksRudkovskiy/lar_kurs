@@ -7,11 +7,11 @@
 
 <!-- Секция с основным изменяемым содержимым -->
 @section('content')
-    <div class="mx-auto w-1/6 min-w-64">
+    <div class="mx-auto w-1/6 min-w-64 dark:text-white">
 
             <a href="{{ route('index') }}"><img src="content/img/logo.svg" alt="" class="mt-6 mx-auto"></a>
 
-            <h1 class="mt-6 text-2xl c4D52BC font-normal">
+            <h1 class="mt-6 text-2xl c4D52BC font-normal    ">
                 Вход
             </h1>
 
