@@ -21,7 +21,7 @@
     }
 </script>
 </head>
-<body class="overflow-x-hidden  dark:bg-c202124">
+<body class="overflow-descision dark:bg-c202124">
 
 <main>
 

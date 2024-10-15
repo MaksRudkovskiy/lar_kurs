@@ -21,7 +21,7 @@
     }
 </script>
 </head>
-<body class="dark:bgc171717">
+<body class="dark:bg-custom-171717">
 
 <main>
 

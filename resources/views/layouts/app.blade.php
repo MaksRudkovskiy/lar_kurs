@@ -21,7 +21,7 @@
     }
 </script>
 </head>
-<body class="dark:bgc171717">
+<body class="dark:bgc171717 dark:bg-custom-202124">
 
 @include('components.header')
 <!-- Подключение компонента шапки сайта -->

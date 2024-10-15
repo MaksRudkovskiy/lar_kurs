@@ -326,6 +326,10 @@ input
 {
     background-color: #202124;
 }
+.overflow-descision
+{
+    overflow: hidden;
+}
 
 @media (min-width: 768px) {
     .md\:inset-0 {
@@ -370,6 +374,14 @@ input
     {
         flex-wrap: wrap;
     }
+    body
+    {
+        overflow-y: initial;
+    }
+    .overflow-descision
+    {
+        overflow-y: visible;
+    }
     .conjoined-block
     {
         flex-direction: row;
@@ -387,9 +399,6 @@ input
     .left-bar
     {
     max-width: 100%;
-    }
-    .top-info
-    {
     }
     .adapt-grid
     {

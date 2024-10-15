@@ -1,10 +1,10 @@
-<header class="w-4/6 mx-auto flex py-2 my-0 bgEDF1FF header-height">
+<header class="w-4/6 mx-auto flex py-2 my-0 bgEDF1FF dark:bg-custom-171717 header-height">
     <div class="my-auto flex w-full justify-between flex-wrap px-20"> 
         <a href="{{ route('index') }}"><img class="block my-auto" src="{{asset('content/img/logo.svg')}}" alt=""></a> 
         
         <div class="authorize-block font-medium flex items-center justify-between w-60">
             @Auth
-                <a href="{{ route('profile') }}" class="flex text-hover"> <img src="{{ asset('content/img/profile.svg') }}" alt=""> 
+                <a href="{{ route('profile') }}" class="flex text-hover dark:text-white"> <img src="{{ asset('content/img/profile.svg') }}" alt=""> 
                 <h2 class="ml-1 text-base">
                     @if(isset(Auth::user()->name))    
                         {{Auth::user()->name}}
@@ -20,8 +20,8 @@
                     @csrf
                 </form>
             @else
-            <a href="{{ route('register') }}" class="text-hover">Регистрация</a>
-            <a href="{{ route('login') }}" class="bgC1CFFF font-medium h-11 w-28 rounded text-hover text-center p-2">
+            <a href="{{ route('register') }}" class="text-hover dark:text-white">Регистрация</a>
+            <a href="{{ route('login') }}" class="bgC1CFFF dark:bg-custom-303134 dark:text-white font-medium h-11 w-28 rounded text-hover text-center p-2">
                 Вход
             </a>
             @endAuth

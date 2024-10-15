@@ -23,7 +23,7 @@
             @include('components.login_form')
             <!-- Подключение компонента формы входа в аккаунт -->
 
-            <a onclick="" href="{{ route('register') }}" class="bgC1CFFF font-medium h-11 w-full rounded text-hover mt-5 py-2 text-center mx-auto block ">
+            <a onclick="" href="{{ route('register') }}" class="bgC1CFFF font-medium h-11 w-full dark:bg-custom-303134 rounded text-hover mt-5 py-2 text-center mx-auto block ">
                 Создать аккаунт
             </a>    
     </div>

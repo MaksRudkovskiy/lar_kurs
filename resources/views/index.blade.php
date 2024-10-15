@@ -46,11 +46,11 @@
 
     <article class="mt-20">
 
-        <div class="w-4/6 mx-auto bgcF8F9FF">
+        <div class="w-4/6 mx-auto bgcF8F9FF dark:bg-custom-171717">
 
             <div class="h-full m-full px-24 py-16 flex justify-between">
 
-                <h1 class="text-5xl font-medium c000C35 w-1/2">
+                <h1 class="text-5xl dark:text-white font-medium c000C35 w-1/2">
                     Часто <br> задаваемые <br> вопросы
                 </h1>
 

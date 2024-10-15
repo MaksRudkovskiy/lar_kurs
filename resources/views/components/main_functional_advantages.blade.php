@@ -1,8 +1,8 @@
-<h1 class="text-2xl text-center font-medium">
+<h1 class="text-2xl text-center font-medium dark:text-white">
     Всё <span class=" c4D52BC">необходимое</span> для управления личными финансами уже доступно для вас
 </h1>
 
-<h2 class="text-center text-xl mt-4 font-medium">
+<h2 class="text-center text-xl mt-4 font-medium dark:text-white">
     Новый пользовательский опыт, лаконичная и полезная панель управления, а также <br>
     инновационные виды… которые помогут вам быть в курсе своих финансов.
 </h2>
@@ -11,7 +11,7 @@
 
     <div class="flex flex-col w-1/2 justify-between">
 
-        <div class="features-block pl-6 h-1/5">
+        <div class="features-block pl-6 h-1/5 dark:text-white">
             <h2 class="font-medium text-xl">
                 Управляйте средствами
             </h2>
@@ -20,7 +20,7 @@
             в удобном интерфейсе
             </h3>
         </div>
-        <div class="features-block pl-6 h-1/5">
+        <div class="features-block pl-6 h-1/5 dark:text-white">
             <h2 class="font-medium text-xl">
                 Безопасность данных
             </h2>
@@ -29,7 +29,7 @@
                 не позволят войти в вашу учётную запись злоумышленникам 
             </h3>
         </div>
-        <div class="features-block pl-6 h-1/5">
+        <div class="features-block pl-6 h-1/5 dark:text-white">
             <h2 class="font-medium text-xl">
                 Удобство
             </h2>
@@ -38,9 +38,9 @@
                 для вашего учёта личных финансов
             </h3>
         </div>
-        <div class="features-block pl-6 h-1/5">
+        <div class="features-block pl-6 h-1/5 dark:text-white">
             <h2 class="font-medium text-xl">
-                Стиль`
+                Стиль
             </h2>
             <h3 class="font-normal mt-3 text-sm max-w-64">
                 Разработанный дизайн поможет вам легко ориентироваться

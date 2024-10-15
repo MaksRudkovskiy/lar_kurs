@@ -27,8 +27,17 @@ module.exports = {
           '303134': '#303134',
           '202124': '#202124',
           'EDF1FF': '#EDF1FF',
+          'C1CFFF': '#C1CFFF',
+          '4D52BC': '#4D52BC',
         }
-      }
+      },
+      hover: {
+        'C1CFFF': '#C1CFFF',
+      },
+      transitionDuration: {
+        '0.5s': '0.5s',
+        '0.3s': '0.3s',
+      },
     },
   },
   plugins: [
