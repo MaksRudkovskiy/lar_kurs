@@ -19,6 +19,8 @@ Route::post('/profile/new_transactions', [App\Http\Controllers\TransactionContro
 
 Route::post('/save_settings', [App\Http\Controllers\HomeController::class, 'edit_info'])->name('edit_info');
 
+Route::post('/language', [App\Http\Controllers\LanguageController::class, 'update'])->name('language.update');
+
 
 
 Auth::routes();

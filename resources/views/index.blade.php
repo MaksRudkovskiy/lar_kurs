@@ -51,7 +51,7 @@
             <div class="h-full m-full px-24 py-16 flex justify-between">
 
                 <h1 class="text-5xl dark:text-white font-medium c000C35 w-1/2">
-                    Часто <br> задаваемые <br> вопросы
+                    {{__('main.faq')}}
                 </h1>
 
                 @include('components.main_accordion')

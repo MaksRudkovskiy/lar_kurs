@@ -1,0 +1,42 @@
+<?php
+
+return [
+
+    'service1' => 'Financial management service',
+    'service2' => 'for your convenience', 
+    'fix1' => 'Record your expenses, keep all records of your transactions at hand',
+    'fix2' => 'and make decisions based on numbers',
+    'automation' => 'Automation',
+    'convenience' => 'Convenience',
+    'data_safety' => 'Data safety',
+    'everything' => 'Everything',
+    'you_need' => 'you need',
+    'for_fin' => 'for financial management is already available for you',
+    'new_user_exp' => 'New user experience, concise and useful control panel, and',
+    'innovative_sights' => 'and innovative views… to help you stay on top of your finances.',
+    'manage' => 'Manage finances',
+    'style' => 'Style',
+    'count' => 'Keep track of your income and expenses in a convenient interface',
+    'rely' => 'Reliable encryption and hashing methods will prevent hackers from accessing your account.',
+    'unnecesary' => 'No unnecessary functions and only the most necessary for your personal finance management',
+    'developed' => 'The developed design will help you navigate the application architecture easily. Register now!',
+    'offered' => 'Offered',
+    'opportunities' => 'opportunities',
+    'entering' => 'Entering all transactions into the feed and conveniently tracking each of them',
+    'prescence' => 'Flexible settings for each of your transactions in online banking or using cash',
+    'absence' => 'And the absence of anything superfluous',
+    'faq' => 'FAQ',
+    'integration' => 'Will there be any bank integration?',
+    'nah' => 'No, the web app is designed to allow people to fill out their own transactions. This is done both to allow people to estimate their spending when filling out the form, and because this is not currently possible with the current level of recognition of the web app.',
+    'why' => 'Why cant I edit my transactions?',
+    'no_point' => 'This is not provided because there is no point in it. You can simply delete the old transaction and add the same one, but with different data.',
+    'many_inputs' => 'Why do I have so many input fields in my profile?',
+    'necessary' => 'If necessary, you will receive newsletters with ',
+    'useful' => 'useful',   
+    'content' => 'content to your contacts, and your name is needed for display on the site and for contacting you',   
+    'user' => 'User ',   
+    'login' => 'Login',   
+    'register' => 'Register',   
+];
+
+?>

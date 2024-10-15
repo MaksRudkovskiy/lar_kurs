@@ -9,7 +9,7 @@
                     @if(isset(Auth::user()->name))    
                         {{Auth::user()->name}}
                     @else
-                        Пользователь
+                        {{__('main.user')}}
                     @endif </h2>
             </a>
             <a 
@@ -20,10 +20,8 @@
                     @csrf
                 </form>
             @else
-            <a href="{{ route('register') }}" class="text-hover dark:text-white">Регистрация</a>
-            <a href="{{ route('login') }}" class="bgC1CFFF dark:bg-custom-303134 dark:text-white font-medium h-11 w-28 rounded text-hover text-center p-2">
-                Вход
-            </a>
+            <a href="{{ route('register') }}" class="text-hover dark:text-white">{{__('main.register')}}</a>
+            <a href="{{ route('login') }}" class="bgC1CFFF dark:bg-custom-303134 dark:text-white font-medium h-11 w-28 rounded text-hover text-center p-2">{{__('main.login')}}</a>
             @endAuth
         </div>
     </div>

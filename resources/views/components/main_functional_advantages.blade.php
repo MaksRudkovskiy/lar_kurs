@@ -1,10 +1,10 @@
 <h1 class="text-2xl text-center font-medium dark:text-white">
-    Всё <span class=" c4D52BC">необходимое</span> для управления личными финансами уже доступно для вас
+    {{__('main.everything')}} <span class=" c4D52BC">{{__('main.you_need')}}</span> {{__('main.for_fin')}}
 </h1>
 
 <h2 class="text-center text-xl mt-4 font-medium dark:text-white">
-    Новый пользовательский опыт, лаконичная и полезная панель управления, а также <br>
-    инновационные виды… которые помогут вам быть в курсе своих финансов.
+    {{__('main.new_user_exp')}} <br>
+    {{__('main.innovative_sights')}}.
 </h2>
 
 <div class="flex w-7/12 mt-20 mx-auto flex-wrap">
@@ -13,38 +13,34 @@
 
         <div class="features-block pl-6 h-1/5 dark:text-white">
             <h2 class="font-medium text-xl">
-                Управляйте средствами
+                {{__('main.manage')}}
             </h2>
             <h3 class="font-normal mt-3 text-sm max-w-64">
-            Ведите учёт своих доходов и расходов
-            в удобном интерфейсе
+                {{__('main.count')}}
             </h3>
         </div>
         <div class="features-block pl-6 h-1/5 dark:text-white">
             <h2 class="font-medium text-xl">
-                Безопасность данных
+                {{__('main.data_safety')}}
             </h2>
             <h3 class="font-normal mt-3 text-sm max-w-64">
-                Надежные методы шифрования и хэширования
-                не позволят войти в вашу учётную запись злоумышленникам 
+                {{__('main.rely')}}
             </h3>
         </div>
         <div class="features-block pl-6 h-1/5 dark:text-white">
             <h2 class="font-medium text-xl">
-                Удобство
+                {{__('main.convenience')}}
             </h2>
             <h3 class="font-normal mt-3 text-sm max-w-64">
-                Отсутствие лишних функций и только самое необходимое
-                для вашего учёта личных финансов
+                {{__('main.unnecesary')}}
             </h3>
         </div>
         <div class="features-block pl-6 h-1/5 dark:text-white">
             <h2 class="font-medium text-xl">
-                Стиль
+                {{__('main.style')}}
             </h2>
             <h3 class="font-normal mt-3 text-sm max-w-64">
-                Разработанный дизайн поможет вам легко ориентироваться
-                в архитектуре приложения. Зарегистрируйтесь сейчас!
+                {{__('main.developed')}}
             </h3>
         </div>
 
