@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LanguageController;
+
+Route::post('/set-language', [LanguageController::class, 'setLanguage'])->name('set-language');
 
 Route::get('/', [App\Http\Controllers\MainController::class, 'index'])->name('index');
 
@@ -18,8 +21,6 @@ Route::get('/profile_personalisation', [App\Http\Controllers\PersonalisationCont
 Route::post('/profile/new_transactions', [App\Http\Controllers\TransactionController::class, 'transactions'])->name('new_transaction');
 
 Route::post('/save_settings', [App\Http\Controllers\HomeController::class, 'edit_info'])->name('edit_info');
-
-Route::post('/language', [App\Http\Controllers\LanguageController::class, 'update'])->name('language_update');
 
 
 Auth::routes();
