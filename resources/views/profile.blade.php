@@ -16,7 +16,7 @@
 
             <div class="top-info dark:bg-c202124 px-12 flex justify-between mw-1235 mx-auto mt-8">
 
-                <h2 class="font-medium dark:text-white text-2xl ml-8">Операции</h2>
+                <h2 class="font-medium dark:text-white text-2xl ml-8">{{__('profile.operations')}}</h2>
 
                 <div class="flex justify-between">
                     
@@ -25,7 +25,7 @@
                     </button>
 
                     <button data-modal-target="default-modal" data-modal-toggle="default-modal" class="bgC1CFFF dark:bg-c303134 dark:text-white font-medium h-11 px-3 max-w-44 rounded text-hover">
-                        Новая транзакция
+                        {{__('profile.new')}}
                     </button>
                 </div>
                 <!-- Кнопка вызова модального окна добавления транзакции -->

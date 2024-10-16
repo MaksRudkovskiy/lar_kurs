@@ -15,11 +15,12 @@
 
         <form action="{{ route('set-language') }}" method="POST">
             @csrf
-            <select name="language" onchange="this.form.submit()">
+            <select name="language" >
                 <option value="en" {{ Session::get('language') == 'en' ? 'selected' : '' }}>English</option>
                 <option value="ru" {{ Session::get('language') == 'ru' ? 'selected' : '' }}>Русский</option>
-                <option value="es" {{ Session::get('language') == 'es' ? 'selected' : '' }}>Español</option>
             </select>
+
+             <button class="dark:text-white">{{__('profile.change_language')}}</button>
         </form>
     </div>
 

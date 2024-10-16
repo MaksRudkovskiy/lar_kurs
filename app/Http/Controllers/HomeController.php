@@ -24,7 +24,7 @@ class HomeController extends Controller
         ->get()
         ->groupBy(function ($transaction) {
             $date = Carbon::parse($transaction->date);
-            return $date->translatedFormat('d M. Y').' года';
+            return $date->translatedFormat('d M. Y');
         });
         $totalIncome = $transactions->flatten()->where('type', 'income')->sum('amount');
         $totalExpense = $transactions->flatten()->where('type', 'outcome')->sum('amount');

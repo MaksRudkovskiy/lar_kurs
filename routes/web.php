@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LanguageController;
+use App\Http\middleware\SetLanguage;
 
+Route::middleware([SetLanguage::class])->group(function () {
 Route::post('/set-language', [LanguageController::class, 'setLanguage'])->name('set-language');
 
 Route::get('/', [App\Http\Controllers\MainController::class, 'index'])->name('index');
@@ -22,7 +24,10 @@ Route::post('/profile/new_transactions', [App\Http\Controllers\TransactionContro
 
 Route::post('/save_settings', [App\Http\Controllers\HomeController::class, 'edit_info'])->name('edit_info');
 
-
 Auth::routes();
+});
+
+
+
 
 

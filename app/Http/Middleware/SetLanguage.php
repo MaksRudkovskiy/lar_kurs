@@ -13,8 +13,7 @@ class SetLanguage
         if (Session::has('language')) {
             $language = Session::get('language');
             App::setLocale($language);
-            // Добавьте отладочную информацию
-            dd('Language set to: ' . $language);
+            // Добавьте отладочную информацию   
         }
 
         return $next($request);

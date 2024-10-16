@@ -5,7 +5,7 @@
             @csrf
             <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-">
                 <h3 class="text-xl font-semibold text-gray-9">
-                    Фильтр транзакций
+                    {{__('profile.trans_filter')}}
                 </h3>
                 <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center" data-modal-hide="second-modal">
                 <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
@@ -17,28 +17,28 @@
             <div class="p-4 md:p-5 space-y-4">
 
                 <div class="category">
-                    <h2>Выберите категорию транзакции:</h2>
+                    <h2>{{__('profile.choose_cat')}}:</h2>
                     <select name="category" required class="text-black block h-8 bor-b-bottom dark:bg-custom-202124 dark:text-white dark:border-white">
-                        <option value="all">Все транзакции</option>
-                        <option value="1">Транспорт</option>
-                        <option value="2">Продукты</option>
-                        <option value="3">Здоровье</option>
-                        <option value="4">Переводы</option>
-                        <option value="5">Игры</option>
-                        <option value="6">Развлечения</option>
-                        <option value="7">Такси</option>
-                        <option value="8">Спорт</option>
-                        <option value="9">Красота</option>
-                        <option value="10">Топливо</option>
-                        <option value="11">ЖКХ</option>
-                        <option value="12">Прочее</option>
+                        <option value="all">{{__('profile.all_trans')}}</option>
+                        <option value="1" selected>{{__('profile.transport')}}</option>
+                        <option value="2">{{__('profile.groceries')}}</option>
+                        <option value="3">{{__('profile.health')}}</option>
+                        <option value="4">{{__('profile.transfer')}}</option>
+                        <option value="5">{{__('profile.games')}}</option>
+                        <option value="6">{{__('profile.entertainment')}}</option>
+                        <option value="7">{{__('profile.taxi')}}</option>
+                        <option value="8">{{__('profile.sport')}}</option>
+                        <option value="9">{{__('profile.beauty')}}</option>
+                        <option value="10">{{__('profile.fuel')}}</option>
+                        <option value="11">{{__('profile.house')}}</option>
+                        <option value="12">{{__('profile.other')}}</option>
                     </select>
                 </div>  
 
             </div>
             <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b">
-                <input value="Отфильтровать" data-modal-hide="default-modal" type="submit" class="py-2.5 dark:bg-custom-303134 px-5 font-medium rounded text-hover bgC1CFFF bg-slate-900">
-                <button data-modal-hide="second-modal" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium dark:bg-custom-2d2f37 dark:text-white dark:border-transparent text-gray-900 focus:outline-none bg-white rounded-lg border text-hover">Отмена</button>
+                <input value="{{__('profile.filter')}}" data-modal-hide="default-modal" type="submit" class="py-2.5 dark:bg-custom-303134 px-5 font-medium rounded text-hover bgC1CFFF bg-slate-900">
+                <button data-modal-hide="second-modal" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium dark:bg-custom-2d2f37 dark:text-white dark:border-transparent text-gray-900 focus:outline-none bg-white rounded-lg border text-hover">{{__('profile.cancel')}}</button>
             </div>
 
         </form>

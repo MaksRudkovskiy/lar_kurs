@@ -13,17 +13,17 @@
             <div class="left-flex ml-32 dark:ml-0 flex flex-col justify-between flex-wrap dark:text-white">
 
                 <div class="h-14">
-                    <label for="" class="c4D52BC text-xs">Фамилия:</label>
+                    <label for="" class="c4D52BC text-xs">{{__('profile.surname')}}:</label>
                     <input value="{{ $user->surname }}" name="surname" maxlength="25" type="text" class="uniq-input block text-2xl">
                 </div>
 
                 <div class="h-14">
-                    <label for="" class="c4D52BC text-xs">Имя:</label>
+                    <label for="" class="c4D52BC text-xs">{{__('profile.name')}}:</label>
                     <input value="{{ $user->name }}" name="name" maxlength="15" type="text" class="uniq-input block text-2xl">
                 </div>
 
                 <div class="h-14">
-                    <label for="" class="c4D52BC text-xs">Отчество:</label>
+                    <label for="" class="c4D52BC text-xs">{{__('profile.fathername')}}:</label>
                     <input value="{{ $user->fathername }}" name="fathername" maxlength="20" type="text" class="uniq-input block text-2xl">
                 </div>
 
@@ -32,17 +32,17 @@
             <div class="right-flex ml-16 dark:ml-8 flex flex-col justify-between flex-wrap dark:text-white">
 
                 <div class="h-14">
-                    <label for="" class="c4D52BC text-xs">Телефон:</label>
+                    <label for="" class="c4D52BC text-xs">{{__('profile.phone')}}:</label>
                     <input value="{{ $user->phone }}" name="phone" maxlength="12" type="text" class="uniq-input block text-2xl">
                 </div>
 
                 <div class="h-14">
-                    <label for="" class="c4D52BC text-xs">Эл.почта:</label>
+                    <label for="" class="c4D52BC text-xs">{{__('profile.email')}}:</label>
                     <input value="{{ $user->email }}" name="email" type="text" maxlength="60" maxlength="60" class="uniq-input block text-2xl">
                 </div>
 
                 <div class="h-14">
-                    <label for="" class="c4D52BC text-xs">Телеграмм тэг:</label >
+                    <label for="" class="c4D52BC text-xs">{{__('profile.tg_tag')}}:</label >
                     <input value="{{ $user->tg_tag }}" name="tg_tag" type="text" maxlength="35" class="uniq-input block text-2xl">
                 </div>
 
