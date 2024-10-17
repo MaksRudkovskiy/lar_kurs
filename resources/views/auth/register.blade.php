@@ -20,7 +20,7 @@
                 сервис!
             </h2>
 
-            @include('components.register_form')
+            @include('components.auth.register_form')
             <!-- Подключение компонента формы регистрации аккаунта -->
 
             <a onclick="" href="{{ route('login') }}" class="bgC1CFFF dark:text-white dark:bg-custom-303134 font-medium h-11 w-full rounded text-hover mt-5 py-2 text-center mx-auto block ">

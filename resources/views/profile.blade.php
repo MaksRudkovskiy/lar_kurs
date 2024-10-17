@@ -10,7 +10,7 @@
 
     <div class="flex w-screen divided-screen">
 
-        @include('components.profile_general_income_outcome')
+        @include('components.profile.profile_general_income_outcome')
 
         <div class="right-bar dark:bg-c202124 w-full px-16 bgfbfbfb">
 
@@ -33,13 +33,13 @@
             </div>
 
 
-            @include('components.profile_modal_transaction_add')
+            @include('components.profile.profile_modal_transaction_add')
             <!-- Подключение компонента модального окна библиотеки flowbite для добавления транзакции -->
 
-            @include('components.profile_modal_transaction_filter')
+            @include('components.profile.profile_modal_transaction_filter')
             <!-- Подключение компонента модального окна библиотеки flowbite для фильтрации транзакций -->
 
-            @include('components.profile_transaction_table')
+            @include('components.profile.profile_transaction_table')
             <!-- Подключение компонента таблицы с транзакциями -->
             
         </div>

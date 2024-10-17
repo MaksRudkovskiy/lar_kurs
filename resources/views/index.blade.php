@@ -12,7 +12,7 @@
 <section>
     <article>
 
-        @include('components.main_main')
+        @include('components.main.main_main')
         <!-- Подключение компонента главного экрана веб-приложения -->
     </article>
 
@@ -23,7 +23,7 @@
 <section>
     <article class="mt-24">
 
-        @include('components.main_functional_advantages')
+        @include('components.main.main_functional_advantages')
         <!-- Подключение компонента блока с функциональными преимуществами -->
 
     </article>
@@ -34,7 +34,7 @@
 <section>
     <article class="mt-24 ">
         
-        @include('components.main_offered_opportunities')
+        @include('components.main.main_offered_opportunities')
         <!-- Подключение компонента блоков с предлагаемыми возомжностями -->
 
     </article>
@@ -54,7 +54,7 @@
                     {{__('main.faq')}}
                 </h1>
 
-                @include('components.main_accordion')
+                @include('components.main.main_accordion')
                 <!-- Подключение компонента аккордиона -->
 
             </div>

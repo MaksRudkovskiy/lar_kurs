@@ -20,7 +20,7 @@
                 доступа к вашим данным
             </h2>
 
-            @include('components.login_form')
+            @include('components.auth.login_form')
             <!-- Подключение компонента формы входа в аккаунт -->
 
             <a onclick="" href="{{ route('register') }}" class="bgC1CFFF font-medium h-11 w-full dark:bg-custom-303134 rounded text-hover mt-5 py-2 text-center mx-auto block ">

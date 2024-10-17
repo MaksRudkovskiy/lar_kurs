@@ -8,7 +8,7 @@
 <!-- Секция с основным изменяемым содержимым -->
 @section('content')
 
-    @include('components.profile_edit')
+    @include('components.profile.profile_edit')
     <!-- Подключение компонента редактирования профиля -->
 
 @endsection
