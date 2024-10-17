@@ -9,11 +9,11 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('transaction_types', function (Blueprint $table) {
-            $table->id();
-            $table->string('type')->unique(); // Уникальное имя типа
+        Schema::create('types', function (Blueprint $table) {
+            $table->id()->primary();
+            $table->string('type', 1)->unique(); // Уникальное имя типа
         });
-        FacadesDB::table('transaction_types')->insert([
+        FacadesDB::table('types')->insert([
             ['type' => 'outcome'],
             ['type' => 'income'],
         ]);
@@ -21,6 +21,6 @@ return new class extends Migration
 
     public function down(): void
     {
-        Schema::dropIfExists('transaction_types');
+        Schema::dropIfExists('types');
     }
 };

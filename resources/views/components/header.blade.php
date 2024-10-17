@@ -5,7 +5,7 @@
         <div class="authorize-block font-medium flex items-center justify-between w-60">
             @Auth
                 <a href="{{ route('profile') }}" class="flex text-hover dark:text-white"> <img src="{{ asset('content/img/profile.svg') }}" alt=""> 
-                <h2 class="ml-1 text-base">
+                <h2 class="ml-1 text-base text-center flex items-center">
                     @if(isset(Auth::user()->name))    
                         {{Auth::user()->name}}
                     @else

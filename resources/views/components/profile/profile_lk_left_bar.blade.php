@@ -21,7 +21,7 @@
             <img class="block mx-auto pt-5" src="content/img/settings.svg" alt="">
             <h3 class="text-xxs text-center">{{__('profile.settings')}}</h3>
         </a>
-        @if (!Auth::User()->role=='admin')
+        @if (Auth::User()->role=='admin')
         <a href="{{ route('profile_admin') }}" class="dark:text-white text-hover mx-4 hover:text-custom-4D52BC dark:hover:text-custom-4D52BC">
             <img class="block mx-auto pt-5" src="content/img/admin.svg" alt="">
             <h3 class="text-xxs text-center">{{__('profile.admin')}}</h3>

@@ -26,8 +26,8 @@ class HomeController extends Controller
             $date = Carbon::parse($transaction->date);
             return $date->translatedFormat('d M. Y');
         });
-        $totalIncome = $transactions->flatten()->where('type', 'income')->sum('amount');
-        $totalExpense = $transactions->flatten()->where('type', 'outcome')->sum('amount');
+        $totalIncome = $transactions->flatten()->where('type_id', '2')->sum('amount');
+        $totalExpense = $transactions->flatten()->where('type_id', '1')->sum('amount');
         return view('profile', ['transactions' => $transactions, 'totalIncome' => $totalIncome, 'totalExpense' => $totalExpense, 'monthlyData' => $monthlyData]);
     }
     // Данная функция index в этом контроллере нужна для передачи класса транзакции в переменную, к которой потом можно будет обращаться в представлении profile и выводить определённые данные из таблицы

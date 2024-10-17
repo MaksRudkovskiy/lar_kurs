@@ -93,7 +93,7 @@
                                 alt="">
                             <img class="hidden mx-auto dark:block text-center" 
                                 title="@if ($transaction->type_id == '2') {{__('profile.income')}} @elseif($transaction->type_id == '1') {{__('profile.outcome')}} @endif"
-                                src="@if ($transaction->type_id == '1') {{ asset('content/img-dark/plus.svg') }} @elseif($transaction->type_id == '1') {{ asset('content/img-dark/minus.svg') }} @endif"
+                                src="@if ($transaction->type_id == '2') {{ asset('content/img-dark/plus.svg') }} @elseif($transaction->type_id == '1') {{ asset('content/img-dark/minus.svg') }} @endif"
                                 alt="">
                         </div>
                         <div class="w-36 dark:text-white text-center">

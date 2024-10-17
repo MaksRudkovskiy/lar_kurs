@@ -46,8 +46,8 @@
                 <div class="source">
                     <h2>{{__('profile.choose_source')}}</h2>
                     <select name="source" class="block h-8 border-black border-1 dark:bg-custom-202124 dark:text-white dark:border-white">
-                        <option value="0">{{__('profile.bank')}}</option>
-                        <option value="1">{{__('profile.cash')}}</option>
+                        <option value="1" selected>{{__('profile.bank')}}</option>
+                        <option value="2">{{__('profile.cash')}}</option>
                     </select>
                 </div>
 
@@ -56,8 +56,8 @@
                 <div class="type">
                     <h2>{{__('profile.choose_type')}}</h2>
                     <select name="type" class="block h-8 border-black border-1 dark:bg-custom-202124 dark:text-white dark:border-white">
-                        <option value="0">{{__('profile.outcome')}}</option>
-                        <option value="1">{{__('profile.income')}}</option>
+                        <option value="1">{{__('profile.outcome')}}</option>
+                        <option value="2">{{__('profile.income')}}</option>
                         
                     </select>
 
@@ -68,7 +68,7 @@
                 <div class="amount">    
                     <h2>{{__('profile.amount')}}</h2>
 
-                    <input type="number" name="amount" class="block h-8 border-black border-1 py-1 px-2 rounded dark:bg-custom-202124 dark:text-white dark:border-white">
+                    <input type="number" required name="amount" class="block h-8 border-black border-1 py-1 px-2 rounded dark:bg-custom-202124 dark:text-white dark:border-white">
 
                 </div>
 

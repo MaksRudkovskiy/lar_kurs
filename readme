@@ -7,6 +7,8 @@ npm run dev
 npm install flowbite
 php artisan serve
 
+php artisan db:seed --class=AdminUser
+
 DB_CONNECTION=mysql
 DB_HOST=pma.web.edu
 DB_PORT=3306

@@ -15,12 +15,15 @@ class TransactionController extends Controller
             'user_id' => Auth::user()->id,
             'category_id' => $request->category,
             'date' => $request->date,
-            'source_id' => $request->source_id, // Исправлено с 'source' на 'source_id'
-            'type_id' => $request->type_id,
+            'source_id' => $request->source,
+            'type_id' => $request->type,
             'amount' => $request->amount,
         ]);
     
+        // Получение транзакций
+        
         $transaction = Transaction::where('user_id', Auth::user()->id)->get();
+        dd($request);
         return redirect()->back()->with('transactions', $transaction);
     }
     // Данная функция transactions нужна для создания транзакции и занесения её в базу данных, откуда она будет выводиться в представление
