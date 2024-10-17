@@ -17,6 +17,7 @@ Route::get('/profile', [App\Http\Controllers\HomeController::class, 'index'])->n
 Route::get('/profile_settings', [App\Http\Controllers\HomeController::class, 'index2'])->name('profile_settings');
 Route::get('/profile_report', [App\Http\Controllers\HomeController::class, 'index3'])->name('profile_report');
 Route::get('/filter', [App\Http\Controllers\TransactionController::class, 'filter'])->name('filter');
+Route::get('/admin', [App\Http\Controllers\AdminController::class, 'admin'])->name('profile_admin');
 
 Route::get('/profile_personalisation', [App\Http\Controllers\PersonalisationController::class, 'personalisation'])->name('profile_personalisation');
 

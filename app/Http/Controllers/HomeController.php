@@ -55,7 +55,7 @@ class HomeController extends Controller
 
         $transactions = Transaction::whereIn('category_id', $categories)
         ->where('user_id', $user_id)
-        ->where('type', 'outcome')
+        ->where('type_id', '1')
         ->get()
         ->groupBy(function ($transaction) {
             $date = Carbon::parse($transaction->date);
@@ -111,7 +111,7 @@ class HomeController extends Controller
     
         $categoriesSums = Transaction::whereIn('category_id', $categories)
             ->where('user_id', $user_id)
-            ->where('type', 'outcome')
+            ->where('type_id', '1')
             ->whereMonth('date', $currentMonth)
             ->whereYear('date', $currentYear)
             ->groupBy('category_id')
@@ -170,8 +170,8 @@ class HomeController extends Controller
         });
 
     $monthlyData = $transactions2->map(function ($transactionsForMonth, $month) {
-        $totalIncome = $transactionsForMonth->where('type', 'income')->sum('amount');
-        $totalExpense = $transactionsForMonth->where('type', 'outcome')->sum('amount');
+        $totalIncome = $transactionsForMonth->where('type_id', '2')->sum('amount');
+        $totalExpense = $transactionsForMonth->where('type_id', '1')->sum('amount');
         return [
             'month' => Carbon::parse($month)->translatedFormat('F Y'),
             'totalIncome' => $totalIncome,

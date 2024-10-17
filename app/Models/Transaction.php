@@ -13,6 +13,8 @@ class Transaction extends Model
         'user_id',
         'category_id',
         'date',
+        'is_admin',
+        'is_privelege',
         'source',
         'type',
         'amount',

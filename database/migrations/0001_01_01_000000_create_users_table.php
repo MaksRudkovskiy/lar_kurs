@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('email', 60)->unique();
             $table->string('phone', 12)->unique();
             $table->string('password');
+            $table->enum('role', ['user', 'privelegious_user', 'admin'])->default('user');
             $table->string('tg_tag', 35)->nullable();
             $table->rememberToken();
             $table->timestamps();

@@ -21,6 +21,11 @@
             <img class="block mx-auto pt-5" src="content/img/settings.svg" alt="">
             <h3 class="text-xxs text-center">{{__('profile.settings')}}</h3>
         </a>
+
+        <a href="{{ route('profile_admin') }}" class="dark:text-white text-hover mx-4 hover:text-custom-4D52BC dark:hover:text-custom-4D52BC">
+            <img class="block mx-auto pt-5" src="content/img/admin.svg" alt="">
+            <h3 class="text-xxs text-center">{{__('profile.admin')}}</h3>
+        </a>
     </div>
 
     <a class="logout-button absolute bottom-12 w-full mx-auto pt-5 flex justify-center" 

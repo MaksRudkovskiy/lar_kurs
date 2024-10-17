@@ -11,15 +11,15 @@ use Auth;
 class TransactionController extends Controller
 {
     public function transactions(Request $request) {
-
         Transaction::create([
             'user_id' => Auth::user()->id,
             'category_id' => $request->category,
             'date' => $request->date,
-            'source' => $request->source,
-            'type' => $request->type,
+            'source_id' => $request->source_id, // Исправлено с 'source' на 'source_id'
+            'type_id' => $request->type_id,
             'amount' => $request->amount,
         ]);
+    
         $transaction = Transaction::where('user_id', Auth::user()->id)->get();
         return redirect()->back()->with('transactions', $transaction);
     }
@@ -50,9 +50,9 @@ class TransactionController extends Controller
                 });
         }
         
-        $totalIncome = $transactions->flatten()->where('type', 'income')->sum('amount');
+        $totalIncome = $transactions->flatten()->where('type_id', '2')->sum('amount');
 
-        $totalExpense = $transactions->flatten()->where('type', 'outcome')->sum('amount');
+        $totalExpense = $transactions->flatten()->where('type_id', '1')->sum('amount');
         
         return view('profile', ['transactions' => $transactions, 'totalIncome' => $totalIncome, 'totalExpense' => $totalExpense, 'monthlyData' => $monthlyData]);
     }
@@ -73,8 +73,8 @@ class TransactionController extends Controller
         });
 
     $monthlyData = $transactions2->map(function ($transactionsForMonth, $month) {
-        $totalIncome = $transactionsForMonth->where('type', 'income')->sum('amount');
-        $totalExpense = $transactionsForMonth->where('type', 'outcome')->sum('amount');
+        $totalIncome = $transactionsForMonth->where('type_id', '2')->sum('amount');
+        $totalExpense = $transactionsForMonth->where('type_id', '1')->sum('amount');
         return [
             'month' => Carbon::parse($month)->translatedFormat('F Y'),
             'totalIncome' => $totalIncome,

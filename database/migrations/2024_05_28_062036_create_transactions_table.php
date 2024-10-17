@@ -12,17 +12,19 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('transactions', function (Blueprint $table) {
-            $table->id()->primary();
+            $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('category_id');
             $table->date('date');
-            $table->string('source', 4);
-            $table->string('type', 7);
+            $table->unsignedBigInteger('source_id')->default(1); // 1 - это пример значения по умолчанию
+            $table->unsignedBigInteger('type_id')->default(1); // Ссылка на     тип 
             $table->integer('amount');
             $table->rememberToken();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreign('source_id')->references('id')->on('transaction_sources')->onDelete('cascade');
+            $table->foreign('type_id')->references('id')->on('transaction_types')->onDelete('cascade');
         });
     }
 

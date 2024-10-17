@@ -79,21 +79,21 @@
                         </div>
                         <div class="w-36 text-center">
                             <h2 class="mx-auto dark:text-white block text-center"> 
-                                @if ($transaction->source == "bank")
+                                @if ($transaction->source_id == "1")
                                     {{__('profile.bank')}}
-                                @elseif($transaction->source == "cash")
+                                @elseif($transaction->source_id == "2")
                                     {{__('profile.cash')}}
                                 @endif
                             </h2>
                         </div>
                         <div class="w-36 dark:text-white text-center">
                             <img class="dark:hidden mx-auto block text-center"
-                                title="@if ($transaction->type == 'income') {{__('profile.income')}} @elseif($transaction->type == 'outcome') {{__('profile.outcome')}} @endif"
-                                src="@if ($transaction->type == 'income') {{ asset('content/img/plus.svg') }} @elseif($transaction->type == 'outcome') {{ asset('content/img/minus.svg') }} @endif"
+                                title="@if ($transaction->type_id == '2') {{__('profile.income')}} @elseif($transaction->type_id == '1') {{__('profile.outcome')}} @endif"
+                                src="@if ($transaction->type_id == '2') {{ asset('content/img/plus.svg') }} @elseif($transaction->type_id == '1') {{ asset('content/img/minus.svg') }} @endif"
                                 alt="">
                             <img class="hidden mx-auto dark:block text-center" 
-                                title="@if ($transaction->type == 'income') {{__('profile.income')}} @elseif($transaction->type == 'outcome') {{__('profile.outcome')}} @endif"
-                                src="@if ($transaction->type == 'income') {{ asset('content/img-dark/plus.svg') }} @elseif($transaction->type == 'outcome') {{ asset('content/img-dark/minus.svg') }} @endif"
+                                title="@if ($transaction->type_id == '2') {{__('profile.income')}} @elseif($transaction->type_id == '1') {{__('profile.outcome')}} @endif"
+                                src="@if ($transaction->type_id == '1') {{ asset('content/img-dark/plus.svg') }} @elseif($transaction->type_id == '1') {{ asset('content/img-dark/minus.svg') }} @endif"
                                 alt="">
                         </div>
                         <div class="w-36 dark:text-white text-center">

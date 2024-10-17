@@ -55,7 +55,7 @@ return [
     'save_changes' => 'Save changes',
     'email' => 'Email',
     'change_language' => 'Change language',
-
-];
+    'admin' => 'Admin',
+]; 
 
 ?>

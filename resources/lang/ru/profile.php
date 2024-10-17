@@ -20,7 +20,7 @@ return [
     'rub' => 'руб.',
     'new' => 'Новая транзакция',
     'operations' => 'Операции',
-    'general' => 'Общие',
+    'general' => 'Общие данные',
     'transport' => 'Транспорт',
     'groceries' => 'Продукты',
     'taxi' => 'Такси',
@@ -55,6 +55,7 @@ return [
     'save_changes' => 'Сохранить изменения',
     'email' => 'Email',
     'change_language' => 'Сменить язык',
+    'admin' => 'Админка',
 
 
 ];

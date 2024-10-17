@@ -46,8 +46,8 @@
                 <div class="source">
                     <h2>{{__('profile.choose_source')}}</h2>
                     <select name="source" class="block h-8 border-black border-1 dark:bg-custom-202124 dark:text-white dark:border-white">
-                        <option value="bank">{{__('profile.bank')}}</option>
-                        <option value="cash">{{__('profile.cash')}}</option>
+                        <option value="0">{{__('profile.bank')}}</option>
+                        <option value="1">{{__('profile.cash')}}</option>
                     </select>
                 </div>
 
@@ -56,8 +56,8 @@
                 <div class="type">
                     <h2>{{__('profile.choose_type')}}</h2>
                     <select name="type" class="block h-8 border-black border-1 dark:bg-custom-202124 dark:text-white dark:border-white">
-                        <option value="outcome">{{__('profile.outcome')}}</option>
-                        <option value="income">{{__('profile.income')}}</option>
+                        <option value="0">{{__('profile.outcome')}}</option>
+                        <option value="1">{{__('profile.income')}}</option>
                         
                     </select>
 
