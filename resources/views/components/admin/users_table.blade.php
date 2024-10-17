@@ -1,6 +1,6 @@
 <div class="max-w-screen-2xl w-full h-auto mx-auto my-0 mb-20">
     <div class="flex justify-between pt-20">
-        <h1 class="text-3xl font-bold text-gray-900">Пользователи</h1>
+        <h1 class="text-3xl font-bold text-gray-900 dark:text-white">Пользователи</h1>
     </div>
 
     <!-- Отображение сообщения об успешном блокировании пользователя -->
@@ -18,32 +18,32 @@
     @endif
 
     <table class="min-w-full divide-y divide-gray-200">
-        <thead class="bg-gray-50">
-            <tr>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+        <thead class="bg-gray-50 dark:bg-custom-202124 text-center">
+            <tr class="text-center dark:text-white">
+                <th scope="col" class="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">
                     ID</th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th scope="col" class="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Имя</th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th scope="col" class="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Фамилия</th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th scope="col" class="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Отчество</th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th scope="col" class="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Электронная почта</th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th scope="col" class="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Телефон</th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th scope="col" class="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Роль</th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th scope="col" class="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Действие</th>
             </tr>
         </thead>
-        <tbody class="bg-white divide-y divide-gray-200" x-data="{ showDetails: {} }">
+        <tbody class="bg-white divide-y divide-gray-200 dark:bg-custom-202124" x-data="{ showDetails: {} }">
             @if($users->count() > 0)
                 @foreach($users as $user)
-                    <tr class="border-b border-gray-200">
+                    <tr class="border-b border-gray-200 dark:text-white text-center">
                         <th
-                            class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-lg whitespace-nowrap p-4 text-left text-gray-700 font-bold">
+                            class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-lg whitespace-nowrap p-4 font-bold">
                             {{ $user->id }}
                         </th>
                         <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-lg whitespace-nowrap p-4 font-bold">
@@ -66,29 +66,21 @@
                         </td>
                         <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-lg whitespace-nowrap p-4">
                             <div class="flex justify-center gap-3">
-                                <a href="{{ route('users.edit', $user->id) }}" type="button"
-                                    class="text-yellow-400 hover:text-white border border-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center">Редактировать</a>
-                                <form action="{{ route('users.block', $user->id) }}" method="POST" style="display:inline;">
+                                <form  method="POST" style="display:inline;">
                                     @csrf
                                     <button type="submit"
                                         class="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center">Заблокировать</button>
                                 </form>
-                                <button @click="showDetails['{{ $user->id }}'] = !showDetails['{{ $user->id }}']"
+                                <button onclick="toggleDetails('{{ $user->id }}')"
                                     class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center">
                                     Детали
                                 </button>
                             </div>
                         </td>
                     </tr>
-                    <tr>
+                    <tr id="details-{{ $user->id }}" style="display: none;">
                         <td colspan="8">
-                            <div x-show="showDetails['{{ $user->id }}']" x-transition:enter="transition ease-out duration-300"
-                                x-transition:enter-start="opacity-0 transform scale-95"
-                                x-transition:enter-end="opacity-100 transform scale-100"
-                                x-transition:leave="transition ease-in duration-300"
-                                x-transition:leave-start="opacity-100 transform scale-100"
-                                x-transition:leave-end="opacity-0 transform scale-95"
-                                class="mt-4 bg-white p-6 rounded-lg shadow-lg mb-6">
+                            <div class="mt-4 bg-white dark:bg-custom-171717 p-6 dark:text-white rounded-lg shadow-lg mb-6">
                                 <h3 class="text-lg font-bold mb-4">Информация пользователя</h3>
                                 <p><strong>Электронная почта:</strong> {{ $user->email }}</p>
                                 <p><strong>Телефон:</strong> {{ $user->phone }}</p>
@@ -106,3 +98,15 @@
         </tbody>
     </table>
 </div>
+
+<script>
+    // Функция для переключения видимости блока с деталями
+    function toggleDetails(userId) {
+        const detailsRow = document.getElementById('details-' + userId);
+        if (detailsRow.style.display === 'none') {
+            detailsRow.style.display = 'table-row'; // Показать детали
+        } else {
+            detailsRow.style.display = 'none'; // Скрыть детали
+        }
+    }
+</script>

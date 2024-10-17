@@ -1,12 +1,5 @@
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-
-<!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools -->
-<svg fill="#4D52BC" width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" stroke="#4D52BC">
-
-<g id="SVGRepo_bgCarrier" stroke-width="0"/>
-
-<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
-
-<g id="SVGRepo_iconCarrier"> <title>report</title> <path d="M6 11h4v17h-4v-17zM22 16v12h4v-12h-4zM14 28h4v-24h-4v24z"/> </g>
-
+<svg width="32" height="32" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1 33V9H9V33H1Z" stroke="#4D52BC"/>
+<path d="M25 33V15H33V33H25Z" stroke="#4D52BC"/>
+<path d="M13 33V1H21V33H13Z" stroke="#4D52BC"/>
 </svg>

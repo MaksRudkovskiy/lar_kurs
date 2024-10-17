@@ -4,20 +4,30 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Redirect;
+use Auth;
 
 class AdminController extends Controller
 {
-    public function users()
+    public function admin()
     {
+
+        if (!Auth::check()) {
+            return Redirect::route('login');
+        }
+        if (!Auth::User()->role!=='admin') {
+            return Redirect::route('profile');
+        }
+
         $users = User::all();
-        return view('users', compact('users'));
+        return view('profile_admin', compact('users'));
     }
 
     public function editUser(Request $request, $id)
     {
         $user = User::findOrFail($id);
         // Логика редактирования пользоывы11вателя
-        return redirect()->route('users')->with('success', 'Изменения сохранены');
+        return redirect()->route('profile_admin')->with('success', 'Изменения сохранены');
     }
 
     public function blockUser(Request $request, $id)
@@ -25,17 +35,17 @@ class AdminController extends Controller
         $user = User::find($id);
 
         if (!$user) {
-            return redirect()->route('users')->with('error', 'Пользователь не найден');
+            return redirect()->route('profile_admin')->with('error', 'Пользователь не найден');
         }
 
         if ($user->blocked) {
-            return redirect()->route('users')->with('error', 'Пользователь уже заблокирован');
+            return redirect()->route('profile_admin')->with('error', 'Пользователь уже заблокирован');
         }
 
         $user->blocked = true; // Блокировка пользователя
         $user->save();
 
-        return redirect()->route('users')->with('success', 'Пользователь успешно заблокирован');
+        return redirect()->route('profile_admin')->with('success', 'Пользователь успешно заблокирован');
     }
 
     public function showUserDetails($id)

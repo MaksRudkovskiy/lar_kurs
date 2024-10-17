@@ -1,10 +1,10 @@
-<div class="py-12 max-w-9xl mx-auto sm:px-6 lg:px-8">
-    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+<div class="py-4 max-w-9xl mx-auto sm:px-6 lg:px-8">
+    <div class="bg-white dark:bg-custom-202124 overflow-hidden shadow-sm sm:rounded-lg">
         <div class="p-6 text-gray-900">
-            <h1 class="p-3 font-semibold">Постеры</h1>
+            <h1 class="p-3 font-semibold dark:text-white">Категории</h1>
             <button type="button" data-modal-target="default-modal" data-modal-toggle="default-modal"
                 class="text-white bg-black hover:bg-slate-400 focus:ring-4 focus:ring-slate-600 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none">
-                Добавить постер
+                Добавить категорию
             </button>
             @if ($errors->any())
                 <div class="alert alert-danger">
