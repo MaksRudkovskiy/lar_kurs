@@ -47,13 +47,22 @@
                             {{ $user->id }}
                         </th>
                         <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-lg whitespace-nowrap p-4 font-bold">
-                            {{ $user->name }}
+                            @if( $user->name == null ) Не указано 
+                            @else
+                                {{ $user->name }}
+                            @endif
                         </td>
                         <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-lg whitespace-nowrap p-4 font-bold">
-                            {{ $user->surname }}
+                            @if( $user->surname == null ) Не указано 
+                            @else
+                                {{ $user->surname }}
+                            @endif    
                         </td>
                         <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-lg whitespace-nowrap p-4 font-bold">
-                            {{ $user->fathername }}
+                            @if( $user->fathername == null ) Не указано 
+                            @else
+                                {{ $user->fathername }}
+                            @endif 
                         </td>
                         <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-lg whitespace-nowrap p-4 font-bold">
                             {{ $user->email }}
@@ -66,11 +75,12 @@
                         </td>
                         <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-lg whitespace-nowrap p-4">
                             <div class="flex justify-center gap-3">
-                                <form  method="POST" style="display:inline;">
-                                    @csrf
-                                    <button type="submit"
-                                        class="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center">Заблокировать</button>
-                                </form>
+                            <form method="POST" action="{{ route('users.privelege', $user->id) }}" style="display:inline;">
+                                @csrf
+                                @method('PUT')
+                                <button type="submit"
+                                    class="text-yellow-700 hover:text-white border border-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center">Привелегировать</button>
+                            </form>
                                 <button onclick="toggleDetails('{{ $user->id }}')"
                                     class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center">
                                     Детали
@@ -85,7 +95,12 @@
                                 <p><strong>Электронная почта:</strong> {{ $user->email }}</p>
                                 <p><strong>Телефон:</strong> {{ $user->phone }}</p>
                                 <p><strong>Роль:</strong> {{ $user->role }}</p>
-                                <p><strong>Telegram:</strong> {{ $user->tg_tag }}</p>
+                                <p><strong>Telegram:</strong> 
+                                @if( $user->surname == null ) Не указано 
+                                @else
+                                    {{ $user->tg_tag }}
+                                @endif 
+                            </p>
                             </div>
                         </td>
                     </tr>

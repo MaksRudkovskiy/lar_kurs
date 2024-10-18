@@ -18,8 +18,7 @@ Route::get('/profile_settings', [App\Http\Controllers\HomeController::class, 'in
 Route::get('/profile_report', [App\Http\Controllers\HomeController::class, 'index3'])->name('profile_report');
 Route::get('/filter', [App\Http\Controllers\TransactionController::class, 'filter'])->name('filter');
 Route::get('/admin', [App\Http\Controllers\AdminController::class, 'admin'])->name('profile_admin');
-Route::get('/users/{id}/edit', [App\Http\Controllers\AdminController::class, 'editUser'])->name('users.edit');
-Route::put('/users/{id}/toggle-block', [App\Http\Controllers\AdminController::class, 'toggleBlockUser'])->name('users.toggleBlock');
+Route::put('/users/{id}/role', [App\Http\Controllers\AdminController::class, 'privelegeUser'])->name('users.privelege');
 Route::get('/users/{id}/details', [App\Http\Controllers\AdminController::class, 'showUserDetails'])->name('users.details');
 
 Route::get('/profile_personalisation', [App\Http\Controllers\PersonalisationController::class, 'personalisation'])->name('profile_personalisation');

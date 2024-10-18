@@ -15,13 +15,18 @@
 
         <form action="{{ route('set-language') }}" method="POST">
             @csrf
-            <select name="language" >
-                <option value="en" {{ Session::get('language') == 'en' ? 'selected' : '' }}>English</option>
-                <option value="ru" {{ Session::get('language') == 'ru' ? 'selected' : '' }}>Русский</option>
+            <select name="language" class="block">
+                @foreach (['en' => 'English', 'ru' => 'Русский'] as $locale => $language)
+                    <option value="{{ $locale }}" {{ Session::get('language') == $locale ? 'selected' : '' }}>
+                        {{ $language }}
+                    </option>
+                @endforeach
             </select>
 
-             <button class="dark:text-white">{{__('profile.change_language')}}</button>
+             <button class="dark:text-white block dark:bg-custom-303134 px-4 py-2 rounded text-hover dark:hover:text-custom-4D52BC">{{__('profile.change_language')}}</button>
         </form>
+
+        @include('components.admin.category_adding')
     </div>
 
 @endsection

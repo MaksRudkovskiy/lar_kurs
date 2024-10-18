@@ -9,8 +9,6 @@
 @section('content')
     <div class="w-full">
 
-        @include('components.admin.category_adding')
-
         @include('components.admin.users_table')
 
         <script>

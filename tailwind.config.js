@@ -34,6 +34,7 @@ module.exports = {
       },
       hover: {
         'C1CFFF': '#C1CFFF',
+        '4D52BC': '#4D52BC',
       },
       transitionDuration: {
         '0.5s': '0.5s',
