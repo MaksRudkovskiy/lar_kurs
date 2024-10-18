@@ -11,7 +11,7 @@ return new class extends Migration
     {
         Schema::create('sources', function (Blueprint $table) {
             $table->id()->primary();
-            $table->string('source', 1)->unique(); // Уникальное имя источника
+            $table->string('source')->unique(); // Уникальное имя источника
         });
         FacadesDB::table('sources')->insert([
             ['source' => 'bank'],

@@ -11,7 +11,7 @@ return new class extends Migration
     {
         Schema::create('types', function (Blueprint $table) {
             $table->id()->primary();
-            $table->string('type', 1)->unique(); // Уникальное имя типа
+            $table->string('type')->unique(); // Уникальное имя типа
         });
         FacadesDB::table('types')->insert([
             ['type' => 'outcome'],

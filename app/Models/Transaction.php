@@ -15,8 +15,8 @@ class Transaction extends Model
         'date',
         'is_admin',
         'is_privelege',
-        'source',
-        'type',
+        'source_id',
+        'type_id',
         'amount',
     ];
 

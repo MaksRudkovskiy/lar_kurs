@@ -3,8 +3,8 @@ cp .env.example .env
 php artisan migrate
 php artisan key:generate
 npm install
-npm run dev
 npm install flowbite
+npm run dev
 php artisan serve
 
 php artisan db:seed --class=AdminUser
