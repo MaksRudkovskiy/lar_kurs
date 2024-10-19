@@ -15,13 +15,14 @@ class AdminUser extends Seeder // Убедитесь, что имя класса
             User::create([
                 'name' => 'Admin',
                 'surname' => 'Adminovich', 
-                'fathername' => 'Adminovich', 
-                'email' => 'admin@example.com', 
+                'fathername' => 'Adminov', 
+                'email' => 'admin@mail.ru', 
                 'phone' => '1234567890', 
                 'password' => Hash::make('668822'), 
                 'role' => 'admin',
-                'tg_tag' => null, 
+                'tg_tag' => '@Bukpus_GangstaJR', 
             ]);
         }
+        // php artisan db:seed --class=AdminUser
     }
 }

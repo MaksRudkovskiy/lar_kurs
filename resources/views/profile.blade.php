@@ -37,6 +37,7 @@
             <!-- Подключение компонента модального окна библиотеки flowbite для добавления транзакции -->
 
             @include('components.profile.profile_modal_transaction_filter')
+
             <!-- Подключение компонента модального окна библиотеки flowbite для фильтрации транзакций -->
 
             @include('components.profile.profile_transaction_table')

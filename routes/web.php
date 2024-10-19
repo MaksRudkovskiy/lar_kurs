@@ -21,6 +21,9 @@ Route::get('/admin', [App\Http\Controllers\AdminController::class, 'admin'])->na
 Route::put('/users/{id}/role', [App\Http\Controllers\AdminController::class, 'privelegeUser'])->name('users.privelege');
 Route::get('/users/{id}/details', [App\Http\Controllers\AdminController::class, 'showUserDetails'])->name('users.details');
 
+Route::get('/profile/{id}/edit', [App\Http\Controllers\TransactionController::class, 'edit'])->name('transactions.edit');
+Route::put('/profile/{id}', [App\Http\Controllers\TransactionController::class, 'update'])->name('transactions.update');
+
 Route::get('/profile_personalisation', [App\Http\Controllers\PersonalisationController::class, 'personalisation'])->name('profile_personalisation');
 
 Route::post('/profile/new_transactions', [App\Http\Controllers\TransactionController::class, 'transactions'])->name('new_transaction');

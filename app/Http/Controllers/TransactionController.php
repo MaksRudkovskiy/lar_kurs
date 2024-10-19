@@ -11,9 +11,6 @@ use Auth;
 class TransactionController extends Controller
 {
     public function transactions(Request $request) {
-
-        
-
         Transaction::create([
             'user_id' => Auth::user()->id,
             'category_id' => $request->category,
@@ -28,6 +25,29 @@ class TransactionController extends Controller
         $transaction = Transaction::where('user_id', Auth::id())->get();
         // dd($request);
         return redirect()->back()->with('transactions', $transaction);
+    }
+
+    public function edit($id)
+    {
+        $hui = Transaction::findOrFail($id);
+        dd($hui);
+
+        return view('profile', ['hui' => $hui]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $hui = Transaction::findOrFail($id);
+
+        $hui->update([
+            'category_id' => $request->category,
+            'date' => $request->date,
+            'source_id' => $request->source,
+            'type_id' => $request->type,
+            'amount' => $request->amount,
+        ]);
+
+        return redirect()->back()->with('success', 'Transaction updated successfully');
     }
     // Данная функция transactions нужна для создания транзакции и занесения её в базу данных, откуда она будет выводиться в представление
 
@@ -62,6 +82,8 @@ class TransactionController extends Controller
         
         return view('profile', ['transactions' => $transactions, 'totalIncome' => $totalIncome, 'totalExpense' => $totalExpense, 'monthlyData' => $monthlyData]);
     }
+
+    
     // Данная функция filter нужна для фильтрации транзакций по категориям
     // В данном случае условие проверяет, какие категории выбраны в форме фильтра модального окна
     // Если выбраны все категории, то она и будет выводить все категории

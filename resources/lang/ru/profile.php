@@ -56,7 +56,8 @@ return [
     'email' => 'Email',
     'change_language' => 'Сменить язык',
     'admin' => 'Админка',
-
+    'save' => 'Сохранить',
+    'edit_trans' => 'Редактировать',
 
 ];
 

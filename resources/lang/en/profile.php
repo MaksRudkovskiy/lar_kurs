@@ -56,6 +56,8 @@ return [
     'email' => 'Email',
     'change_language' => 'Change language',
     'admin' => 'Admin',
+    'save' => 'Save',
+    'edit_trans' => 'Edit',
 ]; 
 
 ?>

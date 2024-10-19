@@ -80,7 +80,7 @@
                                     @csrf
                                     @method('PUT')
                                     <div
-                                        class=" border border-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300
+                                        class=" border cursor-default min-w-44 border-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300
                                         font-medium rounded-lg text-sm px-3 py-2.5 text-center">
                                         Админ
                                     </div>
@@ -90,7 +90,7 @@
                                     @csrf
                                     @method('PUT')
                                     <button type="submit"
-                                        class="text-yellow-700 hover:text-white border border-yellow-700 hover:bg-yellow-800 focus:ring-4
+                                        class="text-yellow-700 min-w-44 hover:text-white border border-yellow-700 hover:bg-yellow-800 focus:ring-4
                                         focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center">
                                         @if($user->role!=="privelegious_user")
                                             Привелегировать

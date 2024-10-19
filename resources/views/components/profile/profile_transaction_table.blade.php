@@ -99,7 +99,13 @@
                         <div class="w-36 dark:text-white text-center">
                             <h2 class="mx-auto block text-center">{{$transaction->amount}} {{__('profile.rub')}}</h2>
                         </div>
-                        <div class="w-36 dark:text-white text-center">
+                        <div class="w-36 dark:text-white text-center flex justify-center">
+                            
+                            @component('components.profile.profile_modal_edit_transaction', [
+                                'transaction' => $transaction,
+                            ])
+                            @endcomponent
+
                             <a class="block dark:hidden mx-auto cursor-pointer" title="{{__('profile.delete')}}" href="{{route('DeleteTransaction', ['id'=>$transaction->id])}}"><img src="content/img/delete.svg" class="block mx-auto" alt=""></a>
                             <a class="hidden dark:block mx-auto cursor-pointer" title="{{__('profile.delete')}}" href="{{route('DeleteTransaction', ['id'=>$transaction->id])}}"><img src="content/img-dark/delete.svg" class="block mx-auto" alt=""></a>
                         </div>

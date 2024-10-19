@@ -50,9 +50,11 @@
 
         </div>
     </div>
-
-    <div class="mx-auto block">
+    @if(Auth::user()->role=='admin')
+    @else
+    <div class="mx-auto block ">
         <input type="submit" value="Сохранить изменения" class="bgC1CFFF cursor-pointer block mx-auto mt-24 font-medium h-11 px-20 rounded text-hover dark:bg-custom-303134 dark:text-white"> 
     </div>
+    @endif
 </form>
 </div>

@@ -18,6 +18,9 @@ class HomeController extends Controller
             return Redirect::route('login');
         }
 
+        // $edit = $this->edit();
+        // $update = $this->update();
+
         $monthlyData = $this->getMonthlyData();
         $transactions = Transaction::where('user_id', Auth::user()->id)
         ->orderBy('date', 'desc') 
