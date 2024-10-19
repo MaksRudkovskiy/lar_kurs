@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\Models\{User, Transaction};
 use Illuminate\Support\Facades\Redirect;
 use Auth;
 
@@ -11,7 +11,6 @@ class AdminController extends Controller
 {
     public function admin()
     {   
-
         if (!Auth::check()) {
             return Redirect::route('login');
         }
@@ -19,7 +18,7 @@ class AdminController extends Controller
             return Redirect::route('profile');
         }
 
-        $users = User::all();
+        $users = User::withCount('transactions')->get();
         return view('profile_admin', compact('users'));
     }
 
@@ -28,7 +27,7 @@ class AdminController extends Controller
         $user = User::findOrFail($id);
         return view('admin.user_details', compact('user'));
     }
-
+    
     public function privelegeUser (Request $request, $id)
     {
         $user = User::find($id);

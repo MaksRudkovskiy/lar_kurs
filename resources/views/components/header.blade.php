@@ -1,6 +1,18 @@
 <header class="w-4/6 mx-auto flex py-2 my-0 bgEDF1FF dark:bg-custom-171717 header-height">
     <div class="my-auto flex w-full justify-between flex-wrap px-20"> 
-        <a href="{{ route('index') }}"><img class="block my-auto" src="{{asset('content/img/logo.svg')}}" alt=""></a> 
+        <a href="{{ route('index') }}"><img class="block my-auto" src="
+        @auth
+            @if(Auth::user()->role === 'user')
+                {{ asset('content/img/logo.svg') }}
+            @else
+                {{ asset('content/img/pro.svg') }}
+            @endif
+        @endauth
+
+        @guest
+            {{ asset('content/img/logo.svg') }}
+        @endguest
+        " alt=""></a> 
         
         <div class="authorize-block font-medium flex items-center justify-between w-60">
             @Auth

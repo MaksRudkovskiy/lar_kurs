@@ -26,7 +26,11 @@
              <button class="dark:text-white block dark:bg-custom-303134 px-4 py-2 rounded text-hover dark:hover:text-custom-4D52BC">{{__('profile.change_language')}}</button>
         </form>
 
-        @include('components.admin.category_adding')
+        @if($user && ($user->role === 'privelegious_user' || $user->role === 'admin'))
+            @include('components.profile.category_adding')
+        @endif
+        
+
     </div>
 
 @endsection

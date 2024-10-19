@@ -1,6 +1,12 @@
 <div class="left-bar dark:bg-c171717 pt-5 w-22 flex-col relative bgEDF1FF puk">
 
-    <a href="{{ route('index') }}"><img class="block my-auto" src="content/img/logo.svg" alt=""></a> 
+    <a href="{{ route('index') }}"><img class="block mx-auto my-auto" src="
+        @if(Auth::user()->role === 'user')
+            {{ asset('content/img/logo.svg') }}
+        @else
+            {{ asset('content/img/pro.svg') }}
+        @endif
+    " alt=""></a> 
     <div class="conjoined-block mt-4 flex flex-col">
         <a href="{{ route('profile') }}" class="dark:text-white text-hover mx-4 hover:text-custom-4D52BC dark:hover:text-custom-4D52BC">
             <img class="block mx-auto pt-5" src="content/img/transaction_img.svg" alt="">

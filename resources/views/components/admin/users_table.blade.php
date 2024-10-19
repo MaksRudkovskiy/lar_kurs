@@ -119,6 +119,7 @@
                                 @else
                                     {{ $user->tg_tag }}
                                 @endif 
+                                <p><strong>Всего транзакций:</strong> {{ $user->transactions_count }} </p>
                             </p>
                             </div>
                         </td>

@@ -12,6 +12,8 @@ class PersonalisationController extends Controller
 {
     function personalisation()
     {
-        return view("profile_personalisation");
+        $user = Auth::user();
+
+        return view("profile_personalisation", compact('user'));
     }
 }
