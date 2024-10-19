@@ -1,7 +1,7 @@
 <div class="transaction-block mw-1265 mx-auto mt-6">
     <div id="transactionTable" class="mw-1265 w-full">
-        <div class="transactionHead bgEDF1FF dark:bg-c171717">
-            <div class="flex justify-around max-w-1220 dark:bg-c171717">   
+        <div class="transactionHead bgEDF1FF dark:bg-c171717 w-ful">
+            <div class="flex justify-around max-w-1235 dark:bg-c171717">   
                 <div class="py-5 dark:text-white text-lg font-medium w-36 text-center">{{__('profile.category')}}</div>
                 <div class="py-5 dark:text-white text-lg font-medium w-36 text-center">{{__('profile.source')}}</div>
                 <div class="py-5 dark:text-white text-lg font-medium w-36 text-center">{{__('profile.type')}}</div>
