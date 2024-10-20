@@ -2,38 +2,40 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LanguageController;
-use App\Http\middleware\SetLanguage;
+use App\Http\Controllers\MainController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PersonalisationController;
 
-Route::middleware([SetLanguage::class])->group(function () {
-Route::post('/set-language', [LanguageController::class, 'setLanguage'])->name('set-language');
+// Используем строковые ключи для middleware
+Route::middleware(['set.table.type'])->group(function () {
 
-Route::get('/', [App\Http\Controllers\MainController::class, 'index'])->name('index');
+    Route::post('/set-language', [LanguageController::class, 'setLanguage'])->name('set-language');
+    Route::post('/set-type', [LanguageController::class, 'setType'])->name('set-type');
 
-Route::get('/profile/delete_transaction/{id}', [App\Http\Controllers\HomeController::class, 'delete_transaction'])->name('DeleteTransaction');
+    Route::get('/', [MainController::class, 'index'])->name('index');
 
-Route::get('/profile/transactionSum', [App\Http\Controllers\TransactionController::class, 'transactionTotalAmount'])->name('amoutCount');
+    Route::get('/profile/delete_transaction/{id}', [HomeController::class, 'delete_transaction'])->name('DeleteTransaction');
 
-Route::get('/profile', [App\Http\Controllers\HomeController::class, 'index'])->name('profile');
-Route::get('/profile_settings', [App\Http\Controllers\HomeController::class, 'index2'])->name('profile_settings');
-Route::get('/profile_report', [App\Http\Controllers\HomeController::class, 'index3'])->name('profile_report');
-Route::get('/filter', [App\Http\Controllers\TransactionController::class, 'filter'])->name('filter');
-Route::get('/admin', [App\Http\Controllers\AdminController::class, 'admin'])->name('profile_admin');
-Route::put('/users/{id}/role', [App\Http\Controllers\AdminController::class, 'privelegeUser'])->name('users.privelege');
-Route::get('/users/{id}/details', [App\Http\Controllers\AdminController::class, 'showUserDetails'])->name('users.details');
+    Route::get('/profile/transactionSum', [TransactionController::class, 'transactionTotalAmount'])->name('amoutCount');
 
-Route::get('/profile/{id}/edit', [App\Http\Controllers\TransactionController::class, 'edit'])->name('transactions.edit');
-Route::put('/profile/{id}', [App\Http\Controllers\TransactionController::class, 'update'])->name('transactions.update');
+    Route::get('/profile', [HomeController::class, 'index'])->name('profile');
+    Route::get('/profile_settings', [HomeController::class, 'index2'])->name('profile_settings');
+    Route::get('/profile_report', [HomeController::class, 'index3'])->name('profile_report');
+    Route::get('/filter', [TransactionController::class, 'filter'])->name('filter');
+    Route::get('/admin', [AdminController::class, 'admin'])->name('profile_admin');
+    Route::put('/users/{id}/role', [AdminController::class, 'privelegeUser'])->name('users.privelege');
+    Route::get('/users/{id}/details', [AdminController::class, 'showUserDetails'])->name('users.details');
 
-Route::get('/profile_personalisation', [App\Http\Controllers\PersonalisationController::class, 'personalisation'])->name('profile_personalisation');
+    Route::get('/profile/{id}/edit', [TransactionController::class, 'edit'])->name('transactions.edit');
+    Route::put('/profile/{id}', [TransactionController::class, 'update'])->name('transactions.update');
 
-Route::post('/profile/new_transactions', [App\Http\Controllers\TransactionController::class, 'transactions'])->name('new_transaction');
+    Route::get('/profile_personalisation', [PersonalisationController::class, 'personalisation'])->name('profile_personalisation');
 
-Route::post('/save_settings', [App\Http\Controllers\HomeController::class, 'edit_info'])->name('edit_info');
+    Route::post('/profile/new_transactions', [TransactionController::class, 'transactions'])->name('new_transaction');
 
-Auth::routes();
+    Route::post('/save_settings', [HomeController::class, 'edit_info'])->name('edit_info');
+
+    Auth::routes();
 });
-
-
-
-
-

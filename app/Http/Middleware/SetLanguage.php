@@ -10,10 +10,10 @@ class SetLanguage
 {
     public function handle($request, Closure $next)
     {
+        // Устанавливаем язык из сессии
         if (Session::has('language')) {
             $language = Session::get('language');
             App::setLocale($language);
-            // Добавьте отладочную информацию   
         }
 
         return $next($request);

@@ -18,7 +18,7 @@ return [
     'delete' => 'Delete',
     'year' => 'year',
     'rub' => 'rub.',
-    'new' => 'New transaction',
+    'new_transaction' => 'New transaction',
     'operations' => 'Operations',
     'general' => 'General data',
     'transport' => 'Transport',
@@ -58,6 +58,13 @@ return [
     'admin' => 'Admin',
     'save' => 'Save',
     'edit_trans' => 'Edit',
+    'custom_categories' => 'Custom categories',
+    'choose_language' => 'System language',
+    'color_theme' => 'Color theme',
+    'transaction_table_look' => 'Внешний вид таблицы транзакций',
+    'old' => 'Old',
+    'new' => 'New',
+
 ]; 
 
 ?>

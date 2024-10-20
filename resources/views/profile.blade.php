@@ -25,7 +25,7 @@
                     </button>
 
                     <button data-modal-target="default-modal" data-modal-toggle="default-modal" class="bgC1CFFF dark:bg-c303134 dark:text-white font-medium h-11 px-3 max-w-44 rounded text-hover">
-                        {{__('profile.new')}}
+                        {{__('profile.new_transaction')}}
                     </button>
                 </div>
                 <!-- Кнопка вызова модального окна добавления транзакции -->
@@ -40,7 +40,11 @@
 
             <!-- Подключение компонента модального окна библиотеки flowbite для фильтрации транзакций -->
 
-            @include('components.profile.profile_transaction_table')
+            @if(Session::get('table_type') == 'new') 
+                @include('components.profile.profile_transaction_table_new')
+            @else 
+                @include('components.profile.profile_transaction_table_old')
+            @endif
             <!-- Подключение компонента таблицы с транзакциями -->
             
         </div>

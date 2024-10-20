@@ -1,7 +1,11 @@
+@if(Auth::user()->role == 'user')
+
+@else
 <button class="block dark:hidden mx-auto cursor-pointer" data-modal-target="crud-modal-master-{{ $transaction->id }}"
 data-modal-toggle="crud-modal-master-{{ $transaction->id }}" title="{{__('profile.edit')}}"><img src="content/img/edit.svg" class="block mx-auto" alt=""></button>
 <button class="hidden dark:block mx-auto cursor-pointer" data-modal-target="crud-modal-master-{{ $transaction->id }}"
 data-modal-toggle="crud-modal-master-{{ $transaction->id }}" title="{{__('profile.edit')}}"><img src="content/img-dark/edit.svg" class="block mx-auto" alt=""></button>
+
 
 <!-- Main modal -->
 <div id="crud-modal-master-{{ $transaction->id }}" tabindex="-1" aria-hidden="true"
@@ -85,3 +89,4 @@ data-modal-toggle="crud-modal-master-{{ $transaction->id }}" title="{{__('profil
         </form>
     </div>
 </div>
+@endif

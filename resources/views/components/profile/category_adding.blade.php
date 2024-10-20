@@ -1,7 +1,7 @@
 <div class="max-w-9xl">
     <div class="bg-white dark:bg-custom-202124 overflow-hidden shadow-sm sm:rounded-lg">
         <div class="text-gray-900">
-            <h1 class="p-3 font-semibold dark:text-white block">Категории</h1>
+            <h1 class="mb-3 font-semibold text-lg dark:text-white block">{{__('profile.custom_categories')}}</h1>
             <button type="button" data-modal-target="default-modal" data-modal-toggle="default-modal"
                 class="text-white block text-hover bg-black focus:ring-4 focus:ring-slate-600 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none">
                 Добавить категорию
