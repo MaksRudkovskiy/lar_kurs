@@ -7,8 +7,8 @@ use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvi
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
-use App\Http\Middleware\SetLanguage;
-use App\Http\Middleware\SetType;
+use App\Http\Middleware\SetLang;
+use App\Http\Middleware\SetTable;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -36,8 +36,8 @@ class RouteServiceProvider extends ServiceProvider
         });
 
         // Регистрация ваших middleware
-        Route::aliasMiddleware('set.language', SetLanguage::class);
-        Route::aliasMiddleware('set.table.type', SetType::class);
+        Route::aliasMiddleware('set.language', SetLang::class);
+        Route::aliasMiddleware('set.table.type', SetTable::class);
     }
 
     /**

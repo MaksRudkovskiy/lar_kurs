@@ -8,7 +8,6 @@ use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PersonalisationController;
 
-// Используем строковые ключи для middleware
 Route::middleware(['set.table.type'])->group(function () {
 
     Route::post('/set-language', [LanguageController::class, 'setLanguage'])->name('set-language');
