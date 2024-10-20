@@ -1,4 +1,4 @@
-<div class="transaction-block mw-1265 mx-auto mt-6">
+<div class="transaction-block scroll-table mw-1265 mx-auto mt-6">
     <table id="transactionTable" class="mw-1265 w-full">
         <thead class="dark:bg-custom-171717 bg-custom-EDF1FF dark:text-white">
             <tr>   
@@ -10,10 +10,10 @@
                 <th class="px-10 py-5 text-lg font-medium">Действия</th>
             </tr>
         </thead>
-        <tbody class="dark:text-white">
+        <tbody class="dark:text-white scroll-table-body transactionBodyContainer scrollbar overflow-y-auto scrollbar-thumb-custom-EDF1FF">
             @foreach ($transactions as $date => $group)
                 @foreach ($group as $transaction)
-                    <tr class="my-5">
+                    <tr class="border-b-2">
                         <td>
                         <img class="mx-auto dark:hidden dark:text-white block text-center w-8 h-8"
                                 title="@if ($transaction->category_id == 1) {{__('profile.transport')}}

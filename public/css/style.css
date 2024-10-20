@@ -299,6 +299,10 @@ input
     max-width: 1516px;
 }
 
+.max-h-400
+{
+    max-height: 400px;
+}
 .max-h-790
 {
     max-height: 790px;
@@ -308,10 +312,20 @@ input
     max-height: 880px;
 }
 
+.scroll-table-body {
+	overflow-x: auto;
+	margin-top: 0px;
+	margin-bottom: 20px;
+	border-bottom: 1px solid #eee;
+}
+
 .transactionBodyContainer
 {
     box-shadow: 2px 4px 16px -1px rgba(0, 0, 0, 0.08);
+    max-height: 790px;
+    overflow-y: auto;
 }
+
 
 .max-w-1220
 {
@@ -330,6 +344,8 @@ input
 {
     overflow: hidden;
 }
+
+
 
 @media (min-width: 768px) {
     .md\:inset-0 {

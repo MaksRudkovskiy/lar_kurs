@@ -42,8 +42,10 @@
 
             @if(Session::get('table_type') == 'new') 
                 @include('components.profile.profile_transaction_table_new')
-            @else 
+            @elseif(Session::get('table_type') == 'old')
                 @include('components.profile.profile_transaction_table_old')
+            @else
+                @include('components.profile.profile_transaction_table_new')
             @endif
             <!-- Подключение компонента таблицы с транзакциями -->
             

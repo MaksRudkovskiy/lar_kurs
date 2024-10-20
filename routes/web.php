@@ -8,7 +8,7 @@ use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PersonalisationController;
 
-Route::middleware(['set.table.type'])->group(function () {
+Route::middleware(['set.table', 'set.lang'])->group(function () {
 
     Route::post('/set-language', [LanguageController::class, 'setLanguage'])->name('set-language');
     Route::post('/set-type', [LanguageController::class, 'setType'])->name('set-type');

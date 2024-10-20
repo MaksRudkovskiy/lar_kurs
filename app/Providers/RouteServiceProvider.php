@@ -36,8 +36,8 @@ class RouteServiceProvider extends ServiceProvider
         });
 
         // Регистрация ваших middleware
-        Route::aliasMiddleware('set.language', SetLang::class);
-        Route::aliasMiddleware('set.table.type', SetTable::class);
+        Route::aliasMiddleware('set.lang', SetLang::class);
+        Route::aliasMiddleware('set.table', SetTable::class);
     }
 
     /**

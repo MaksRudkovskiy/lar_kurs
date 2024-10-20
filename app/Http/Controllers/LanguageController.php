@@ -1,27 +1,39 @@
-<?php
+<?php 
 
-namespace App\Http\Middleware;
+namespace App\Http\Controllers;
 
-use Closure;
-use Illuminate\Support\Facades\App;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
-class SetLanguage
+class LanguageController extends Controller
 {
-    public function handle($request, Closure $next)
+    public function setLanguage(Request $request)
     {
-        // Устанавливаем язык из сессии
-        if (Session::has('language')) {
-            $language = Session::get('language');
-            App::setLocale($language);
+        $language = $request->input('language');
+
+        // Проверка на допустимые языки, если нужно
+        $availableLanguages = ['en', 'ru']; // Пример доступных языков
+        if (in_array($language, $availableLanguages)) {
+            Session::put('language', $language);
+            // Добавьте отладочную информацию
+            \Log::info('Language set to: ' . $language);
         }
 
-        // Устанавливаем тип таблицы из сессии (если необходимо)
-        if (Session::has('table_type')) {
-            $table_type = Session::get('table_type');
-            // Здесь вы можете использовать $table_type, если нужно
+        return back();
+    }
+
+    public function setType(Request $request)
+    {
+        $type = $request->input('type');
+
+        // Проверка на допустимые типы, если нужно
+        $availableTypes = ['old', 'new']; // Пример доступных типов
+        if (in_array($type, $availableTypes)) {
+            Session::put('table_type', $type);
+            // Добавьте отладочную информацию
+            \Log::info('Table type set to: ' . $type);
         }
 
-        return $next($request);
+        return redirect()->back();
     }
 }
