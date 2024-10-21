@@ -62,6 +62,7 @@ return [
     'choose_language' => 'Системный язык',
     'color_theme' => 'Тема системы',
     'transaction_table_look' => 'Внешний вид таблицы транзакций',
+    'change_look' => 'Изменить',
     'old' => 'Новый',
     'new' => 'Старый',
 

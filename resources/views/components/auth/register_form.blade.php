@@ -32,6 +32,13 @@
 
     <input type="submit" value="Регистрация" class="bgC1CFFF dark:bg-custom-303134 dark:text-white font-medium h-11 w-full rounded text-hover mt-5 cursor-pointer">
 
+    <a
+    href="{{route('yandex')}}"
+    class="w-full gap-1 mt-4 text-hover dark:text-white hover:text-custom-4D52BC hover:border-border-4D52BC h-11 inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium transition-colors
+    focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input shadow-sm">
+    Yandex
+    </a>
+
     <div class="flex relative text-center mt-6">
 
         <div class="got-account text-center mx-auto text-xs dark:text-white dark:bg-custom-202124">Есть аккаунт?</div>

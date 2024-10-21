@@ -11,6 +11,9 @@
             </tr>
         </thead>
         <tbody class="dark:text-white">
+            @if($transactions == null)
+                
+            @else
             @foreach ($transactions as $date => $group)
                 @foreach ($group as $transaction)
                     <tr class="border-b-2">
@@ -113,6 +116,7 @@
                 </tr>
                 @endforeach
             @endforeach
+            @endif
         </tbody>
     </table>
 </div>

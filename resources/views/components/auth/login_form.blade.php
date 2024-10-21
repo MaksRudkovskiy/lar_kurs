@@ -17,6 +17,13 @@
 
     <input type="submit" value="Войти в акканут" class="bgC1CFFF dark:bg-custom-303134 font-medium h-11 w-full rounded text-hover mt-5 cursor-pointer">
 
+    <a
+    href="{{route('yandex')}}"
+    class="w-full gap-1 mt-4 text-hover hover:text-custom-4D52BC hover:border-border-4D52BC h-11 inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium transition-colors
+    focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input shadow-sm">
+    Yandex
+    </a>
+
     <div class="flex relative text-center mt-6">
 
         <div class="got-account text-center mx-auto text-xs dark:bg-custom-171717">Нет аккаунта?</div>
@@ -24,10 +31,4 @@
 
     </div>
 
-    <a
-                    href="{{route('yandex')}}"
-                    className="w-full gap-1 h-9 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground"
-                >
-                    Yandex
-                </a>
 </form>

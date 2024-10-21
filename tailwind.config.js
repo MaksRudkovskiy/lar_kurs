@@ -40,6 +40,9 @@ module.exports = {
         '0.5s': '0.5s',
         '0.3s': '0.3s',
       },
+      border: {
+        '4D52BC': '#4D52BC',
+      }
     },
   },
   plugins: [

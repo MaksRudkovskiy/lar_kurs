@@ -32,7 +32,7 @@ class AuthenticatedSessionController extends Controller
 
         Auth::login($user, true);
 
-        redirect()->route('profile');
+        return redirect()->route('profile');
     }
 
     private function RegOrUser($user) {

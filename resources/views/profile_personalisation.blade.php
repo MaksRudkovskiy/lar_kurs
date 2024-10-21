@@ -47,7 +47,7 @@
                     @endforeach
                 </select>
 
-                <button class="dark:text-white block bg-custom-EDF1FF dark:bg-custom-303134 px-4 py-2 rounded text-hover dark:hover:text-custom-4D52BC">{{__('profile.change_language')}}</button>
+                <button class="dark:text-white block bg-custom-EDF1FF dark:bg-custom-303134 px-4 py-2 rounded text-hover dark:hover:text-custom-4D52BC">{{__('profile.change_look')}}</button>
             </form>
         
         </div>
