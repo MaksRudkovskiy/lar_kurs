@@ -11,6 +11,8 @@
     @vite('resources/js/app.js')
     <!-- Подключение библиотеки tailwind -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <script src="https://yastatic.net/s3/passport-sdk/autofill/v1/sdk-suggest-with-polyfills-latest.js"></script>
+    <script src="https://yastatic.net/s3/passport-sdk/autofill/v1/sdk-suggest-token-with-polyfills-latest.js"></script>
     <!-- Подключение собственных стилей -->
     <script>
     // On page load or when changing themes, best to add inline in `head` to avoid FOUC

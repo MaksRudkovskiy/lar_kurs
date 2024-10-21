@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PersonalisationController;
+use App\Http\Controllers\AuthenticatedSessionController;
 
 Route::middleware(['set.table', 'set.lang'])->group(function () {
 
@@ -35,6 +36,9 @@ Route::middleware(['set.table', 'set.lang'])->group(function () {
     Route::post('/profile/new_transactions', [TransactionController::class, 'transactions'])->name('new_transaction');
 
     Route::post('/save_settings', [HomeController::class, 'edit_info'])->name('edit_info');
+
+    Route::get('login/yandex', [AuthenticatedSessionController::class, 'yandex'])->name('yandex');
+    Route::get('login/yandex/redirect', [AuthenticatedSessionController::class, 'yandexRedirect'])->name('yandexRedirect');
 
     Auth::routes();
 });
