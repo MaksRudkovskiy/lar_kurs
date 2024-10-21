@@ -11,7 +11,7 @@ class SetTable
     {
         // Устанавливаем тип таблицы из сессии (если необходимо)
         if (!Session::has('table_type')) {
-            Session::put('table_type', 'new'); // Устанавливаем значение по умолчанию
+            Session::put('table_type', 'default'); // Устанавливаем значение по умолчанию
         }
 
         return $next($request);

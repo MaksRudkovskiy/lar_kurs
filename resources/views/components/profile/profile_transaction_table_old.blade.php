@@ -11,8 +11,12 @@
             </tr>
         </thead>
         <tbody class="dark:text-white">
-            @if($transactions == null)
-                
+            @if($transactions == null || count($transactions) === 0)
+                <tr>
+                    <td colspan="6" class="text-center py-8">
+                        <h2 class="text-xl dark:text-white">{{ __('profile.no_transactions') }}</h2>
+                    </td>
+                </tr>
             @else
             @foreach ($transactions as $date => $group)
                 @foreach ($group as $transaction)

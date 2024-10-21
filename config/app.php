@@ -123,6 +123,6 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
-    'session' => ['table_type' => 'new'],
+    'session' => ['table_type' => 'default'],
 
 ];

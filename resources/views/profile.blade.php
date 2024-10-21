@@ -40,9 +40,9 @@
 
             <!-- Подключение компонента модального окна библиотеки flowbite для фильтрации транзакций -->
 
-            @if(Session::get('table_type') == 'new') 
+            @if(Session::get('table_type') == 'default') 
                 @include('components.profile.profile_transaction_table_new')
-            @elseif(Session::get('table_type') == 'old')
+            @elseif(Session::get('table_type') == 'alternative')
                 @include('components.profile.profile_transaction_table_old')
             @else
                 @include('components.profile.profile_transaction_table_new')

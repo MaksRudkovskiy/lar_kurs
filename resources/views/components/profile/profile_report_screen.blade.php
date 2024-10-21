@@ -4,6 +4,9 @@
     </h1>
 
         <div class="reports-block overflow-y-auto max-h-790 scrollbar scrollbar-thumb-custom-EDF1FF flex flex-wrap gap-y-12 items-center mt-3 justify-around w-full">
+            @if($monthlyData == null || count($monthlyData) === 0)
+                <h2 class="text-xl text-center py-8 dark:text-white">{{ __('profile.add_report') }}</h2>
+            @else
             @foreach($monthlyData as $monthData)
                 <div class="bgEDF1FF dark:bg-custom-171717 dark:text-white p-8 min-h-96 min-w-460 max-w-460">
                     <h2 class="">{{__('profile.trans_report')}}{{ $monthData['month'] }}</h2>               
@@ -22,6 +25,7 @@
                     </div>
                 </div>
             @endforeach
+            @endif
         </div>
 
 </div>

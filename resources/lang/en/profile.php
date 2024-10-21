@@ -63,8 +63,12 @@ return [
     'color_theme' => 'Color theme',
     'transaction_table_look' => 'Transaction table look',
     'change_look' => 'Change',
-    'old' => 'Old',
-    'new' => 'New',
+    'old' => 'Alternative',
+    'new' => 'Default',
+    'no_transactions' => 'Add some transactions first!',
+    'not_yet' => 'There is no data yet. Add some transactions!',
+    'add_report' => 'Add some transactions for reports to show up!',
+    'add_cat' => 'Add category',
 
 ]; 
 

@@ -11,7 +11,9 @@
         </div>
         
         <div class="transactionBodyContainer scrollbar scrollbar-thumb-custom-EDF1FF max-h-790 overflow-y-auto">
-
+            @if($transactions == null || count($transactions) === 0)
+                        <h2 class="text-xl text-center py-8 dark:text-white">{{ __('profile.no_transactions') }}</h2>
+            @else
             <div class="transactionBody">
             <div class="flex flex-col">
            @foreach ($transactions as $date => $group)
@@ -112,6 +114,7 @@
                     </div>
                 @endforeach
             @endforeach
+            @endif
         </div>
 
         </div>
