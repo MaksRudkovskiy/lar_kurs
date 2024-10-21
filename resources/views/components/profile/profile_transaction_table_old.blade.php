@@ -1,6 +1,6 @@
-<div class="transaction-block scroll-table mw-1265 mx-auto mt-6">
-    <table id="transactionTable" class="mw-1265 w-full">
-        <thead class="dark:bg-custom-171717 bg-custom-EDF1FF dark:text-white">
+<div class="transaction-block scroll-table mw-1265 mx-auto mt-6 overflow-y-scroll max-h-790 scrollbar scrollbar-thumb-custom-EDF1FF">
+    <table id="transactionTable" class="w-full h-full">
+        <thead class="dark:bg-custom-171717 bg-custom-EDF1FF dark:text-white sticky top-0 z-10">
             <tr>   
                 <th class="px-10 py-5 text-lg font-medium">Категория</th>
                 <th class="px-10 py-5 text-lg font-medium">Дата</th>
@@ -10,12 +10,12 @@
                 <th class="px-10 py-5 text-lg font-medium">Действия</th>
             </tr>
         </thead>
-        <tbody class="dark:text-white scroll-table-body transactionBodyContainer scrollbar overflow-y-auto scrollbar-thumb-custom-EDF1FF">
+        <tbody class="dark:text-white">
             @foreach ($transactions as $date => $group)
                 @foreach ($group as $transaction)
                     <tr class="border-b-2">
                         <td>
-                        <img class="mx-auto dark:hidden dark:text-white block text-center w-8 h-8"
+                            <img class="mx-auto dark:hidden dark:text-white block text-center w-8 h-8"
                                 title="@if ($transaction->category_id == 1) {{__('profile.transport')}}
                                 @elseif($transaction->category_id == 2) {{__('profile.groceries')}} 
                                 @elseif($transaction->category_id == 3) {{__('profile.health')}} 

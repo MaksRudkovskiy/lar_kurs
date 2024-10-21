@@ -33,17 +33,14 @@
                 @include('components.profile.category_adding')
             @endif
 
-            <hr class="my-4">
-
             <h2 class="text-lg dark:text-white font-medium">
                 {{__('profile.transaction_table_look')}}
             </h2>   
 
             <form action="{{ route('set-type') }}" method="POST">
-            
                 @csrf
                 <select name="type" class="block dark:bg-custom-202124 py-2 px-6 my-2 dark:text-white border-none outline-white">
-                    @foreach (['new' => __('profile.new'), 'old' => __('profile.old')] as $type => $table_type)
+                    @foreach (['old' => __('profile.old'), 'new' => __('profile.new')] as $type => $table_type)
                         <option value="{{ $type }}" {{ Session::get('table_type') == $type ? 'selected' : '' }}>
                             {{ $table_type }}
                         </option>

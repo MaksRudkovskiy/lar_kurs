@@ -25,12 +25,9 @@ class LanguageController extends Controller
     public function setType(Request $request)
     {
         $type = $request->input('type');
-
-        // Проверка на допустимые типы, если нужно
-        $availableTypes = ['old', 'new']; // Пример доступных типов
+        $availableTypes = ['old', 'new']; // Убедитесь, что 'old' и 'new' указаны правильно
         if (in_array($type, $availableTypes)) {
             Session::put('table_type', $type);
-            // Добавьте отладочную информацию
             \Log::info('Table type set to: ' . $type);
         }
 

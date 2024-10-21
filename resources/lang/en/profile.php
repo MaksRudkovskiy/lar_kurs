@@ -61,7 +61,7 @@ return [
     'custom_categories' => 'Custom categories',
     'choose_language' => 'System language',
     'color_theme' => 'Color theme',
-    'transaction_table_look' => 'Внешний вид таблицы транзакций',
+    'transaction_table_look' => 'Transaction table look',
     'old' => 'Old',
     'new' => 'New',
 
