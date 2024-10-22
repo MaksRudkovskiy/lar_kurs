@@ -37,20 +37,20 @@
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
                     </svg>
-                    <span class="sr-only">Закрыт</span>
+                    <span class="sr-only">Закрыть</span>
                 </button>
             </div>
 
             <!-- Modal body -->
             <div class="p-4 md:p-5 space-y-4" x-data="{ selectedGenres: [] }">
-                <form class="px-4 dark:text-white w-full" method="POST" action=""
+                <form class="px-4 dark:text-white w-full" method="POST" action="{{route('new_category')}}"
                     enctype="multipart/form-data">
                     @csrf
 
                     <div class="amount">    
-                        <h2>{{__('profile.amount')}}</h2>
+                        <h2>{{__('profile.category_name')}}</h2>
 
-                        <input type="text" required name="amount" class="block h-8 border-black border-1 py-1 px-2 rounded dark:bg-custom-202124 dark:text-white dark:border-white">
+                        <input type="text" required name="custom_category_name" class="block h-8 border-black border-1 py-1 px-2 rounded dark:bg-custom-202124 dark:text-white dark:border-white">
 
                     </div>
                    
@@ -58,7 +58,7 @@
                         <label class="" for="photo">Выберите файл</label>
                         <input
                             class="block w-full text-sm dark:text-white rounded-lg cursor-pointer"
-                            aria-describedby="photo" name="photo" id="photo" type="file" required>
+                            aria-describedby="photo" name="icon" id="photo" type="file" required>
                     </div>
 
                     <hr>                    

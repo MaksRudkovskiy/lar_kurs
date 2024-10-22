@@ -69,6 +69,7 @@ return [
     'not_yet' => 'There is no data yet. Add some transactions!',
     'add_report' => 'Add some transactions for reports to show up!',
     'add_cat' => 'Add category',
+    'category_name' => 'Category name',
 
 ]; 
 

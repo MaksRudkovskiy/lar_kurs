@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\{User, Transaction, Category};
+use App\Models\{User, Transaction, Category, CustomCategories};
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Redirect;
 use Auth;
@@ -47,9 +47,22 @@ class TransactionController extends Controller
             'amount' => $request->amount,
         ]);
 
-        return redirect()->back()->with('success', 'Transaction updated successfully');
+        return redirect()->back();
     }
     // Данная функция transactions нужна для создания транзакции и занесения её в базу данных, откуда она будет выводиться в представление
+
+    public function category(Request $request)
+    {
+        CustomCategories::create([
+            'user_id' => Auth::user()->id,
+            'custom_category_name' => $request->custom_category_name,
+            'icon' => $request->icon,
+        ]);
+
+        $transaction = Transaction::where('user_id', Auth::id())->get();
+
+        return redirect()->back();
+    }
 
     public function filter(Request $request)
     {

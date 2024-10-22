@@ -34,6 +34,7 @@ Route::middleware(['set.table', 'set.lang'])->group(function () {
     Route::get('/profile_personalisation', [PersonalisationController::class, 'personalisation'])->name('profile_personalisation');
 
     Route::post('/profile/new_transactions', [TransactionController::class, 'transactions'])->name('new_transaction');
+    Route::post('/profile_personalisation/new_category', [TransactionController::class, 'category'])->name('new_category');
 
     Route::post('/save_settings', [HomeController::class, 'edit_info'])->name('edit_info');
 
