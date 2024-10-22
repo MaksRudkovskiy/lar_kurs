@@ -9,27 +9,27 @@
     " alt=""></a> 
     <div class="conjoined-block mt-4 flex flex-col">
         <a href="{{ route('profile') }}" class="dark:text-white text-hover mx-4 hover:text-custom-4D52BC dark:hover:text-custom-4D52BC">
-            <img class="block mx-auto pt-5" src="content/img/transaction_img.svg" alt="">
+            <img class="block mx-auto pt-5 max-w-8" src="content/img/transaction_img.svg" alt="">
             <h3 class="text-xxs text-center">{{__('profile.transactions')}}</h3>
         </a>
 
         <a href="{{ route('profile_report') }}" class="dark:text-white text-hover mx-4 hover:text-custom-4D52BC dark:hover:text-custom-4D52BC">
-            <img class="block mx-auto pt-5" src="content/img/report.svg" alt="">
+            <img class="block mx-auto pt-5 max-w-8" src="content/img/report.svg" alt="">
             <h3 class="text-xxs text-center">{{__('profile.reports')}}</h3>
         </a>
 
         <a href="{{ route('profile_settings') }}" class="dark:text-white text-hover mx-4 hover:text-custom-4D52BC dark:hover:text-custom-4D52BC">
-            <img class="block mx-auto pt-5" src="content/img/profile.svg" alt="">
+            <img class="block mx-auto pt-5 max-w-8" src="content/img/profile.svg" alt="">
             <h3 class="text-xxs text-center">{{__('profile.profile')}}</h3>
         </a>
 
         <a href="{{ route('profile_personalisation') }}" class="dark:text-white text-hover mx-4 hover:text-custom-4D52BC dark:hover:text-custom-4D52BC">
-            <img class="block mx-auto pt-5" src="content/img/settings.svg" alt="">
+            <img class="block mx-auto pt-5 max-w-8" src="content/img/settings.svg" alt="">
             <h3 class="text-xxs text-center">{{__('profile.settings')}}</h3>
         </a>
         @if (Auth::User()->role=='admin')
         <a href="{{ route('profile_admin') }}" class="dark:text-white text-hover mx-4 hover:text-custom-4D52BC dark:hover:text-custom-4D52BC">
-            <img class="block mx-auto pt-5" src="content/img/admin.svg" alt="">
+            <img class="block mx-auto pt-5 max-w-8" src="content/img/admin.svg" alt="">
             <h3 class="text-xxs text-center">{{__('profile.admin')}}</h3>
         </a>
         @endif

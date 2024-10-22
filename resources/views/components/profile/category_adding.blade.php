@@ -20,10 +20,10 @@
 </div>
 {{-- Модальное окно --}}
 <div id="default-modal" tabindex="-1" aria-hidden="true"
-    class="hidden overflow-y-auto bg-dark overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] h-screen">
+    class="hidden overflow-y-auto bg-dark overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0">
     <div class="relative p-4 w-1/2 max-w-2xl max-h-9xl">
         <!-- Modal content -->
-        <div class="relative dark:bg-custom-171717 bg-white rounded-lg shadow">
+        <div class="relative dark:bg-custom-202124 bg-white rounded-lg shadow">
             <!-- Modal header -->
             <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
                 <h3 class="text-xl dark:text-white font-semibold">

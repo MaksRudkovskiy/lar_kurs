@@ -82,7 +82,7 @@ data-modal-toggle="crud-modal-master-{{ $transaction->id }}" title="{{__('profil
 
             </div>
             <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b">
-                <input value="{{__('profile.save')}}" data-modal-hide="third-modal" type="submit" class="py-2.5 px-5 font-medium rounded text-hover font-normal bgC1CFFF bg-slate-900 dark:bg-custom-303134 cursor-pointer dark:text-white dark:border-white">
+                <input value="{{__('profile.save')}}" data-modal-hide="third-modal" type="submit" class="py-2.5 px-5 font-medium rounded text-hover bgC1CFFF bg-slate-900 dark:bg-custom-303134 cursor-pointer dark:text-white dark:border-white">
                 <button data-modal-hide="third-modal" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none dark:bg-custom-2d2f37 dark:border-transparent dark:text-white bg-white rounded-lg border text-hover">{{__('profile.cancel')}}</button>
             </div>
 
