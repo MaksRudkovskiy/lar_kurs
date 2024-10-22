@@ -27,6 +27,17 @@ class TransactionController extends Controller
         return redirect()->back()->with('transactions', $transaction);
     }
 
+    public function category(Request $request)
+    {
+        CustomCategories::create([
+            'user_id' => Auth::user()->id,
+            'custom_category_name' => $request->custom_category_name,
+            'icon' => $request->icon,
+        ]);
+
+        return redirect()->back();
+    }
+
     public function edit($id)
     {
         $hui = Transaction::findOrFail($id);
@@ -50,19 +61,6 @@ class TransactionController extends Controller
         return redirect()->back();
     }
     // Данная функция transactions нужна для создания транзакции и занесения её в базу данных, откуда она будет выводиться в представление
-
-    public function category(Request $request)
-    {
-        CustomCategories::create([
-            'user_id' => Auth::user()->id,
-            'custom_category_name' => $request->custom_category_name,
-            'icon' => $request->icon,
-        ]);
-
-        $transaction = Transaction::where('user_id', Auth::id())->get();
-
-        return redirect()->back();
-    }
 
     public function filter(Request $request)
     {

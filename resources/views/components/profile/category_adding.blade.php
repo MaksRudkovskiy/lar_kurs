@@ -1,23 +1,45 @@
-<div class="max-w-9xl">
-    <div class="bg-white dark:bg-custom-202124 overflow-hidden shadow-sm sm:rounded-lg">
-        <div class="text-gray-900">
-            <h1 class="mb-3 font-semibold text-lg dark:text-white block">{{__('profile.custom_categories')}}</h1>
-            <button type="button" data-modal-target="default-modal" data-modal-toggle="default-modal"
-                class="dark:text-white block bg-custom-EDF1FF dark:bg-custom-303134 px-4 py-2 rounded text-hover dark:hover:text-custom-4D52BC  ">
-                {{__('profile.add_cat')}}
-            </button>
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
+<div class="flex">
+
+    <div class="max-w-9xl">
+        <div class="bg-white dark:bg-custom-202124 overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="text-gray-900">
+                <h1 class="mb-3 font-semibold text-lg dark:text-white block">{{__('profile.custom_categories')}}</h1>
+                <button type="button" data-modal-target="default-modal" data-modal-toggle="default-modal"
+                    class="dark:text-white block bg-custom-EDF1FF dark:bg-custom-303134 px-4 py-2 rounded text-hover dark:hover:text-custom-4D52BC  ">
+                    {{__('profile.add_cat')}}
+                </button>
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+            </div>
         </div>
     </div>
+
+    <div class="custom_categories_table min-w-96">
+
+        <ul class="flex justify-between">
+
+            @foreach($custom_categories as $custom_category)
+
+                
+
+            @endforeach
+
+        </ul>    
+    
+
+    </div>
+
 </div>
+
+
+
 {{-- Модальное окно --}}
 <div id="default-modal" tabindex="-1" aria-hidden="true"
     class="hidden overflow-y-auto bg-dark overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0">

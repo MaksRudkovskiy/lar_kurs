@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\{User, Transaction, Category};
+use App\Models\{User, Transaction, Category, CustomCategories};
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Redirect;
 use Auth;
@@ -14,6 +14,8 @@ class PersonalisationController extends Controller
     {
         $user = Auth::user();
 
-        return view("profile_personalisation", compact('user'));
+        $custom_categories = CustomCategories::all();
+
+        return view("profile_personalisation", ['user' => $user, 'custom_categories' => $custom_categories]);
     }
 }
