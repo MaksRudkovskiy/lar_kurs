@@ -16,6 +16,8 @@ class PersonalisationController extends Controller
 
         $custom_categories = CustomCategories::all();
 
-        return view("profile_personalisation", ['user' => $user, 'custom_categories' => $custom_categories]);
+        $custom_cat_count = CustomCategories::where('user_id', $user->user_id)->count();
+
+        return view("profile_personalisation", ['user' => $user, 'custom_categories' => $custom_categories, 'custom_cat_count' => $custom_cat_count]);
     }
 }

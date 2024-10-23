@@ -1,6 +1,6 @@
-<div class="flex">
+<div class="flex w-full">
 
-    <div class="max-w-9xl">
+    <div class="">
         <div class="bg-white dark:bg-custom-202124 overflow-hidden shadow-sm sm:rounded-lg">
             <div class="text-gray-900">
                 <h1 class="mb-3 font-semibold text-lg dark:text-white block">{{__('profile.custom_categories')}}</h1>
@@ -8,31 +8,49 @@
                     class="dark:text-white block bg-custom-EDF1FF dark:bg-custom-303134 px-4 py-2 rounded text-hover dark:hover:text-custom-4D52BC  ">
                     {{__('profile.add_cat')}}
                 </button>
+
+                <p class="text-white">Категорий {{$custom_cat_count}} из 12</p>
+
                 @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
                 @endif
             </div>
         </div>
     </div>
 
-    <div class="custom_categories_table min-w-96">
+    <div class="custom_categories_table min-w-96 w-1/3">
 
-        <ul class="flex justify-between">
-
-            @foreach($custom_categories as $custom_category)
-
-                
-
-            @endforeach
-
-        </ul>    
-    
+        <table class="w-full ml-8">
+            <thead class="text-white dark:bg-custom-171717">
+                <tr class="flex py-3">
+                    <th class="w-1/3">Категория</th>
+                    <th class="w-1/3">Иконка</th>
+                    <th class="w-1/3">Действия</th>
+                </tr>
+            </thead>
+            <tbody class="text-white">
+                @foreach($custom_categories as $custom_category)
+                <tr class="flex py-3">
+                    <td class="w-1/3 text-center">{{ $custom_category->custom_category_name }}</td>
+                    <td class="w-1/3 text-center">
+                        <svg class="max-w-8 max-h-8 block mx-auto" title="">
+                            {!! $custom_category->icon !!}
+                        </svg>
+                    </td>
+                    <td class="w-1/3 text-center">
+                        <a class="block dark:hidden mx-auto cursor-pointer" title="{{__('profile.delete')}}" href="{{route('DeleteCategory', ['id'=>$custom_category->id])}}"><img src="content/img/delete.svg" class="block mx-auto" alt=""></a>
+                        <a class="hidden dark:block mx-auto cursor-pointer" title="{{__('profile.delete')}}" href="{{route('DeleteCategory', ['id'=>$custom_category->id])}}"><img src="content/img-dark/delete.svg" class="block mx-auto" alt=""></a>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
 
     </div>
 
@@ -69,21 +87,22 @@
                     enctype="multipart/form-data">
                     @csrf
 
-                    <div class="amount">    
+                    <div class="amount">
                         <h2>{{__('profile.category_name')}}</h2>
 
                         <input type="text" required name="custom_category_name" class="block h-8 border-black border-1 py-1 px-2 rounded dark:bg-custom-202124 dark:text-white dark:border-white">
 
                     </div>
-                   
+
                     <div class="relative z-0 w-full my-5">
                         <label class="" for="photo">Выберите файл</label>
+                        <p class="text-xs">Максимальный размер 64x64</p>
                         <input
                             class="block w-full text-sm dark:text-white rounded-lg cursor-pointer"
                             aria-describedby="photo" name="icon" id="photo" type="file" required>
                     </div>
 
-                    <hr>                    
+                    <hr>
 
                     <div class="flex items-center py-4 border-gray-200 rounded-b">
                         <input value="{{__('profile.add')}}" data-modal-hide="default-modal" type="submit" class="py-2.5 px-5 font-medium rounded text-hover bgC1CFFF bg-slate-900 dark:bg-custom-303134 cursor-pointer dark:text-white dark:border-white">
