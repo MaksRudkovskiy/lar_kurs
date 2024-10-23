@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\{User, Transaction, Category};
+use App\Models\{User, Transaction, Category, CustomCategories};
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Carbon\Carbon;
@@ -31,7 +31,14 @@ class HomeController extends Controller
         });
         $totalIncome = $transactions->flatten()->where('type_id', '2')->sum('amount');
         $totalExpense = $transactions->flatten()->where('type_id', '1')->sum('amount');
-        return view('profile', ['transactions' => $transactions, 'totalIncome' => $totalIncome, 'totalExpense' => $totalExpense, 'monthlyData' => $monthlyData]);
+
+        $user = Auth::user();
+
+        $customCat = CustomCategories::all();
+
+
+        return view('profile', ['transactions' => $transactions, 'totalIncome' => $totalIncome, 'totalExpense' => $totalExpense,
+        'monthlyData' => $monthlyData, 'user' => $user, 'customCat' => $customCat]);
     }
     // Данная функция index в этом контроллере нужна для передачи класса транзакции в переменную, к которой потом можно будет обращаться в представлении profile и выводить определённые данные из таблицы
     // Переменные $totalIncome и $totalExpense нужны для подсчёта общих расходов и доходов определённого пользователя.

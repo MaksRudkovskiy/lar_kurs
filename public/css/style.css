@@ -191,6 +191,10 @@ select:focus
 {
     min-width: 500px;
 }
+.min-w-600
+{
+    min-width: 600px;
+}
 
 input
 {
@@ -282,6 +286,10 @@ input
 .min-w-460
 {
     min-width: 440px;
+}
+.min-w-700
+{
+    min-width: 700px;
 }
 
 .max-w-460
