@@ -32,6 +32,52 @@
 
             </div>
 
+            @php
+            $categoryNames = [
+                1 => __('profile.transport'),
+                2 => __('profile.groceries'),
+                3 => __('profile.health'),
+                4 => __('profile.transfer'),
+                5 => __('profile.games'),
+                6 => __('profile.entertainment'),
+                7 => __('profile.taxi'),
+                8 => __('profile.sport'),
+                9 => __('profile.beauty'),
+                10 => __('profile.fuel'),
+                11 => __('profile.house'),
+                12 => __('profile.other'),
+            ];
+
+            $categoryIconsLight = [
+                1 => asset('content/img/bus.svg'),
+                2 => asset('content/img/cart.svg'),
+                3 => asset('content/img/health.svg'),
+                4 => asset('content/img/transaction.svg'),
+                5 => asset('content/img/gamepad.svg'),
+                6 => asset('content/img/entertainment.svg'),
+                7 => asset('content/img/taxi.svg'),
+                8 => asset('content/img/sport.svg'),
+                9 => asset('content/img/beauty.svg'),
+                10 => asset('content/img/fuel.svg'),
+                11 => asset('content/img/house.svg'),
+                12 => asset('content/img/other.svg'),
+            ];
+
+            $categoryIconsDark = [
+                1 => asset('content/img-dark/bus.svg'),
+                2 => asset('content/img-dark/cart.svg'),
+                3 => asset('content/img-dark/health.svg'),
+                4 => asset('content/img-dark/transaction.svg'),
+                5 => asset('content/img-dark/gamepad.svg'),
+                6 => asset('content/img-dark/entertainment.svg'),
+                7 => asset('content/img-dark/taxi.svg'),
+                8 => asset('content/img-dark/sport.svg'),
+                9 => asset('content/img-dark/beauty.svg'),
+                10 => asset('content/img-dark/fuel.svg'),
+                11 => asset('content/img-dark/house.svg'),
+                12 => asset('content/img-dark/other.svg'),
+            ];
+            @endphp
 
             @include('components.profile.profile_modal_transaction_add')
             <!-- Подключение компонента модального окна библиотеки flowbite для добавления транзакции -->

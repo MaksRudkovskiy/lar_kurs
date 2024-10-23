@@ -1,4 +1,4 @@
-<div class="flex w-full">
+<div class="flex w-full gap-x-8">
 
     <div>
         <div class="bg-white dark:bg-custom-202124 overflow-hidden shadow-sm sm:rounded-lg">
@@ -31,40 +31,40 @@
             </div>
         </div>
     </div>
-
+    @if($custom_cat_count == 0)
+    @else
     <div class="custom_categories_table max-h-80 overflow-x-hidden scrollbar scrollbar-thumb-custom-EDF1FF overflow-y-auto">
-
-    <table class="w-full ml-8 min-w-600">
-        <thead class="text-white dark:bg-custom-171717">
-            <tr class="flex">
-                <th class="w-1/3 px-4 py-4 text-center">Категория</th>
-                <th class="w-1/3 px-4 py-4 text-center">Иконка</th>
-                <th class="w-1/3 px-4 py-4 text-center">Действия</th>
-            </tr>
-        </thead>
-        <tbody class="text-white">
-            @foreach($custom_categories as $custom_category)
-            <tr class="flex">
-                <td class="w-1/3 px-4 py-4 text-center">{{ $custom_category->custom_category_name }}</td>
-                <td class="w-1/3 px-4 py-4 text-center">
-                    <svg class="max-w-8 max-h-8 block mx-auto" title="">
-                        {!! $custom_category->icon !!}
-                    </svg>
-                </td>
-                <td class="w-1/3 px-4 py-4 text-center">
-                    <a class="block dark:hidden mx-auto cursor-pointer" title="{{__('profile.delete')}}" href="{{route('DeleteCategory', ['id'=>$custom_category->id])}}">
-                        <img src="content/img/delete.svg" class="block mx-auto" alt="">
-                    </a>
-                    <a class="hidden dark:block mx-auto cursor-pointer" title="{{__('profile.delete')}}" href="{{route('DeleteCategory', ['id'=>$custom_category->id])}}">
-                        <img src="content/img-dark/delete.svg" class="block mx-auto" alt="">
-                    </a>
-                </td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
-
+        <table class="w-full ml-8 min-w-600">
+            <thead class="text-white dark:bg-custom-171717">
+                <tr class="flex">
+                    <th class="w-1/3 px-4 py-4 text-center">Категория</th>
+                    <th class="w-1/3 px-4 py-4 text-center">Иконка</th>
+                    <th class="w-1/3 px-4 py-4 text-center">Действия</th>
+                </tr>
+            </thead>
+            <tbody class="text-white">
+                @foreach($custom_categories as $custom_category)
+                <tr class="flex">
+                    <td class="w-1/3 px-4 py-4 text-center">{{ $custom_category->custom_category_name }}</td>
+                    <td class="w-1/3 px-4 py-4 text-center">
+                        <svg class="max-w-8 max-h-8 block mx-auto" title="">
+                            {!! $custom_category->icon !!}
+                        </svg>
+                    </td>
+                    <td class="w-1/3 px-4 py-4 text-center">
+                        <a class="block dark:hidden mx-auto cursor-pointer" title="{{__('profile.delete')}}" href="{{route('DeleteCategory', ['id'=>$custom_category->id])}}">
+                            <img src="content/img/delete.svg" class="block mx-auto" alt="">
+                        </a>
+                        <a class="hidden dark:block mx-auto cursor-pointer" title="{{__('profile.delete')}}" href="{{route('DeleteCategory', ['id'=>$custom_category->id])}}">
+                            <img src="content/img-dark/delete.svg" class="block mx-auto" alt="">
+                        </a>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
     </div>
+    @endif
 
 </div>
 

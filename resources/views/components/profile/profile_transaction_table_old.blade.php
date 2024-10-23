@@ -23,61 +23,13 @@
             <tr class="border-b-2">
                 <td>
                     <img class="mx-auto dark:hidden dark:text-white block text-center w-8 h-8"
-                        title="@if ($transaction->category_id == 1) {{__('profile.transport')}}
-                                @elseif($transaction->category_id == 2) {{__('profile.groceries')}} 
-                                @elseif($transaction->category_id == 3) {{__('profile.health')}} 
-                                @elseif($transaction->category_id == 4) {{__('profile.transfer')}} 
-                                @elseif($transaction->category_id == 5) {{__('profile.games')}} 
-                                @elseif($transaction->category_id == 6) {{__('profile.entertainment')}} 
-                                @elseif($transaction->category_id == 7) {{__('profile.taxi')}} 
-                                @elseif($transaction->category_id == 8) {{__('profile.sport')}} 
-                                @elseif($transaction->category_id == 9) {{__('profile.beauty')}} 
-                                @elseif($transaction->category_id == 10) {{__('profile.fuel')}} 
-                                @elseif($transaction->category_id == 11) {{__('profile.house')}} 
-                                @elseif($transaction->category_id == 12) {{__('profile.other')}} 
-                                @endif"
-                        src="@if ($transaction->category_id == 1) {{ asset('content/img/bus.svg') }} 
-                                @elseif($transaction->category_id == 2) {{ asset('content/img/cart.svg') }} 
-                                @elseif($transaction->category_id == 3) {{ asset('content/img/health.svg') }} 
-                                @elseif($transaction->category_id == 4) {{ asset('content/img/transaction.svg') }} 
-                                @elseif($transaction->category_id == 5) {{ asset('content/img/gamepad.svg') }} 
-                                @elseif($transaction->category_id == 6) {{ asset('content/img/entertainment.svg') }} 
-                                @elseif($transaction->category_id == 7) {{ asset('content/img/taxi.svg') }} 
-                                @elseif($transaction->category_id == 8) {{ asset('content/img/sport.svg') }} 
-                                @elseif($transaction->category_id == 9) {{ asset('content/img/beauty.svg') }} 
-                                @elseif($transaction->category_id == 10) {{ asset('content/img/fuel.svg') }} 
-                                @elseif($transaction->category_id == 11) {{ asset('content/img/house.svg') }} 
-                                @elseif($transaction->category_id == 12) {{ asset('content/img/other.svg') }} 
-                                @endif"
+                        title="{{ $categoryNames[$transaction->category_id] }}"
+                        src="{{ $categoryIconsLight[$transaction->category_id] }}"
                         alt="">
-                    <img class="mx-auto hidden dark:text-white dark:block text-center w-8 h-8"
-                        title="@if ($transaction->category_id == 1) {{__('profile.transport')}}
-                                @elseif($transaction->category_id == 2) {{__('profile.groceries')}} 
-                                @elseif($transaction->category_id == 3) {{__('profile.health')}} 
-                                @elseif($transaction->category_id == 4) {{__('profile.transfer')}} 
-                                @elseif($transaction->category_id == 5) {{__('profile.games')}} 
-                                @elseif($transaction->category_id == 6) {{__('profile.entertainment')}} 
-                                @elseif($transaction->category_id == 7) {{__('profile.taxi')}} 
-                                @elseif($transaction->category_id == 8) {{__('profile.sport')}} 
-                                @elseif($transaction->category_id == 9) {{__('profile.beauty')}} 
-                                @elseif($transaction->category_id == 10) {{__('profile.fuel')}} 
-                                @elseif($transaction->category_id == 11) {{__('profile.house')}} 
-                                @elseif($transaction->category_id == 12) {{__('profile.other')}} 
-                                @endif"
-                        src="@if ($transaction->category_id == 1) {{ asset('content/img-dark/bus.svg') }}
-                                @elseif($transaction->category_id == 2) {{ asset('content/img-dark/cart.svg') }} 
-                                @elseif($transaction->category_id == 3) {{ asset('content/img-dark/health.svg') }} 
-                                @elseif($transaction->category_id == 4) {{ asset('content/img-dark/transaction.svg') }} 
-                                @elseif($transaction->category_id == 5) {{ asset('content/img-dark/gamepad.svg') }} 
-                                @elseif($transaction->category_id == 6) {{ asset('content/img-dark/entertainment.svg') }} 
-                                @elseif($transaction->category_id == 7) {{ asset('content/img-dark/taxi.svg') }} 
-                                @elseif($transaction->category_id == 8) {{ asset('content/img-dark/sport.svg') }} 
-                                @elseif($transaction->category_id == 9) {{ asset('content/img-dark/beauty.svg') }} 
-                                @elseif($transaction->category_id == 10) {{ asset('content/img-dark/fuel.svg') }} 
-                                @elseif($transaction->category_id == 11) {{ asset('content/img-dark/house.svg') }} 
-                                @elseif($transaction->category_id == 12) {{ asset('content/img-dark/other.svg') }} 
-                                @endif"
 
+                    <img class="mx-auto hidden dark:text-white dark:block text-center w-8 h-8"
+                        title="{{ $categoryNames[$transaction->category_id] }}"
+                        src="{{ $categoryIconsDark[$transaction->category_id] }}"
                         alt="">
                 </td>
                 <td class="px-10 py-4">
