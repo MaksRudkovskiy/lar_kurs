@@ -8,6 +8,7 @@ use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PersonalisationController;
 use App\Http\Controllers\AuthenticatedSessionController;
+use App\Http\Controllers\ExportController;
 
 Route::middleware(['set.table', 'set.lang'])->group(function () {
 
@@ -21,6 +22,8 @@ Route::middleware(['set.table', 'set.lang'])->group(function () {
     Route::get('/profile_personalisation/delete_category/{id}', [TransactionController::class, 'DeleteCategory'])->name('DeleteCategory');
 
     Route::get('/profile/transactionSum', [TransactionController::class, 'transactionTotalAmount'])->name('amoutCount');
+
+    Route::get('/export/word', [ExportController::class, 'exportWord'])->name('export.word');
 
     Route::get('/profile', [HomeController::class, 'index'])->name('profile');
     Route::get('/profile_settings', [HomeController::class, 'index2'])->name('profile_settings');
