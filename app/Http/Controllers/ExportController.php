@@ -45,6 +45,7 @@ class ExportController extends Controller
         foreach ($monthlyData as $monthData) {
             $section->addTextBreak();
             $section->addText($monthData['month'], ['size' => 14, 'bold' => true]);
+
             $section->addText('Общий расход: ' . $monthData['totalExpense']);
 
             // Преобразуем текстовый месяц в числовой формат
@@ -52,8 +53,10 @@ class ExportController extends Controller
 
             if (isset($transactions[$monthKey])) {
                 foreach ($transactions[$monthKey] as $transaction) {
-                    // Проверка на null перед доступом к свойству category
-                    $categoryName = $transaction->category ? $transaction->category->category : 'Без категории';
+                    // Преобразуем ID категории в текстовое название
+                    $categoryName = $this->getCategoryName($transaction->category_id);
+                    
+                    $section->addText('                             ');
 
                     $section->addText('Категория: ' . $categoryName);
                     $section->addText('Сумма: ' . $transaction->amount);
@@ -115,5 +118,25 @@ class ExportController extends Controller
 
         // Возвращаем ключ в формате "Y-m"
         return $year . '-' . $monthNumber;
+    }
+
+    private function getCategoryName($categoryId)
+    {
+        $categories = [
+            1 => __('profile.transport'),
+            2 => __('profile.groceries'),
+            3 => __('profile.health'),
+            4 => __('profile.transfer'),
+            5 => __('profile.games'),
+            6 => __('profile.entertainment'),
+            7 => __('profile.taxi'),
+            8 => __('profile.sport'),
+            9 => __('profile.beauty'),
+            10 => __('profile.fuel'),
+            11 => __('profile.house'),
+            12 => __('profile.other'),
+        ];
+
+        return $categories[$categoryId] ?? 'Без категории';
     }
 }
