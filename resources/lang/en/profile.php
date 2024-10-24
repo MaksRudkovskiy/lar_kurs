@@ -70,6 +70,8 @@ return [
     'add_report' => 'Add some transactions for reports to show up!',
     'add_cat' => 'Add category',
     'category_name' => 'Category name',
+    'edit' => 'Edit',
+    'get_pro' => 'Get pro',
 
 ]; 
 

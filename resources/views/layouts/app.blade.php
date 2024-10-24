@@ -28,7 +28,7 @@
 @include('components.header')
 <!-- Подключение компонента шапки сайта -->
 
-<main>
+<main class="">
 
     @yield('content')
 

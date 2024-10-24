@@ -1,7 +1,13 @@
-<div class="w-full h-full block p-10">
-    <h1 class="text-xl dark:text-white">
-        {{__('profile.report_trans')}}
-    </h1>
+<div class="w-full h-full block p-10 dark:text-white">
+    <div class="flex items-center justify-between">
+        <h1 class="text-xl dark:text-white">
+            {{__('profile.report_trans')}}
+        </h1>
+
+        <button>
+            Скачать отчёт
+        </button>
+    </div>
 
         <div class="reports-block overflow-y-auto max-h-790 scrollbar scrollbar-thumb-custom-EDF1FF flex flex-wrap gap-y-12 items-center mt-3 justify-around w-full">
             @if($monthlyData == null || count($monthlyData) === 0)

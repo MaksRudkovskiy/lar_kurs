@@ -15,6 +15,7 @@ Route::middleware(['set.table', 'set.lang'])->group(function () {
     Route::post('/set-type', [LanguageController::class, 'setType'])->name('set-type');
 
     Route::get('/', [MainController::class, 'index'])->name('index');
+    Route::get('/get_pro', [MainController::class, 'index4'])->name('get_pro');
 
     Route::get('/profile/delete_transaction/{id}', [HomeController::class, 'delete_transaction'])->name('DeleteTransaction');
     Route::get('/profile_personalisation/delete_category/{id}', [TransactionController::class, 'DeleteCategory'])->name('DeleteCategory');
@@ -41,6 +42,8 @@ Route::middleware(['set.table', 'set.lang'])->group(function () {
 
     Route::get('login/yandex', [AuthenticatedSessionController::class, 'yandex'])->name('yandex');
     Route::get('login/yandex/redirect', [AuthenticatedSessionController::class, 'yandexRedirect'])->name('yandexRedirect');
+
+
 
     Auth::routes();
 });

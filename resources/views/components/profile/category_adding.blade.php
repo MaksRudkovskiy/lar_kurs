@@ -6,7 +6,7 @@
                 <h1 class="mb-3 font-semibold text-lg dark:text-white block">{{__('profile.custom_categories')}}</h1>
                 @if($custom_cat_count >= 12)
                     <div
-                        class="dark:text-white block max-w-48 bg-custom-EDF1FF dark:bg-custom-303134 px-4 py-2 rounded">
+                        class="dark:text-white block max-w-48 bg-custom-EDF1FF cursor-default dark:bg-custom-303134 px-4 py-2 rounded">
                         {{__('profile.add_cat')}}
                     </div>
                 @else
@@ -17,7 +17,7 @@
                 @endif
                 
 
-                <p class="text-white">Категорий {{$custom_cat_count}} из 12</p>
+                <p class="dark:text-white">Категорий {{$custom_cat_count}} из 12</p>
 
                 @if ($errors->any())
                 <div class="alert alert-danger">
@@ -33,18 +33,18 @@
     </div>
     @if($custom_cat_count == 0)
     @else
-    <div class="custom_categories_table max-h-80 overflow-x-hidden scrollbar scrollbar-thumb-custom-EDF1FF overflow-y-auto">
-        <table class="w-full ml-8 min-w-600">
-            <thead class="text-white dark:bg-custom-171717">
+    <div class="custom_categories_table max-h-80 overflow-x-hidden scrollbar min-w-600 scrollbar-thumb-custom-EDF1FF overflow-y-auto">
+        <table class="w-full">
+            <thead class="dark:text-white bg-custom-C1CFFF  dark:bg-custom-171717">
                 <tr class="flex">
                     <th class="w-1/3 px-4 py-4 text-center">Категория</th>
                     <th class="w-1/3 px-4 py-4 text-center">Иконка</th>
                     <th class="w-1/3 px-4 py-4 text-center">Действия</th>
                 </tr>
             </thead>
-            <tbody class="text-white">
+            <tbody class="dark:text-white">
                 @foreach($custom_categories as $custom_category)
-                <tr class="flex">
+                <tr class="flex border-b-custom-4D52BC">
                     <td class="w-1/3 px-4 py-4 text-center">{{ $custom_category->custom_category_name }}</td>
                     <td class="w-1/3 px-4 py-4 text-center">
                         <svg class="max-w-8 max-h-8 block mx-auto" title="">

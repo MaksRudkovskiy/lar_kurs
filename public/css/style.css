@@ -200,13 +200,14 @@ input
 {
     background: transparent;
 }
+.wrap
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 78vh;
+}
 
-.overflow-x-hidden {
-    overflow-x: hidden;
-}
-.overflow-y-auto {
-    overflow-y: auto;
-}
 .justify-center {
     justify-content: center;
 }
@@ -351,6 +352,11 @@ input
 .overflow-descision
 {
     overflow: hidden;
+}
+
+.h-800
+{
+    height: 800px;
 }
 
 

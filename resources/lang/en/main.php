@@ -36,7 +36,8 @@ return [
     'content' => 'content to your contacts, and your name is needed for display on the site and for contacting you',   
     'user' => 'User ',   
     'login' => 'Login',   
-    'register' => 'Register',   
+    'register' => 'Register',
+    'get_pro' => 'Get Pro',   
 ];
 
 ?>
