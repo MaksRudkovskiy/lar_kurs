@@ -2,12 +2,12 @@
     <table id="transactionTable" class="w-full h-full">
         <thead class="dark:bg-custom-171717 bg-custom-EDF1FF dark:text-white sticky top-0 z-10">
             <tr>
-                <th class="px-10 py-5 text-lg font-medium">Категория</th>
-                <th class="px-10 py-5 text-lg font-medium">Дата</th>
-                <th class="px-10 py-5 text-lg font-medium">Счёт</th>
-                <th class="px-10 py-5 text-lg font-medium">Тип</th>
-                <th class="px-10 py-5 text-lg font-medium">Сумма</th>
-                <th class="px-10 py-5 text-lg font-medium">Действия</th>
+                <th class="px-10 py-5 text-lg font-medium">{{__('profile.category')}}</th>
+                <th class="px-10 py-5 text-lg font-medium">{{__('profile.date')}}</th>
+                <th class="px-10 py-5 text-lg font-medium">{{__('profile.source')}}</th>
+                <th class="px-10 py-5 text-lg font-medium">{{__('profile.type')}}</th>
+                <th class="px-10 py-5 text-lg font-medium">{{__('profile.amount')}}</th>
+                <th class="px-10 py-5 text-lg font-medium">{{__('profile.actions')}}</th>
             </tr>
         </thead>
         <tbody class="dark:text-white">
@@ -55,7 +55,7 @@
                         alt="">
                 </td>
                 <td class="px-10 py-4">
-                    <h2 class="mx-auto block text-center">{{$transaction ->amount}} руб.</h2>
+                    <h2 class="mx-auto block text-center">{{$transaction ->amount}} {{__('profile.rub')}}</h2>
                 </td>
 
                 <td class="px-10 py-4 flex ml-auto">

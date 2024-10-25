@@ -17,7 +17,7 @@
                 @endif
                 
 
-                <p class="dark:text-white">Категорий {{$custom_cat_count}} из 12</p>
+                <p class="dark:text-white">{{__('profile.categories')}} {{$custom_cat_count}} {{__('profile.of')}} 12</p>
 
                 @if ($errors->any())
                 <div class="alert alert-danger">
@@ -37,9 +37,9 @@
         <table class="w-full">
             <thead class="dark:text-white bg-custom-C1CFFF  dark:bg-custom-171717">
                 <tr class="flex">
-                    <th class="w-1/3 px-4 py-4 text-center">Категория</th>
-                    <th class="w-1/3 px-4 py-4 text-center">Иконка</th>
-                    <th class="w-1/3 px-4 py-4 text-center">Действия</th>
+                    <th class="w-1/3 px-4 py-4 text-center">{{__('profile.category')}}</th>
+                    <th class="w-1/3 px-4 py-4 text-center">{{__('profile.icon')}}</th>
+                    <th class="w-1/3 px-4 py-4 text-center">{{__('profile.actions')}}</th>
                 </tr>
             </thead>
             <tbody class="dark:text-white">
@@ -107,8 +107,8 @@
                     </div>
 
                     <div class="relative z-0 w-full my-5">
-                        <label class="" for="photo">Выберите файл</label>
-                        <p class="text-xs">Максимальный размер 64x64</p>
+                        <label class="" for="photo">{{__('profile.choose_file')}}</label>
+                        <p class="text-xs">{{__('profile.max_size')}}</p>
                         <input
                             class="block w-full text-sm dark:text-white rounded-lg cursor-pointer"
                             aria-describedby="photo" name="icon" id="photo" type="file" required>

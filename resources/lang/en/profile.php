@@ -72,6 +72,12 @@ return [
     'category_name' => 'Category name',
     'edit' => 'Edit',
     'get_pro' => 'Get pro',
+    'date' => 'Date',
+    'icon' => 'Icon',
+    'categories' => 'Categories',
+    'choose_file' => 'Choose file',
+    'max_size' => 'Max file size 32x32',
+    'of' => 'of',
 
 ]; 
 
