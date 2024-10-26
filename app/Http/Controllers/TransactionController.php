@@ -12,6 +12,14 @@ use DOMDocument;
 class TransactionController extends Controller
 {
     public function transactions(Request $request) {
+        $request->validate([
+            'category' => 'required|integer',
+            'date' => 'required|date',
+            'source' => 'nullable|integer',
+            'type' => 'required|integer',
+            'amount' => 'required|integer',
+        ]);
+
         Transaction::create([
             'user_id' => Auth::user()->id,
             'category_id' => $request->category,
@@ -21,10 +29,8 @@ class TransactionController extends Controller
             'amount' => $request->amount,
         ]);
     
-        // Получение транзакций
-        
         $transaction = Transaction::where('user_id', Auth::id())->get();
-        // dd($request);
+    
         return redirect()->back()->with('transactions', $transaction);
     }
 
