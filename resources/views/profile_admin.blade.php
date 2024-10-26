@@ -11,16 +11,6 @@
 
         @include('components.admin.users_table')
 
-        <script>
-            function submitForm() {
-                const form = document.querySelector('form');
-                const genresInput = document.querySelector('input[name="genres"]');
-                const genresArray = genresInput.value.split(',');
-                genresInput.value = JSON.stringify(genresArray);
-                form.submit();
-            }
-        </script>
-
     </div>
 
 @endsection

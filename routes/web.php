@@ -32,6 +32,7 @@ Route::middleware(['set.table', 'set.lang'])->group(function () {
     Route::get('/admin', [AdminController::class, 'admin'])->name('profile_admin');
     Route::put('/users/{id}/role', [AdminController::class, 'privelegeUser'])->name('users.privelege');
     Route::get('/users/{id}/details', [AdminController::class, 'showUserDetails'])->name('users.details');
+    Route::get('/admin/search', [AdminController::class, 'search'])->name('admin.search');
 
     Route::get('/profile/{id}/edit', [TransactionController::class, 'edit'])->name('transactions.edit');
     Route::put('/profile/{id}', [TransactionController::class, 'update'])->name('transactions.update');

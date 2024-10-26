@@ -3,6 +3,14 @@
         <h1 class="text-3xl font-bold text-gray-900 dark:text-white">Пользователи</h1>
     </div>
 
+    <!-- Строка поиска -->
+    <div class="mb-4 dark:text-white">
+        <form action="{{ route('admin.search') }}" method="GET" class="flex items-center">
+            <input type="text" name="search" class="border border-gray-300 rounded-l px-4 py-2 w-full" placeholder="Поиск по имени, фамилии, email или телефону">
+            <button type="submit" class="bg-blue-500 text-white rounded-r px-4 py-2">Поиск</button>
+        </form>
+    </div>
+
     <!-- Отображение сообщения об успешном блокировании пользователя -->
     @if(session('success'))
         <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">

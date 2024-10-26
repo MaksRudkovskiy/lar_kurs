@@ -41,4 +41,18 @@ class AdminController extends Controller
 
         return redirect()->route('profile_admin')->with('success', 'Роль пользователя успешно изменена');
     }
+
+    public function search(Request $request)
+    {
+        $search = $request->input('search');
+
+        $users = User::where('name', 'like', '%' . $search . '%')
+                    ->orWhere('surname', 'like', '%' . $search . '%')
+                    ->orWhere('email', 'like', '%' . $search . '%')
+                    ->orWhere('phone', 'like', '%' . $search . '%')
+                    ->withCount('transactions')
+                    ->get();
+
+        return view('profile_admin', compact('users'));
+    }
 }
