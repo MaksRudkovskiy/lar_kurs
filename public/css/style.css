@@ -336,6 +336,11 @@ input
 }
 
 
+.max-h-800
+{
+    max-height: 800px;
+}
+
 .max-w-1220
 {
     max-width: 1220px;
