@@ -78,6 +78,7 @@ return [
     'choose_file' => 'Choose file',
     'max_size' => 'Max file size 32x32',
     'of' => 'of',
+    'r' => 'r.',
 
 ]; 
 

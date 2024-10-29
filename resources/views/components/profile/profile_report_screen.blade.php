@@ -23,7 +23,7 @@
                                 <div class="flex items-center gap-3 mt-3">
                                     <img src="{{ asset("content/img/{$icons[$categoryId]}") }}" alt="" class="w-8 dark:hidden">
                                     <img src="{{ asset("content/img-dark/{$icons[$categoryId]}") }}" alt="" class="w-8 hidden dark:block">
-                                    <p> {{ $sum }} {{__('profile.rub')}}</p>
+                                    <p> {{ $sum }} {{__('profile.r')}}</p>
                                 </div>
                             @endforeach
                         </div>
