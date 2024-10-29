@@ -17,28 +17,31 @@ class HomeController extends Controller
         if (!Auth::check()) {
             return Redirect::route('login');
         }
-
-        // $edit = $this->edit();
-        // $update = $this->update();
-
+    
         $monthlyData = $this->getMonthlyData();
-        $transactions = Transaction::where('user_id', Auth::user()->id)
-        ->orderBy('date', 'desc') 
-        ->get()
-        ->groupBy(function ($transaction) {
-            $date = Carbon::parse($transaction->date);
-            return $date->translatedFormat('d M. Y');
+        $paginator = Transaction::where('user_id', Auth::user()->id)
+            ->orderBy('date', 'desc')
+            ->paginate(30);
+    
+        $transactions = $paginator->groupBy(function ($transaction) {
+            return Carbon::parse($transaction->date)->translatedFormat('d M. Y');
         });
+    
         $totalIncome = $transactions->flatten()->where('type_id', '2')->sum('amount');
         $totalExpense = $transactions->flatten()->where('type_id', '1')->sum('amount');
-
+    
         $user = Auth::user();
-
         $customCat = CustomCategories::all();
-
-
-        return view('profile', ['transactions' => $transactions, 'totalIncome' => $totalIncome, 'totalExpense' => $totalExpense,
-        'monthlyData' => $monthlyData, 'user' => $user, 'customCat' => $customCat]);
+    
+        return view('profile', [
+            'transactions' => $transactions,
+            'totalIncome' => $totalIncome,
+            'totalExpense' => $totalExpense,
+            'monthlyData' => $monthlyData,
+            'user' => $user,
+            'customCat' => $customCat,
+            'paginator' => $paginator,
+        ]);
     }
     // Данная функция index в этом контроллере нужна для передачи класса транзакции в переменную, к которой потом можно будет обращаться в представлении profile и выводить определённые данные из таблицы
     // Переменные $totalIncome и $totalExpense нужны для подсчёта общих расходов и доходов определённого пользователя.
