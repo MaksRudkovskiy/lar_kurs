@@ -1,9 +1,62 @@
 <div class="w-full">
-<form method="POST" action="{{ route('edit_info') }}"  class="profile-wrapper max-w-1516 h532 px-28 pt-28 pb-14 mx-auto mt-28 cEDF1FF dark:bg-custom-171717">
-    @csrf
-    <div class="flex justify-between flex-wrap">
-        <div class="profile-side dark:hidden">
 
+<form method="POST" action="{{ route('edit_info') }}"  class="profile-wrapper max-w-1516 h532 px-28 pt-28 pb-14 mx-auto mt-28 cEDF1FF dark:bg-custom-171717">
+@if(Auth::user()->role=='admin')
+<div class="flex justify-between flex-wrap">
+    @csrf
+    <div class="profile-side dark:hidden">
+
+        <img src="content/img/profile_pic.png" alt="">
+
+    </div>
+
+    <div class="input-side flex flex-wrap dark:mx-auto">
+
+        <div class="left-flex ml-32 dark:ml-0 flex flex-col justify-between flex-wrap dark:text-white">
+
+            <div class="h-14">
+                <label for="" class="c4D52BC text-xs">{{__('profile.surname')}}:</label>
+                <div class="uniq-input block text-2xl">{{$user->surname}}</div>
+            </div>
+
+            <div class="h-14">
+                <label for="" class="c4D52BC text-xs">{{__('profile.name')}}:</label>
+                <div class="uniq-input block text-2xl">{{ $user->name }}</div>
+            </div>
+
+            <div class="h-14">
+                <label for="" class="c4D52BC text-xs">{{__('profile.fathername')}}:</label>
+                <div class="uniq-input block text-2xl">{{ $user->fathername }}</div>
+            </div>
+
+        </div>
+
+        <div class="right-flex ml-16 dark:ml-8 flex flex-col justify-between flex-wrap dark:text-white">
+
+            <div class="h-14">
+                <label for="" class="c4D52BC text-xs">{{__('profile.phone')}}:</label>
+                <div class="uniq-input block text-2xl">{{ $user->phone }}</div>
+            </div>
+
+            <div class="h-14">
+                <label for="" class="c4D52BC text-xs">{{__('profile.email')}}:</label>
+                <div class="uniq-input block text-2xl">{{ $user->email }}</div>
+            </div>
+
+            <div class="h-14">
+                <label for="" class="c4D52BC text-xs">{{__('profile.tg_tag')}}:</label >
+                <div class="uniq-input block text-2xl">{{ $user->tg_tag }}</div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+    
+@else
+<div class="flex justify-between flex-wrap">
+        <div class="profile-side dark:hidden">
+        @csrf
             <img src="content/img/profile_pic.png" alt="">
 
         </div>
@@ -50,11 +103,9 @@
 
         </div>
     </div>
-    @if(Auth::user()->role=='admin')
-    @else
     <div class="mx-auto block ">
         <input type="submit" value="{{__('profile.save_changes')}}" class="bgC1CFFF cursor-pointer block mx-auto mt-24 font-medium h-11 px-20 rounded text-hover dark:bg-custom-303134 dark:text-white"> 
     </div>
-    @endif
+@endif
 </form>
 </div>

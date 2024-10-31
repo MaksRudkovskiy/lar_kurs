@@ -3,10 +3,13 @@
         <h1 class="text-xl dark:text-white">
             {{__('profile.report_trans')}}
         </h1>
+        @if($monthlyData == null || count($monthlyData) === 0)
 
+        @else
         <div>
             <a href="{{ route('export.word') }}" class="dark:text-white block max-w-48 bg-custom-EDF1FF dark:bg-custom-303134 px-4 py-2 rounded text-hover dark:hover:text-custom-4D52BC">Скачать в Word</a>
         </div>
+        @endif
     </div>
 
     <div class="reports-block overflow-y-auto max-h-790 scrollbar scrollbar-thumb-custom-EDF1FF flex flex-wrap gap-y-12 items-center mt-3 justify-around w-full">
