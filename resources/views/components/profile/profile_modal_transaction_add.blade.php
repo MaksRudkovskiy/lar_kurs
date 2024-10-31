@@ -32,17 +32,6 @@
                         <option value="11">{{__('profile.house')}}</option>
                         <option value="12">{{__('profile.other')}}</option>
 
-                        @if($user->role == 'user')
-
-                        @else
-
-                            @foreach($customCat as $cat)
-
-                                <option value="">{{$cat->custom_category_name}}</option>
-
-                            @endforeach
-
-                        @endif
                     </select>
                 </div>
 

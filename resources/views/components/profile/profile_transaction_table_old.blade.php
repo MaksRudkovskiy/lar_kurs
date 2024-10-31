@@ -19,13 +19,8 @@
             </tr>
             @else
                 @foreach ($transactions as $date => $group)
-                    <tr>
-                        <td colspan="6" class="text-center py-4">
-                            <h2 class="text-xl dark:text-white">{{ $date }} {{__('profile.year')}}</h2>
-                        </td>
-                    </tr>
                     @foreach ($group as $transaction)
-                    <tr class="border-b-2">
+                    <tr class="transaction">
                         <td>
                             <img class="mx-auto dark:hidden dark:text-white block text-center w-8 h-8"
                                 title="{{ $categoryNames[$transaction->category_id] }}"

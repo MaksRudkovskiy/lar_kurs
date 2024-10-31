@@ -34,40 +34,6 @@ class TransactionController extends Controller
         return redirect()->back()->with('transactions', $transaction);
     }
 
-    public function category(Request $request)
-    {
-        $request->validate([
-            'custom_category_name' => 'required|string',
-            'icon' => 'required|file|mimes:svg,svgz',
-        ]);
-
-        $iconContent = file_get_contents($request->file('icon')->getRealPath());
-
-        // Проверка размера SVG-иконки
-        $dom = new DOMDocument();
-        $dom->loadXML($iconContent);
-        $svg = $dom->getElementsByTagName('svg')->item(0);
-
-        if ($svg) {
-            $width = $svg->getAttribute('width');
-            $height = $svg->getAttribute('height');
-
-            if ($width > 33 || $height > 33) {
-                return redirect()->back()->withErrors(['icon' => 'Иконка должна быть размером 33x33 или меньше.']);
-            }
-        } else {
-            return redirect()->back()->withErrors(['icon' => 'Invalid SVG file.']);
-        }
-
-        CustomCategories::create([
-            'user_id' => Auth::user()->id,
-            'custom_category_name' => $request->custom_category_name,
-            'icon' => $iconContent,
-        ]);
-
-        return redirect()->back();
-    }
-
     public function DeleteCategory($id) {
         CustomCategories::where('id', $id)->delete();
         return redirect()->back();
