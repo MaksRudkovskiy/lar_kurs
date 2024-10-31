@@ -37,7 +37,13 @@ return [
     'user' => 'User ',   
     'login' => 'Login',   
     'register' => 'Register',
-    'get_pro' => 'Get Pro',   
+    'get_pro' => 'Get Pro',
+    'pro_privelegy' => 'The Pro privilege will allow you to more flexibly customize your work with the information system.',
+    'pro_privelegy2' => 'It will cost you 2 dollars and you will get your privilege forever. With the Pro privilege you will be able to:',
+    'pro_privelegy3' => 'edit your transactions, add your custom transactions, and also access other system topics',
+    'pro_privelegy4' => ' ',
+    'about_privelege' => 'About this privelege you can contact here:',
+    'get_pro!' => 'Get pro!',   
 ];
 
 ?>

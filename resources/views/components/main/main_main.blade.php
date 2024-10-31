@@ -6,7 +6,7 @@
     {{__('main.fix1')}} <br> {{__('main.fix2')}}
 </h2>
 
-<div class="w-3/12 mx-auto flex justify-between mt-10 flex-wrap">
+<div class="max-w-xl mx-auto flex justify-between mt-10 flex-wrap">
 
     <div class="flex dark:text-white">
         <img src="{{asset('content/img/Vector.svg')}}" class="max-w-5 min-w-5" alt="">

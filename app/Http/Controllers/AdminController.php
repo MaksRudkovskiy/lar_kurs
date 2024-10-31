@@ -47,11 +47,11 @@ class AdminController extends Controller
         $search = $request->input('search');
 
         $users = User::where('name', 'like', '%' . $search . '%')
-                    ->orWhere('surname', 'like', '%' . $search . '%')
-                    ->orWhere('email', 'like', '%' . $search . '%')
-                    ->orWhere('phone', 'like', '%' . $search . '%')
-                    ->withCount('transactions')
-                    ->get();
+        ->orWhere('surname', 'like', '%' . $search . '%')
+        ->orWhere('email', 'like', '%' . $search . '%')
+        ->orWhere('phone', 'like', '%' . $search . '%')
+        ->withCount('transactions')
+        ->get();
 
         return view('profile_admin', compact('users'));
     }

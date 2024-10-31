@@ -68,9 +68,12 @@
                         @endforeach
                     </div>
                 </div>
-            @endif
+                <div class="my-2">
+                    {{ $paginator->appends(request()->query())->links('components.profile.pagination') }}
+                </div>
+          @endif
         </div>
     </div>
 </div>
 
-{{ $paginator->appends(request()->query())->links('components.profile.pagination') }}
+

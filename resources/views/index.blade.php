@@ -48,7 +48,7 @@
 
         <div class="w-4/6 mx-auto bgcF8F9FF dark:bg-custom-171717">
 
-            <div class="h-full m-full px-24 py-16 flex justify-between">
+            <div class="h-full m-full px-24 py-16 flex justify-between adapt-collapse">
 
                 <h1 class="text-5xl dark:text-white font-medium c000C35 w-1/2">
                     {{__('main.faq')}}

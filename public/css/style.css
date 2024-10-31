@@ -423,6 +423,14 @@ input
         width: auto;
         margin: 0;
     }
+    .adapt-collapse
+    {
+        display: block;
+    }
+    .adapt-block-collapse
+    {
+        width: 100%;
+    }
     .conjoined-block > a > img
     {
         padding: 0;

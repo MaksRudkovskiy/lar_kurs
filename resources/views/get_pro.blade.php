@@ -12,21 +12,21 @@
     <article class="w-8/12 block mx-auto dark:text-white px-24">
 
         <h2 class="mt-6 text-2xl">
-            Получите Pro!
+            {{__('main.get_pro!')}}
         </h2>
 
         <div>
 
             <p class="text-lg mt-6">
-                Привелегия Pro позволит вам более гибко настраивать работу с информационной системой. <br>
-                Это обойдётся вам в 150 руб. и вы получите свою привелегию навсегда. С привелегией Pro <br>
-                вы сможете: редактировать свои транзакции, добавлять свои пользовательские транзакции, а <br>
-                также доступ к другим темам системы
+                {{__('main.pro_privelegy')}} <br>
+                {{__('main.pro_privelegy2')}} <br>
+                {{__('main.pro_privelegy3')}} <br>
+                {{__('main.pro_privelegy4')}}
 
             </p>
 
             <p class="text-lg mt-6">
-                По вопросам получения привелегии обращайтесь сюда:
+                {{__('main.about_privelege')}}
             </p>
 
             <a href="https://zelenka.guru/members/7577931/" class="flex gap-x-3 items-center mt-3">
