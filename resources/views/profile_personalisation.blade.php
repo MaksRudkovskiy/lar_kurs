@@ -37,7 +37,7 @@
 
             <form action="{{ route('set-type') }}" method="POST">
                 @csrf
-                <select name="type" class="block dark:bg-custom-202124 py-2 px-6 my-2 dark:text-white border-none outline-white">
+                <select name="type" class="block dark:bg-custom-202124 py-2 px-6 my-2 border-1 dark:text-white dark:border-white outline-white">
                     @foreach (['alternative' => __('profile.old'), 'default' => __('profile.new')] as $type => $table_type)
                         <option value="{{ $type }}" {{ Session::get('table_type') == $type ? 'selected' : '' }}>
                             {{ $table_type }}

@@ -7,7 +7,7 @@
     <div class="mb-4 dark:text-white">
         <form action="{{ route('admin.search') }}" method="GET" class="flex items-center">
             <input type="text" name="search" class="border border-gray-300 rounded-l px-4 py-2 w-full" placeholder="Поиск по имени, фамилии, email или телефону">
-            <button type="submit" class="bg-blue-500 text-white rounded-r px-4 py-2">Поиск</button>
+            <button type="submit" class="bg-custom-4D52BC border border-custom-4D52BC active:border-none text-white rounded-r px-4 py-2">Поиск</button>
         </form>
     </div>
 
@@ -109,7 +109,7 @@
                                     </form>
                                 @endif
                                     <button onclick="toggleDetails('{{ $user->id }}')"
-                                        class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center">
+                                        class="text-custom-4D52BC hover:text-white border border-custom-4D52BC hover:bg-custom-4D52BC focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center">
                                         Детали
                                     </button>
                                 </div>
