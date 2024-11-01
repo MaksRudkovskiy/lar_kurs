@@ -72,9 +72,16 @@
                     </tr>
                     @endforeach
                 @endforeach
+                
             @endif
         </tbody>
     </table>
+    @if ($paginator->total() > 30)
+        <div class="my-2">
+            {{ $paginator->appends(request()->query())->links('components.profile.pagination') }}
+        </div>
+    @else
+
+    @endif
 </div>
 
-{{ $paginator->appends(request()->query())->links('components.profile.pagination') }}

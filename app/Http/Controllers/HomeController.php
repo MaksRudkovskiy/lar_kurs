@@ -107,6 +107,15 @@ class HomeController extends Controller
         ]);
         return redirect()->back();
     }
+
+    public function edit_info_yandex(Request $request) {
+        $user = Auth::user();
+        $user_info = User::where('id', $user->id)->update([
+            'fathername' => $request->fathername,
+            'tg_tag' => $request->tg_tag,
+        ]);
+        return redirect()->back();
+    }
     // функция edit_info нужна для редактирования профиля пользователя
     // она отправляет запрос на обновление данных в таблице с пользователем, под чьим id отправляется запрос, обновляет данные и возвращает обратно на ту же страницу
 

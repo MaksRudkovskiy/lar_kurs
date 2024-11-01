@@ -43,6 +43,7 @@ Route::middleware(['set.table', 'set.lang'])->group(function () {
     Route::post('/new-category', [TransactionController::class, 'category'])->name('new_category');
 
     Route::post('/save_settings', [HomeController::class, 'edit_info'])->name('edit_info');
+    Route::post('/save_settings2', [HomeController::class, 'edit_info_yandex'])->name('edit_info_yandex');
 
     Route::get('login/yandex', [AuthenticatedSessionController::class, 'yandex'])->name('yandex');
     Route::get('login/yandex/redirect', [AuthenticatedSessionController::class, 'yandexRedirect'])->name('yandexRedirect');
