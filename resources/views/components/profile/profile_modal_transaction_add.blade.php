@@ -18,7 +18,7 @@
 
                 <div class="category">
                     <h2>{{__('profile.choose_cat')}}:</h2>
-                    <select name="category" required class="text-black block h-8 bor-b-bottom dark:bg-custom-202124 dark:text-white dark:border-white">
+                    <select name="category" class="text-black block h-8 bor-b-bottom dark:bg-custom-202124 dark:text-white dark:border-white">
                         <option value="1" selected>{{__('profile.transport')}}</option>
                         <option value="2">{{__('profile.groceries')}}</option>
                         <option value="3">{{__('profile.health')}}</option>
@@ -32,7 +32,20 @@
                         <option value="11">{{__('profile.house')}}</option>
                         <option value="12">{{__('profile.other')}}</option>
 
+
                     </select>
+
+                    @if($user->role == 'user')
+
+                    @else
+                    <select name="custom_category" class="text-black block h-8 bor-b-bottom dark:bg-custom-202124 dark:text-white dark:border-white">
+                        @foreach($customCat as $cat)
+                        
+                            <option value="">{{$cat->custom_category_name}}</option>
+
+                        @endforeach
+                    </select>
+                    @endif
                 </div>
 
                 <hr>

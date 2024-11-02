@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('category_id')->nullable();
+            $table->unsignedBigInteger('custom_category_id')->nullable();
             $table->date('date');
             $table->unsignedBigInteger('source_id')->nullable(); // 1 - это пример значения по умолчанию
             $table->unsignedBigInteger('type_id')->nullable(); // Ссылка на     тип 
@@ -23,6 +24,7 @@ return new class extends Migration
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreign('custom_category_id')->references('id')->on('custom_categories')->onDelete('cascade');
             $table->foreign('source_id')->references('id')->on('sources')->onDelete('cascade');
             $table->foreign('type_id')->references('id')->on('types')->onDelete('cascade');
         });

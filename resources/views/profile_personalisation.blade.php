@@ -29,7 +29,9 @@
 
             <hr class="my-4">
 
-            
+            @if($user && ($user->role === 'privelegious_user' || $user->role === 'admin'))
+                @include('components.profile.category_adding')
+            @endif            
 
             <h2 class="text-lg dark:text-white font-medium">
                 {{__('profile.transaction_table_look')}}

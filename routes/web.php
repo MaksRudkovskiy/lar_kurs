@@ -19,6 +19,7 @@ Route::middleware(['set.table', 'set.lang'])->group(function () {
     Route::get('/get_pro', [MainController::class, 'index4'])->name('get_pro');
 
     Route::get('/profile/delete_transaction/{id}', [HomeController::class, 'delete_transaction'])->name('DeleteTransaction');
+    
     Route::get('/profile_personalisation/delete_category/{id}', [TransactionController::class, 'DeleteCategory'])->name('DeleteCategory');
 
     Route::get('/profile/transactionSum', [TransactionController::class, 'transactionTotalAmount'])->name('amoutCount');
