@@ -21,6 +21,7 @@
                             @foreach ($group as $transaction)
                                 <div class="flex items-center justify-around py-5 text-lg font-medium transaction">
                                     <div class="w-36 text-center">
+                                    @if($transaction->category_id !== null)
                                         <img class="mx-auto dark:hidden dark:text-white block text-center w-8 h-8"
                                             title="{{ $categoryNames[$transaction->category_id] }}"
                                             src="{{ $categoryIconsLight[$transaction->category_id] }}"
@@ -30,6 +31,16 @@
                                             title="{{ $categoryNames[$transaction->category_id] }}"
                                             src="{{ $categoryIconsDark[$transaction->category_id] }}"
                                             alt="">
+                                    @else
+
+                                        @if($transaction->custom_category_id && isset($customCat[$transaction->custom_category_id]))
+                                            <svg class="max-w-8 max-h-8 block mx-auto">
+                                                <title>{{ $customCat[$transaction->custom_category_id]->custom_category_name }}</title>
+                                                {!! $customCat[$transaction->custom_category_id]->icon !!}
+                                            </svg>
+                                        @endif
+
+                                    @endif
                                     </div>
                                     <div class="w-36 text-center">
                                         <h2 class="mx-auto dark:text-white block text-center"> 
@@ -57,6 +68,8 @@
                                         
                                         @component('components.profile.profile_modal_edit_transaction', [
                                             'transaction' => $transaction,
+                                            'user' => $user,
+                                            'customCat' => $customCat,
                                         ])
                                         @endcomponent
 

@@ -31,8 +31,9 @@ class HomeController extends Controller
         $totalExpense = $transactions->flatten()->where('type_id', '1')->sum('amount');
     
         $user = Auth::user();
-        $customCat = CustomCategories::all();
-    
+        $customCat = CustomCategories::where('user_id', Auth::user()->id)->get()->keyBy('id');
+        
+
         return view('profile', [
             'transactions' => $transactions,
             'totalIncome' => $totalIncome,

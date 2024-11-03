@@ -13,7 +13,7 @@ class TransactionController extends Controller
 {
     public function transactions(Request $request) {
         $request->validate([
-            'category' => 'required|integer',
+            'category' => 'integer',
             'date' => 'required|date',
             'source' => 'nullable|integer',
             'type' => 'required|integer',
@@ -23,12 +23,13 @@ class TransactionController extends Controller
         Transaction::create([
             'user_id' => Auth::user()->id,
             'category_id' => $request->category,
+            'custom_category_id' => $request->custom_category,
             'date' => $request->date,
             'source_id' => $request->source,
             'type_id' => $request->type,
             'amount' => $request->amount,
         ]);
-    
+
         $transaction = Transaction::where('user_id', Auth::id())->get();
     
         return redirect()->back()->with('transactions', $transaction);
@@ -53,10 +54,10 @@ class TransactionController extends Controller
         $height = $svg->getAttribute('height');
 
         if ($width > 33 || $height > 33) {
-            return redirect()->back()->withErrors(['icon' => 'Иконка должна быть размером 33x33 или меньше.']);
+            return redirect()->back()->withErrors(['icon' => __('profile.max_size')]);
         }
     } else {
-        return redirect()->back()->withErrors(['icon' => 'Invalid SVG file.']);
+        return redirect()->back()->withErrors(['icon' => __('profile.invalid_svg')]);
     }
 
     CustomCategories::create([
@@ -87,6 +88,7 @@ class TransactionController extends Controller
 
         $hui->update([
             'category_id' => $request->category,
+            'custom_category_id' => $request->custom_category,
             'date' => $request->date,
             'source_id' => $request->source,
             'type_id' => $request->type,
@@ -124,12 +126,15 @@ class TransactionController extends Controller
         $totalIncome = $transactions->flatten()->where('type_id', '2')->sum('amount');
         $totalExpense = $transactions->flatten()->where('type_id', '1')->sum('amount');
 
+        $customCat = CustomCategories::where('user_id', Auth::user()->id)->get()->keyBy('id');
+
         return view('profile', [
             'transactions' => $transactions,
             'totalIncome' => $totalIncome,
             'totalExpense' => $totalExpense,
             'monthlyData' => $monthlyData,
             'user' => $user,
+            'customCat' => $customCat,
             'paginator' => $paginator,
         ]);
     }

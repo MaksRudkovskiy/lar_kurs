@@ -79,7 +79,9 @@ return [
     'max_size' => 'Max file size 32x32',
     'of' => 'of',
     'r' => 'r.',
-
+    'file_type' => 'File type must be .svg',
+    'invalid_svg' => 'Invalid SVG file',
+    'system' => 'System',
 ]; 
 
 ?>

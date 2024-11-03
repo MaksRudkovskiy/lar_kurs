@@ -1,3 +1,4 @@
+<!-- Модальное окно редактирования -->
 @if(Auth::user()->role == 'user')
 
 @else
@@ -9,28 +10,28 @@ data-modal-toggle="crud-modal-master-{{ $transaction->id }}" title="{{__('profil
 
 <!-- Main modal -->
 <div id="crud-modal-master-{{ $transaction->id }}" tabindex="-1" aria-hidden="true"
-    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full bg-black bg-opacity-25">
+    class="hidden bg-dark overflow-y-auto overflow-x-hidden
+ fixed top-0 right-0 left-0 z-50 justify-center items-center w-full h-screen max-h-full">
     <div class="relative p-4 w-full max-w-xl max-h-full">
         <!-- Modal content -->
-        <form class="relative bg-white rounded-lg shadow dark:bg-custom-202124 dark:text-white" method="POST" action="{{ route('transactions.update', $transaction->id) }}">
+        <form class="relative bg-white rounded-lg shadow dark:bg-custom-202124 dark:text-white" method="POST" action="{{ route('transactions.update', $transaction->id) }}" onsubmit="clearCategories('{{ $transaction->id }}')">
             @csrf
             @method('PUT')
-            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-">
-                <h3 class="text-xl font-semibold text-gray-9">
+            <div class="flex items-center justify-between p-4 md:p-5 border-b">
+                <h3 class="text-gray-9">
                     {{__('profile.edit_trans')}}
                 </h3>
-                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center" data-modal-hide="third-modal">
-                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-                </svg>
-                <span class="sr-only">{{__('profile.close_modal')}}</span>
-            </button>
+                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex items-center" data-modal-hide="crud-modal-master-{{ $transaction->id }}">
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                    </svg>
+                    <span class="sr-only">{{__('profile.close_modal')}}</span>
+                </button>
             </div>
             <div class="p-4 md:p-5 space-y-4">
-
-                <div class="category">
-                    <h2 class="text-start font-normal">{{__('profile.choose_cat')}}:</h2>
-                    <select name="category" required class="text-black block h-8 bor-b-bottom font-normal dark:bg-custom-202124 dark:text-white dark:border-white">
+                @if($transaction->custom_category_id !== null)
+                    
+                    <select name="category" id="system-select-{{ $transaction->id }}" class="hidden text-black h-8 bor-b-bottom dark:bg-custom-202124 dark:text-white dark:border-white" data-system-category>
                         <option value="1" {{ $transaction->category_id == 1 ? 'selected' : '' }}>{{__('profile.transport')}}</option>
                         <option value="2" {{ $transaction->category_id == 2 ? 'selected' : '' }}>{{__('profile.groceries')}}</option>
                         <option value="3" {{ $transaction->category_id == 3 ? 'selected' : '' }}>{{__('profile.health')}}</option>
@@ -44,7 +45,54 @@ data-modal-toggle="crud-modal-master-{{ $transaction->id }}" title="{{__('profil
                         <option value="11" {{ $transaction->category_id == 11 ? 'selected' : '' }}>{{__('profile.house')}}</option>
                         <option value="12" {{ $transaction->category_id == 12 ? 'selected' : '' }}>{{__('profile.other')}}</option>
                     </select>
-                </div>
+                @else
+
+                    <div class="category">
+                        <h2>{{__('profile.choose_cat')}}:</h2>
+
+                        <div class="flex flex-col">
+
+                            <label for="mem" class="flex items-center text-center">
+                                <p>{{__('profile.system')}}</p>
+                                <input type="radio" id="system-{{ $transaction->id }}" name="mem" checked class="cursor-pointer" onclick="toggleSelect('{{ $transaction->id }}')">
+                            </label>
+                            
+                            <label for="mem" class="flex items-center text-center">
+                                <p>{{__('profile.custom')}}</p>
+                                <input type="radio" id="custom-{{ $transaction->id }}" name="mem" class="cursor-pointer" onclick="toggleSelect('{{ $transaction->id }}')">
+                            </label>
+                        
+
+                            <select name="category" id="system-select-{{ $transaction->id }}" class="hidden text-black h-8 bor-b-bottom dark:bg-custom-202124 dark:text-white dark:border-white" data-system-category>
+                                <option value="1" {{ $transaction->category_id == 1 ? 'selected' : '' }}>{{__('profile.transport')}}</option>
+                                <option value="2" {{ $transaction->category_id == 2 ? 'selected' : '' }}>{{__('profile.groceries')}}</option>
+                                <option value="3" {{ $transaction->category_id == 3 ? 'selected' : '' }}>{{__('profile.health')}}</option>
+                                <option value="4" {{ $transaction->category_id == 4 ? 'selected' : '' }}>{{__('profile.transfer')}}</option>
+                                <option value="5" {{ $transaction->category_id == 5 ? 'selected' : '' }}>{{__('profile.games')}}</option>
+                                <option value="6" {{ $transaction->category_id == 6 ? 'selected' : '' }}>{{__('profile.entertainment')}}</option>
+                                <option value="7" {{ $transaction->category_id == 7 ? 'selected' : '' }}>{{__('profile.taxi')}}</option>
+                                <option value="8" {{ $transaction->category_id == 8 ? 'selected' : '' }}>{{__('profile.sport')}}</option>
+                                <option value="9" {{ $transaction->category_id == 9 ? 'selected' : '' }}>{{__('profile.beauty')}}</option>
+                                <option value="10" {{ $transaction->category_id == 10 ? 'selected' : '' }}>{{__('profile.fuel')}}</option>
+                                <option value="11" {{ $transaction->category_id == 11 ? 'selected' : '' }}>{{__('profile.house')}}</option>
+                                <option value="12" {{ $transaction->category_id == 12 ? 'selected' : '' }}>{{__('profile.other')}}</option>
+                            </select>
+
+ 
+                            <select name="custom_category" id="custom-select-{{ $transaction->id }}" class="hidden text-black h-8 bor-b-bottom dark:bg-custom-202124 dark:text-white dark:border-white" data-custom-category>
+                                @foreach($customCat as $cat)
+                                    
+                                    <option value="{{ $cat -> id }}">{{$cat->custom_category_name}}</option>
+
+                                @endforeach
+                            </select>
+                            
+                        </div>
+
+                    </div>
+
+                @endif
+  
 
                 <hr>
 
@@ -90,3 +138,4 @@ data-modal-toggle="crud-modal-master-{{ $transaction->id }}" title="{{__('profil
     </div>
 </div>
 @endif
+<!-- Модальное окно редактирования -->

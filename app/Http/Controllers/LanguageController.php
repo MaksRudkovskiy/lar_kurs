@@ -11,11 +11,9 @@ class LanguageController extends Controller
     {
         $language = $request->input('language');
 
-        // Проверка на допустимые языки, если нужно
-        $availableLanguages = ['en', 'ru']; // Пример доступных языков
+        $availableLanguages = ['en', 'ru']; 
         if (in_array($language, $availableLanguages)) {
             Session::put('language', $language);
-            // Добавьте отладочную информацию
             \Log::info('Language set to: ' . $language);
         }
 
@@ -25,7 +23,7 @@ class LanguageController extends Controller
     public function setType(Request $request)
     {
         $type = $request->input('type');
-        $availableTypes = ['alternative', 'default']; // Убедитесь, что 'old' и 'new' указаны правильно
+        $availableTypes = ['alternative', 'default']; 
         if (in_array($type, $availableTypes)) {
             Session::put('table_type', $type);
             \Log::info('Table type set to: ' . $type);

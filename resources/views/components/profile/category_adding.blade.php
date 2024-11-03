@@ -20,10 +20,10 @@
                 <p class="dark:text-white">{{__('profile.categories')}} {{$custom_cat_count}} {{__('profile.of')}} 12</p>
 
                 @if ($errors->any())
-                <div class="alert alert-danger">
+                <div>
                     <ul>
                         @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
+                        <li style="color: red">{{ $error }}</li>
                         @endforeach
                     </ul>
                 </div>
@@ -44,22 +44,23 @@
             </thead>
             <tbody class="dark:text-white">
                 @foreach($custom_categories as $custom_category)
-                <tr class="flex border-b-custom-4D52BC">
-                    <td class="w-1/3 px-4 py-4 text-center">{{ $custom_category->custom_category_name }}</td>
-                    <td class="w-1/3 px-4 py-4 text-center">
-                        <svg class="max-w-8 max-h-8 block mx-auto" title="">
-                            {!! $custom_category->icon !!}
-                        </svg>
-                    </td>
-                    <td class="w-1/3 px-4 py-4 text-center">
-                        <a class="block dark:hidden mx-auto cursor-pointer" title="{{__('profile.delete')}}" href="{{route('DeleteCategory', ['id'=>$custom_category->id])}}">
-                            <img src="content/img/delete.svg" class="block mx-auto" alt="">
-                        </a>
-                        <a class="hidden dark:block mx-auto cursor-pointer" title="{{__('profile.delete')}}" href="{{route('DeleteCategory', ['id'=>$custom_category->id])}}">
-                            <img src="content/img-dark/delete.svg" class="block mx-auto" alt="">
-                        </a>
-                    </td>
-                </tr>
+                    <tr class="flex border-b-custom-4D52BC">
+                        <td class="w-1/3 px-4 py-4 text-center">{{ $custom_category->custom_category_name }}</td>
+                        <td class="w-1/3 px-4 py-4 text-center">
+                            <svg class="max-w-8 max-h-8 block mx-auto">
+                                <title>{{$custom_category->custom_category_name}}</title>
+                                {!! $custom_category->icon !!}
+                            </svg>
+                        </td>
+                        <td class="w-1/3 px-4 py-4 text-center">
+                            <a class="block dark:hidden mx-auto cursor-pointer" title="{{__('profile.delete')}}" href="{{route('DeleteCategory', ['id'=>$custom_category->id])}}">
+                                <img src="content/img/delete.svg" class="block mx-auto" alt="">
+                            </a>
+                            <a class="hidden dark:block mx-auto cursor-pointer" title="{{__('profile.delete')}}" href="{{route('DeleteCategory', ['id'=>$custom_category->id])}}">
+                                <img src="content/img-dark/delete.svg" class="block mx-auto" alt="">
+                            </a>
+                        </td>
+                    </tr>
                 @endforeach
             </tbody>
         </table>
@@ -108,10 +109,12 @@
 
                     <div class="relative z-0 w-full my-5">
                         <label class="" for="photo">{{__('profile.choose_file')}}</label>
-                        <p class="text-xs">{{__('profile.max_size')}}</p>
+                        
                         <input
                             class="block w-full text-sm dark:text-white rounded-lg cursor-pointer"
                             aria-describedby="photo" name="icon" id="photo" type="file" required>
+                        <p class="text-xs">{{__('profile.max_size')}}</p>
+                        <p class="text-xs">{{__('profile.file_type')}}</p>
                     </div>
 
                     <hr>

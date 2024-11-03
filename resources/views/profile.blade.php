@@ -98,6 +98,7 @@
         </div>
 
     </div>
-
+        
+    <script src="{{ asset('js/app.js') }}"></script>
 @endsection
 <!-- Секция с основным изменяемым содержимым -->

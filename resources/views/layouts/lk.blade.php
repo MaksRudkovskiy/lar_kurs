@@ -11,6 +11,7 @@
     @vite('resources/js/app.js')
     <!-- Подключение библиотеки tailwind -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('js/app.js') }}">
     <script src="https://yastatic.net/s3/passport-sdk/autofill/v1/sdk-suggest-with-polyfills-latest.js"></script>   
     <script src="https://yastatic.net/s3/passport-sdk/autofill/v1/sdk-suggest-token-with-polyfills-latest.js"></script>
     <!-- Подключение собственных стилей -->

@@ -1,7 +1,8 @@
-<!-- Модальное окно -->
-<div id="default-modal" tabindex="-1" aria-hidden="true" class="hidden bg-dark overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full h-screen max-h-full">
+<!-- Модальное окно добавления -->
+<div id="default-modal" tabindex="-1" aria-hidden="true" class="hidden bg-dark overflow-y-auto overflow-x-hidden
+ fixed top-0 right-0 left-0 z-50 justify-center items-center w-full h-screen max-h-full">
     <div class="relative p-4 w-full max-w-2xl max-h-full">
-        <form class="relative bg-white rounded-lg shadow dark:bg-custom-202124 dark:text-white" method="POST" action="{{ route('new_transaction') }}">
+        <form class="relative bg-white rounded-lg shadow dark:bg-custom-202124 dark:text-white" method="POST" action="{{ route('new_transaction') }}" onsubmit="clearCategories('add')">
             @csrf
             <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-">
                 <h3 class="text-xl font-semibold text-gray-9">
@@ -18,34 +19,66 @@
 
                 <div class="category">
                     <h2>{{__('profile.choose_cat')}}:</h2>
-                    <select name="category" class="text-black block h-8 bor-b-bottom dark:bg-custom-202124 dark:text-white dark:border-white">
-                        <option value="1" selected>{{__('profile.transport')}}</option>
-                        <option value="2">{{__('profile.groceries')}}</option>
-                        <option value="3">{{__('profile.health')}}</option>
-                        <option value="4">{{__('profile.transfer')}}</option>
-                        <option value="5">{{__('profile.games')}}</option>
-                        <option value="6">{{__('profile.entertainment')}}</option>
-                        <option value="7">{{__('profile.taxi')}}</option>
-                        <option value="8">{{__('profile.sport')}}</option>
-                        <option value="9">{{__('profile.beauty')}}</option>
-                        <option value="10">{{__('profile.fuel')}}</option>
-                        <option value="11">{{__('profile.house')}}</option>
-                        <option value="12">{{__('profile.other')}}</option>
+                        @if($user->role == 'user')
+                    
+
+                        <select name="category" class="text-black h-8 bor-b-bottom dark:bg-custom-202124 dark:text-white dark:border-white">
+                                <option value="1" selected>{{__('profile.transport')}}</option>
+                                <option value="2">{{__('profile.groceries')}}</option>
+                                <option value="3">{{__('profile.health')}}</option>
+                                <option value="4">{{__('profile.transfer')}}</option>
+                                <option value="5">{{__('profile.games')}}</option>
+                                <option value="6">{{__('profile.entertainment')}}</option>
+                                <option value="7">{{__('profile.taxi')}}</option>
+                                <option value="8">{{__('profile.sport')}}</option>
+                                <option value="9">{{__('profile.beauty')}}</option>
+                                <option value="10">{{__('profile.fuel')}}</option>
+                                <option value="11">{{__('profile.house')}}</option>
+                                <option value="12">{{__('profile.other')}}</option>
+                            </select>
+
+                        @else
+                            
+                        <div class="flex flex-col">
+
+                            <label for="mem" class="flex items-center text-center">
+                                <p>Системная</p>
+                                <input type="radio" id="system-add" name="mem" checked class="cursor-pointer" onclick="toggleSelect('add')">
+                            </label>
+
+                            <label for="mem" class="flex items-center text-center">
+                                <p>Пользовательская</p>
+                                <input type="radio" id="custom-add" name="mem" class="cursor-pointer" onclick="toggleSelect('add')">
+                            </label>
 
 
-                    </select>
+                            <select name="category" id="system-select-add" class="hidden text-black h-8 bor-b-bottom dark:bg-custom-202124 dark:text-white dark:border-white" data-system-category>
+                                <option value="1" selected>{{__('profile.transport')}}</option>
+                                <option value="2">{{__('profile.groceries')}}</option>
+                                <option value="3">{{__('profile.health')}}</option>
+                                <option value="4">{{__('profile.transfer')}}</option>
+                                <option value="5">{{__('profile.games')}}</option>
+                                <option value="6">{{__('profile.entertainment')}}</option>
+                                <option value="7">{{__('profile.taxi')}}</option>
+                                <option value="8">{{__('profile.sport')}}</option>
+                                <option value="9">{{__('profile.beauty')}}</option>
+                                <option value="10">{{__('profile.fuel')}}</option>
+                                <option value="11">{{__('profile.house')}}</option>
+                                <option value="12">{{__('profile.other')}}</option>
+                            </select>
 
-                    @if($user->role == 'user')
+                            <select name="custom_category" id="custom-select-add" class="hidden text-black h-8 bor-b-bottom dark:bg-custom-202124 dark:text-white dark:border-white" data-custom-category>
+                                    @foreach($customCat as $cat)
+                                        
+                                        <option value="{{ $cat -> id }}">{{$cat->custom_category_name}}</option>
 
-                    @else
-                    <select name="custom_category" class="text-black block h-8 bor-b-bottom dark:bg-custom-202124 dark:text-white dark:border-white">
-                        @foreach($customCat as $cat)
+                                    @endforeach
+                            </select>
+                            </div>
+                        @endif
                         
-                            <option value="">{{$cat->custom_category_name}}</option>
+                    
 
-                        @endforeach
-                    </select>
-                    @endif
                 </div>
 
                 <hr>
@@ -82,8 +115,7 @@
                 <div class="amount">    
                     <h2>{{__('profile.amount')}}</h2>
 
-                    <input type="number" required name="amount" class="block h-8 border-black border-1 py-1 px-2 rounded dark:bg-custom-202124 dark:text-white dark:border-white">
-
+                    <input type="number" required name="amount" class="block h-8 border-black border-1 py-1 px-2 rounded dark:bg-custom-202124 dark:text-white dark:border-white" oninput="this.value = this.value.slice(0, 10)">
                 </div>
 
             </div>
@@ -95,4 +127,4 @@
         </form>
     </div>
 </div>
-<!-- Модальное окно -->
+<!-- Модальное окно добавления -->
