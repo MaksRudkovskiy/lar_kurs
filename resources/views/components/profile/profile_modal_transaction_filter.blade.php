@@ -37,7 +37,7 @@
 
             </div>
             <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b">
-                <input value="{{__('profile.filter')}}" data-modal-hide="default-modal" type="submit" class="py-2.5 dark:bg-custom-303134 px-5 font-medium rounded text-hover bgC1CFFF bg-slate-900">
+                <input value="{{__('profile.filter')}}" data-modal-hide="default-modal" type="submit" class="py-2.5 cursor-pointer dark:bg-custom-303134 px-5 font-medium rounded text-hover bgC1CFFF bg-slate-900">
                 <button data-modal-hide="second-modal" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium dark:bg-custom-2d2f37 dark:text-white dark:border-transparent text-gray-900 focus:outline-none bg-white rounded-lg border text-hover">{{__('profile.cancel')}}</button>
             </div>
 

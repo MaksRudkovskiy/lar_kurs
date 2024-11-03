@@ -17,8 +17,8 @@
             </div>
             <div class="p-4 md:p-5 space-y-4">
 
-                <div class="category">
-                    <h2>{{__('profile.choose_cat')}}:</h2>
+                <div class="category flex flex-col">
+                    <h2 class="text-start">{{__('profile.choose_cat')}}:</h2>
                         @if($user->role == 'user')
                     
 
@@ -38,21 +38,9 @@
                             </select>
 
                         @else
-                            
-                        <div class="flex flex-col">
+                            @if(count($customCat) == 0)
 
-                            <label for="mem" class="flex items-center text-center">
-                                <p>Системная</p>
-                                <input type="radio" id="system-add" name="mem" checked class="cursor-pointer" onclick="toggleSelect('add')">
-                            </label>
-
-                            <label for="mem" class="flex items-center text-center">
-                                <p>Пользовательская</p>
-                                <input type="radio" id="custom-add" name="mem" class="cursor-pointer" onclick="toggleSelect('add')">
-                            </label>
-
-
-                            <select name="category" id="system-select-add" class="hidden text-black h-8 bor-b-bottom dark:bg-custom-202124 dark:text-white dark:border-white" data-system-category>
+                            <select name="category" class="text-black h-8 bor-b-bottom dark:bg-custom-202124 dark:text-white dark:border-white">
                                 <option value="1" selected>{{__('profile.transport')}}</option>
                                 <option value="2">{{__('profile.groceries')}}</option>
                                 <option value="3">{{__('profile.health')}}</option>
@@ -67,16 +55,45 @@
                                 <option value="12">{{__('profile.other')}}</option>
                             </select>
 
-                            <select name="custom_category" id="custom-select-add" class="hidden text-black h-8 bor-b-bottom dark:bg-custom-202124 dark:text-white dark:border-white" data-custom-category>
-                                    @foreach($customCat as $cat)
-                                        
-                                        <option value="{{ $cat -> id }}">{{$cat->custom_category_name}}</option>
+                            @else
+                                <div class="flex flex-col">
 
-                                    @endforeach
-                            </select>
-                            </div>
+                                    <label for="mem" class="flex items-center text-center">
+                                        <p>Системная</p>
+                                        <input type="radio" id="system-add" name="mem" checked class="cursor-pointer" onclick="toggleSelect('add')">
+                                    </label>
+
+                                    <label for="mem" class="flex items-center text-center">
+                                        <p>Пользовательская</p>
+                                        <input type="radio" id="custom-add" name="mem" class="cursor-pointer" onclick="toggleSelect('add')">
+                                    </label>
+
+
+                                    <select name="category" id="system-select-add" class=" text-black h-8 bor-b-bottom dark:bg-custom-202124 dark:text-white dark:border-white" data-system-category>
+                                        <option value="1" selected>{{__('profile.transport')}}</option>
+                                        <option value="2">{{__('profile.groceries')}}</option>
+                                        <option value="3">{{__('profile.health')}}</option>
+                                        <option value="4">{{__('profile.transfer')}}</option>
+                                        <option value="5">{{__('profile.games')}}</option>
+                                        <option value="6">{{__('profile.entertainment')}}</option>
+                                        <option value="7">{{__('profile.taxi')}}</option>
+                                        <option value="8">{{__('profile.sport')}}</option>
+                                        <option value="9">{{__('profile.beauty')}}</option>
+                                        <option value="10">{{__('profile.fuel')}}</option>
+                                        <option value="11">{{__('profile.house')}}</option>
+                                        <option value="12">{{__('profile.other')}}</option>
+                                    </select>
+
+                                    <select name="custom_category" id="custom-select-add" class="hidden text-black h-8 bor-b-bottom dark:bg-custom-202124 dark:text-white dark:border-white" data-custom-category>
+                                            @foreach($customCat as $cat)
+                                                
+                                                <option value="{{ $cat -> id }}">{{$cat->custom_category_name}}</option>
+
+                                            @endforeach
+                                    </select>
+                                </div>
+                            @endif
                         @endif
-                        
                     
 
                 </div>

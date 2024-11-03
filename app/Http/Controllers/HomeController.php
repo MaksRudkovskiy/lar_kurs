@@ -32,7 +32,6 @@ class HomeController extends Controller
     
         $user = Auth::user();
         $customCat = CustomCategories::where('user_id', Auth::user()->id)->get()->keyBy('id');
-        
 
         return view('profile', [
             'transactions' => $transactions,
