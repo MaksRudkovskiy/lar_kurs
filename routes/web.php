@@ -30,6 +30,7 @@ Route::middleware(['set.table', 'set.lang'])->group(function () {
     Route::get('/profile_settings', [HomeController::class, 'index2'])->name('profile_settings');
     Route::get('/profile_report', [HomeController::class, 'index3'])->name('profile_report');
     Route::get('/filter', [TransactionController::class, 'filter'])->name('filter');
+    Route::get('/filter_custom', [TransactionController::class, 'filter_custom'])->name('filter_custom');
     Route::get('/admin', [AdminController::class, 'admin'])->name('profile_admin');
     Route::put('/users/{id}/role', [AdminController::class, 'privelegeUser'])->name('users.privelege');
     Route::get('/users/{id}/details', [AdminController::class, 'showUserDetails'])->name('users.details');

@@ -82,6 +82,8 @@ return [
     'file_type' => 'File type must be .svg',
     'invalid_svg' => 'Invalid SVG file',
     'system' => 'System',
+    'custom' => 'Custom',
+    'ya_auth' => 'Authenticated through Yandex',
 ]; 
 
 ?>

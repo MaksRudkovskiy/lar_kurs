@@ -26,6 +26,19 @@ function clearCategories(transactionId) {
     }
 }
 
+function clearFilterCategories() {
+    var systemRadio = document.getElementById('system-filter');
+    var customRadio = document.getElementById('custom-filter');
+    var systemSelect = document.querySelector('#system-select-filter[data-system-category]');
+    var customSelect = document.querySelector('#custom-select-filter[data-custom-category]');
+
+    if (systemRadio.checked) {
+        customSelect.value = '';
+    } else if (customRadio.checked) {
+        systemSelect.value = '';
+    }
+}
+
 // Инициализация видимости при загрузке страницы
 document.addEventListener('DOMContentLoaded', function() {
     var modals = document.querySelectorAll('[id^="crud-modal-master-"]');
@@ -36,4 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Инициализация для модалки добавления
     toggleSelect('add');
+
+    // Инициализация для модалки фильтрации
+    toggleSelect('filter');
 });

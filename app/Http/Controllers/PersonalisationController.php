@@ -11,7 +11,11 @@ use Auth;
 class PersonalisationController extends Controller
 {
     function personalisation()
-    {
+    {   
+        if (!Auth::check()) {
+            return Redirect::route('login');
+        }
+
         $user = Auth::user();
 
         $custom_categories = CustomCategories::all();

@@ -59,12 +59,12 @@
                                 <div class="flex flex-col">
 
                                     <label for="mem" class="flex items-center text-center">
-                                        <p>Системная</p>
+                                        <p>{{__('profile.system')}}</p>
                                         <input type="radio" id="system-add" name="mem" checked class="cursor-pointer" onclick="toggleSelect('add')">
                                     </label>
 
                                     <label for="mem" class="flex items-center text-center">
-                                        <p>Пользовательская</p>
+                                        <p>{{__('profile.custom')}}</p>
                                         <input type="radio" id="custom-add" name="mem" class="cursor-pointer" onclick="toggleSelect('add')">
                                     </label>
 

@@ -111,12 +111,16 @@ class TransactionController extends Controller
             $paginator = Transaction::where('user_id', Auth::user()->id)
                 ->orderBy('date', 'desc')
                 ->paginate(30);
+        } else if($request->category == null) {
+            $paginator = Transaction::where('custom_category_id', $request->custom_category)
+                ->orderBy('date', 'desc')
+                ->paginate(30);
         } else {
             $paginator = Transaction::where('category_id', $request->category)
                 ->where('user_id', Auth::user()->id)
                 ->orderBy('date', 'desc')
                 ->paginate(30);
-        }
+        } 
 
         $transactions = $paginator->groupBy(function ($transaction) {
             return Carbon::parse($transaction->date)->translatedFormat('d M. Y');
