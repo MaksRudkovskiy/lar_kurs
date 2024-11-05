@@ -84,6 +84,7 @@ return [
     'system' => 'System',
     'custom' => 'Custom',
     'ya_auth' => 'Authenticated through Yandex',
+    'word' => 'Download in Word',
 ]; 
 
 ?>

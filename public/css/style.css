@@ -335,6 +335,11 @@ input
     overflow-y: auto;
 }
 
+.max-w-1219
+{
+    max-width: 1219px;
+}
+
 
 .max-h-800
 {
