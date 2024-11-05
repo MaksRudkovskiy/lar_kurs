@@ -63,12 +63,15 @@ class HomeController extends Controller
             return Redirect::route('login');
         }
 
-        $categories = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
         $user_id = Auth::user()->id;
 
-        $transactions = Transaction::whereIn('category_id', $categories)
-        ->where('user_id', $user_id)
-        ->where('type_id', '1')
+        // Получаем транзакции с учетом как обычных, так и кастомных категорий
+        $transactions = Transaction::where(function ($query) use ($user_id) {
+            $query->where('user_id', $user_id)
+                ->where('type_id', '1')
+                ->whereNotNull('category_id')
+                ->orWhereNotNull('custom_category_id');
+        })
         ->get()
         ->groupBy(function ($transaction) {
             $date = Carbon::parse($transaction->date);
@@ -77,12 +80,15 @@ class HomeController extends Controller
 
         $monthlyData = [];
         foreach ($transactions->sortKeysDesc()->keys() as $month) {
-            $categoriesSums = $transactions[$month]->groupBy('category_id')
-                ->mapWithKeys(function ($transactionsForCategory) {
-                    return [$transactionsForCategory->first()->category_id => $transactionsForCategory->sum('amount')];
-                })
-                ->sortByDesc(null, SORT_REGULAR)
-                ->all();
+            $categoriesSums = $transactions[$month]->groupBy(function ($transaction) {
+                return $transaction->custom_category_id ?? $transaction->category_id;
+            })
+            ->mapWithKeys(function ($transactionsForCategory) {
+                $categoryId = $transactionsForCategory->first()->custom_category_id ?? $transactionsForCategory->first()->category_id;
+                return [$categoryId => $transactionsForCategory->sum('amount')];
+            })
+            ->sortByDesc(null, SORT_REGULAR)
+            ->all();
 
             $monthlyData[] = [
                 'month' => Carbon::parse($month)->translatedFormat('F Y'),
@@ -90,9 +96,11 @@ class HomeController extends Controller
             ];
         }
 
+        $custom_categories = CustomCategories::all();
+
         $icons = $this->getIcons();
         $user = Auth::user();
-        return view("profile_report", ['user' => $user, 'monthlyData' => $monthlyData, 'icons' => $icons]);
+        return view("profile_report", ['user' => $user, 'monthlyData' => $monthlyData, 'icons' => $icons, 'custom_categories' => $custom_categories]);
     }
 
     public function edit_info(Request $request) {
