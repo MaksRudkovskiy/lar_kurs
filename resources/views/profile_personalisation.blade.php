@@ -27,11 +27,7 @@
 
             @include('components.profile.profile_language_switch')
 
-            <hr class="my-4">
-
-            @if($user && ($user->role === 'privelegious_user' || $user->role === 'admin'))
-                @include('components.profile.category_adding')
-            @endif            
+            <hr class="my-4">          
 
             <h2 class="text-lg dark:text-white font-medium">
                 {{__('profile.transaction_table_look')}}
@@ -49,6 +45,12 @@
 
                 <button class="dark:text-white block bg-custom-EDF1FF dark:bg-custom-303134 px-4 py-2 rounded text-hover dark:hover:text-custom-4D52BC">{{__('profile.change_look')}}</button>
             </form>
+
+            <hr class="my-4">
+
+            @if($user && ($user->role === 'privelegious_user' || $user->role === 'admin'))
+                @include('components.profile.category_adding')
+            @endif  
         
         </div>
 
