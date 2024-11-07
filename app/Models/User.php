@@ -23,7 +23,8 @@ class User extends Authenticatable
         'email',
         'password',
         'tg_tag',
-        'is_yandex'
+        'is_yandex',
+        'email_verified_at',
     ];
 
     protected $hidden = [

@@ -37,36 +37,36 @@ class TransactionController extends Controller
 
     public function category(Request $request)
     {
-    $request->validate([
-        'custom_category_name' => 'required|string',
-        'icon' => 'required|file|mimes:svg,svgz',
-    ]);
-
-    $iconContent = file_get_contents($request->file('icon')->getRealPath());
-
-    // Проверка размера SVG-иконки
-    $dom = new DOMDocument();
-    $dom->loadXML($iconContent);
-    $svg = $dom->getElementsByTagName('svg')->item(0);
-
-    if ($svg) {
-        $width = $svg->getAttribute('width');
-        $height = $svg->getAttribute('height');
-
-        if ($width > 33 || $height > 33) {
-            return redirect()->back()->withErrors(['icon' => __('profile.max_size')]);
+        $request->validate([
+            'custom_category_name' => 'required|string',
+            'icon' => 'required|file|mimes:svg,svgz',
+        ]);
+    
+        $iconContent = file_get_contents($request->file('icon')->getRealPath());
+    
+        // Проверка размера SVG-иконки
+        $dom = new DOMDocument();
+        $dom->loadXML($iconContent);
+        $svg = $dom->getElementsByTagName('svg')->item(0);
+    
+        if ($svg) {
+            $width = $svg->getAttribute('width');
+            $height = $svg->getAttribute('height');
+    
+            if ($width > 33 || $height > 33) {
+                return redirect()->back()->withErrors(['icon' => __('profile.max_size')]);
+            }
+        } else {
+            return redirect()->back()->withErrors(['icon' => __('profile.invalid_svg')]);
         }
-    } else {
-        return redirect()->back()->withErrors(['icon' => __('profile.invalid_svg')]);
-    }
-
-    CustomCategories::create([
-        'user_id' => Auth::user()->id,
-        'custom_category_name' => $request->custom_category_name,
-        'icon' => $iconContent,
-    ]);
-
-    return redirect()->back();
+    
+        CustomCategories::create([
+            'user_id' => Auth::user()->id,
+            'custom_category_name' => $request->custom_category_name,
+            'icon' => $iconContent,
+        ]);
+    
+        return redirect()->back();
     }
 
     public function DeleteCategory($id) {
@@ -76,17 +76,16 @@ class TransactionController extends Controller
 
     public function edit($id)
     {
-        $hui = Transaction::findOrFail($id);
-        dd($hui);
+        $edit = Transaction::findOrFail($id);
 
-        return view('profile', ['hui' => $hui]);
+        return view('profile', ['edit' => $edit]);
     }
 
     public function update(Request $request, $id)
     {
-        $hui = Transaction::findOrFail($id);
+        $edit = Transaction::findOrFail($id);
 
-        $hui->update([
+        $edit->update([
             'category_id' => $request->category,
             'custom_category_id' => $request->custom_category,
             'date' => $request->date,
