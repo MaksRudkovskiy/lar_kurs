@@ -85,6 +85,22 @@ return [
     'custom' => 'Custom',
     'ya_auth' => 'Authenticated through Yandex',
     'word' => 'Download in Word',
+    'users' => 'Users',
+    'search' => 'Search',
+    'search_by' => 'Search by name, surname, phone number or email',
+    'id' => 'ID',
+    'role' => 'Role',
+    'ROLE' => 'ROLE',
+    'details' => 'Details',
+    'tg_tag2' => 'Telegramm tag',
+    'total_transactions' => 'Total transactions',
+    'user_data' => 'User data',
+    '' => '',
+    '' => '',
+    '' => '',
+    '' => '',
+    '' => '',
+    
 ]; 
 
 ?>
