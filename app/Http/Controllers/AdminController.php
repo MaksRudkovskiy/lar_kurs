@@ -33,13 +33,13 @@ class AdminController extends Controller
         $user = User::find($id);
 
         if (!$user) {
-            return redirect()->route('users')->with('error', 'Пользователь не найден');
+            return redirect()->route('users')->with('error', __('profile.user_not_found'));
         }
         
         $user->role = ($user->role === 'user') ? 'privelegious_user' : 'user';
         $user->save();
 
-        return redirect()->route('profile_admin')->with('success', 'Роль пользователя успешно изменена');
+        return redirect()->route('profile_admin')->with('success', __('profile.user_role_changed'));
     }
 
     public function search(Request $request)
