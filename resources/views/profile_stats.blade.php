@@ -7,13 +7,16 @@
 
 <!-- Секция с основным изменяемым содержимым -->
 @section('content')
-    <h2 class="mx-12 my-12 dark:text-white text-2xl font-semibold">
-        Статистика
-    </h2>
-
-    <div class="flex items-center justify-center w-full">
+<div class="flex w-full flex-col">
+    <div>
+        <h2 class="ml-12 mt-12 dark:text-white text-2xl font-semibold">
+            Статистика
+        </h2>
+    </div>
+    <div class="flex items-center justify-center w-full h-full">
         @include('components.profile.User_stats', ['userStats' => $userStats, 'period' => $period])
     </div>
+</div>
 
 <script>
     const pieChartData = @json($pieChartData);
