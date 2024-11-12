@@ -17,7 +17,7 @@
             <img class="block mx-auto pt-5 max-w-8" src="{{ asset('content/img/report.svg') }}" alt="">
             <h3 class="text-xxs text-center">{{__('profile.reports')}}</h3>
         </a>
-
+        
         <a href="{{ route('profile_settings') }}" class="dark:text-white text-hover mx-4 hover:text-custom-4D52BC dark:hover:text-custom-4D52BC">
             <img class="block mx-auto pt-5 max-w-8" src="{{ asset('content/img/profile.svg') }}" alt="">
             <h3 class="text-xxs text-center">{{__('profile.profile')}}</h3>
@@ -27,6 +27,14 @@
             <img class="block mx-auto pt-5 max-w-8" src="{{ asset('content/img/settings.svg') }}" alt="">
             <h3 class="text-xxs text-center">{{__('profile.settings')}}</h3>
         </a>
+
+        @if (Auth::User()->role=='admin')
+        <a href="{{ route('profile_stats') }}" class="dark:text-white text-hover mx-4 hover:text-custom-4D52BC dark:hover:text-custom-4D52BC">
+            <img class="block mx-auto pt-5 max-w-8" src="{{ asset('content/img/stats.svg') }}" alt="">
+            <h3 class="text-xxs text-center">{{__('profile.stats')}}</h3>
+        </a>
+        @endif
+
         @if (Auth::User()->role=='admin')
         <a href="{{ route('profile_admin') }}" class="dark:text-white text-hover mx-4 hover:text-custom-4D52BC dark:hover:text-custom-4D52BC">
             <img class="block mx-auto pt-5 max-w-8" src="{{ asset('content/img/admin.svg') }}" alt="">

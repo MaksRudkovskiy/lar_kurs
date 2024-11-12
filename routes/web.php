@@ -8,6 +8,7 @@ use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PersonalisationController;
 use App\Http\Controllers\AuthenticatedSessionController;
+use App\Http\Controllers\StatsController;
 use App\Http\Controllers\ExportController;
 
 Route::middleware(['set.table', 'set.lang'])->group(function () {
@@ -22,11 +23,12 @@ Route::middleware(['set.table', 'set.lang'])->group(function () {
     
     Route::get('/profile_personalisation/delete_category/{id}', [TransactionController::class, 'DeleteCategory'])->name('DeleteCategory');
 
-    Route::get('/profile/transactionSum', [TransactionController::class, 'transactionTotalAmount'])->name('amoutCount');
+    Route::get('/profile/transactionSum', [TransactionControaller::class, 'transactionTotalAmount'])->name('amoutCount');
 
     Route::get('/export/word', [ExportController::class, 'exportWord'])->name('export.word');
 
     Route::get('/profile', [HomeController::class, 'index'])->name('profile');
+    Route::get('/profile_stats', [StatsController::class, 'stats'])->name('profile_stats');
     Route::get('/profile_settings', [HomeController::class, 'index2'])->name('profile_settings');
     Route::get('/profile_report', [HomeController::class, 'index3'])->name('profile_report');
     Route::get('/filter', [TransactionController::class, 'filter'])->name('filter');
@@ -50,7 +52,7 @@ Route::middleware(['set.table', 'set.lang'])->group(function () {
     Route::get('login/yandex', [AuthenticatedSessionController::class, 'yandex'])->name('yandex');
     Route::get('login/yandex/redirect', [AuthenticatedSessionController::class, 'yandexRedirect'])->name('yandexRedirect');
 
-
+    
 
     Auth::routes();
 });
