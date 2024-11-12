@@ -6,7 +6,7 @@
     <!-- Строка поиска -->
     <div class="mb-4 dark:text-white">
         <form action="{{ route('admin.search') }}" method="GET" class="flex items-center">
-            <input type="text" name="search" class="border border-gray-300 rounded-l px-4 py-2 w-full" placeholder="{{__('profile.search_by')}}">
+            <input type="text" name="search" class="border border-gray-300 dark:bg-custom-202124 rounded-l px-4 py-2 w-full" placeholder="{{__('profile.search_by')}}">
             <button type="submit" class="bg-custom-4D52BC border border-custom-4D52BC active:border-none text-white rounded-r px-4 py-2">{{__('profile.search')}}</button>
         </form>
     </div>
