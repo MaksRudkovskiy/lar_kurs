@@ -85,7 +85,26 @@ return [
     'custom' => 'Custom',
     'ya_auth' => 'Authenticated through Yandex',
     'word' => 'Download in Word',
+<<<<<<< HEAD
     'stats' => 'Stats',
+=======
+    'users' => 'Users',
+    'search' => 'Search',
+    'search_by' => 'Search by name, surname, phone number or email',
+    'id' => 'ID',
+    'role' => 'Role',
+    'ROLE' => 'ROLE',
+    'details' => 'Details',
+    'tg_tag2' => 'Telegramm tag',
+    'total_transactions' => 'Total transactions',
+    'user_data' => 'User data',
+    '' => '',
+    '' => '',
+    '' => '',
+    '' => '',
+    '' => '',
+    
+>>>>>>> 90a71a0172608d4d94f65f587af576f7b3ddbe93
 ]; 
 
 ?>
