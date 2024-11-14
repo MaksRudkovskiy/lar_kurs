@@ -369,6 +369,9 @@ input
     height: 800px;
 }
 
+.dark\:bg-gray-800:is(.dark *) {
+    background-color: #303134;
+}
 
 
 @media (min-width: 768px) {
