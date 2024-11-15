@@ -18,7 +18,7 @@
                 @if($user->role == 'user')
                 <div class="category">
                     <h2>{{__('profile.choose_cat')}}:</h2>
-                    <select name="category" required class="text-black block h-8 bor-b-bottom dark:bg-custom-202124 dark:text-white dark:border-white">
+                    <select name="category" required class="text-black block h-8 bor-b-bottom dark:bg-custom-202124 dark:text-white dark:border-white !p-0">
                         <option value="all">{{__('profile.all_trans')}}</option>
                         <option value="1" selected>{{__('profile.transport')}}</option>
                         <option value="2">{{__('profile.groceries')}}</option>
@@ -39,7 +39,7 @@
                     @if(count($customCat) == 0)
                         <div class="category">
                             <h2>{{__('profile.choose_cat')}}:</h2>
-                            <select name="category" required class="text-black block h-8 bor-b-bottom dark:bg-custom-202124 dark:text-white dark:border-white">
+                            <select name="category" required class="text-black block h-8 bor-b-bottom dark:bg-custom-202124 dark:text-white dark:border-white !p-0">
                                 <option value="all">{{__('profile.all_trans')}}</option>
                                 <option value="1" selected>{{__('profile.transport')}}</option>
                                 <option value="2">{{__('profile.groceries')}}</option>
@@ -69,7 +69,7 @@
                         </label>
 
 
-                        <select name="category" id="system-select-filter" class="hidden text-black h-8 bor-b-bottom dark:bg-custom-202124 dark:text-white dark:border-white" data-system-category>
+                        <select name="category" id="system-select-filter" class="hidden text-black h-8 bor-b-bottom dark:bg-custom-202124 dark:text-white dark:border-white !p-0" data-system-category>
                             <option value="all">{{__('profile.all_trans')}}</option>    
                             <option value="1" selected>{{__('profile.transport')}}</option>
                             <option value="2">{{__('profile.groceries')}}</option>
@@ -85,7 +85,7 @@
                             <option value="12">{{__('profile.other')}}</option>
                         </select>
 
-                        <select name="custom_category" id="custom-select-filter" class="hidden text-black h-8 bor-b-bottom dark:bg-custom-202124 dark:text-white dark:border-white" data-custom-category>
+                        <select name="custom_category" id="custom-select-filter" class="hidden text-black h-8 bor-b-bottom dark:bg-custom-202124 dark:text-white dark:border-white !p-0" data-custom-category>
                                 @foreach($customCat as $cat)
                                     
                                     <option value="{{ $cat -> id }}">{{$cat->custom_category_name}}</option>

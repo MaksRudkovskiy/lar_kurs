@@ -46,7 +46,7 @@ data-modal-toggle="crud-modal-master-{{ $transaction->id }}" title="{{__('profil
                                 </label>
                             
 
-                                <select name="category" id="system-select-{{ $transaction->id }}" class=" text-black h-8 bor-b-bottom dark:bg-custom-202124 dark:text-white dark:border-white" data-system-category>
+                                <select name="category" id="system-select-{{ $transaction->id }}" class=" text-black h-8 bor-b-bottom dark:bg-custom-202124 dark:text-white dark:border-white !p-0" data-system-category>
                                     <option value="1" {{ $transaction->category_id == 1 ? 'selected' : '' }}>{{__('profile.transport')}}</option>
                                     <option value="2" {{ $transaction->category_id == 2 ? 'selected' : '' }}>{{__('profile.groceries')}}</option>
                                     <option value="3" {{ $transaction->category_id == 3 ? 'selected' : '' }}>{{__('profile.health')}}</option>
@@ -62,7 +62,7 @@ data-modal-toggle="crud-modal-master-{{ $transaction->id }}" title="{{__('profil
                                 </select>
 
     
-                                <select name="custom_category" id="custom-select-{{ $transaction->id }}" class="hidden text-black h-8 bor-b-bottom dark:bg-custom-202124 dark:text-white dark:border-white" data-custom-category>
+                                <select name="custom_category" id="custom-select-{{ $transaction->id }}" class="hidden text-black h-8 bor-b-bottom dark:bg-custom-202124 dark:text-white dark:border-white !p-0" data-custom-category>
                                     @foreach($customCat as $cat)
                                         
                                         <option value="{{ $cat -> id }}">{{$cat->custom_category_name}}</option>
@@ -74,7 +74,7 @@ data-modal-toggle="crud-modal-master-{{ $transaction->id }}" title="{{__('profil
                 @else
                     @if(count($customCat) == 0)
                     
-                        <select name="category" id="system-select-{{ $transaction->id }}" class="text-black h-8 bor-b-bottom dark:bg-custom-202124 dark:text-white dark:border-white" data-system-category>
+                        <select name="category" id="system-select-{{ $transaction->id }}" class="text-black h-8 bor-b-bottom dark:bg-custom-202124 dark:text-white dark:border-white !p-0" data-system-category>
                             <option value="1" {{ $transaction->category_id == 1 ? 'selected' : '' }}>{{__('profile.transport')}}</option>
                             <option value="2" {{ $transaction->category_id == 2 ? 'selected' : '' }}>{{__('profile.groceries')}}</option>
                             <option value="3" {{ $transaction->category_id == 3 ? 'selected' : '' }}>{{__('profile.health')}}</option>
@@ -103,7 +103,7 @@ data-modal-toggle="crud-modal-master-{{ $transaction->id }}" title="{{__('profil
                                 </label>
                             
 
-                                <select name="category" id="system-select-{{ $transaction->id }}" class=" text-black h-8 bor-b-bottom dark:bg-custom-202124 dark:text-white dark:border-white" data-system-category>
+                                <select name="category" id="system-select-{{ $transaction->id }}" class=" text-black h-8 bor-b-bottom dark:bg-custom-202124 dark:text-white dark:border-white !p-0" data-system-category>
                                     <option value="1" {{ $transaction->category_id == 1 ? 'selected' : '' }}>{{__('profile.transport')}}</option>
                                     <option value="2" {{ $transaction->category_id == 2 ? 'selected' : '' }}>{{__('profile.groceries')}}</option>
                                     <option value="3" {{ $transaction->category_id == 3 ? 'selected' : '' }}>{{__('profile.health')}}</option>
@@ -119,7 +119,7 @@ data-modal-toggle="crud-modal-master-{{ $transaction->id }}" title="{{__('profil
                                 </select>
 
     
-                                <select name="custom_category" id="custom-select-{{ $transaction->id }}" class="hidden text-black h-8 bor-b-bottom dark:bg-custom-202124 dark:text-white dark:border-white" data-custom-category>
+                                <select name="custom_category" id="custom-select-{{ $transaction->id }}" class="hidden text-black h-8 bor-b-bottom dark:bg-custom-202124 dark:text-white dark:border-white !p-0" data-custom-category>
                                     @foreach($customCat as $cat)
                                         
                                         <option value="{{ $cat -> id }}">{{$cat->custom_category_name}}</option>
@@ -145,7 +145,7 @@ data-modal-toggle="crud-modal-master-{{ $transaction->id }}" title="{{__('profil
 
                 <div class="source">
                     <h2 class="text-start font-normal">{{__('profile.choose_source')}}</h2>
-                    <select name="source" class="block h-8 border-black border-1 font-normal dark:bg-custom-202124 dark:text-white dark:border-white">
+                    <select name="source" class="block h-8 border-black border-1 font-normal dark:bg-custom-202124 dark:text-white dark:border-white !p-0">
                         <option value="1" {{ $transaction->source_id == 1 ? 'selected' : '' }}>{{__('profile.bank')}}</option>
                         <option value="2" {{ $transaction->source_id == 2 ? 'selected' : '' }}>{{__('profile.cash')}}</option>
                     </select>
@@ -155,7 +155,7 @@ data-modal-toggle="crud-modal-master-{{ $transaction->id }}" title="{{__('profil
 
                 <div class="type">
                     <h2 class="text-start font-normal">{{__('profile.choose_type')}}</h2>
-                    <select name="type" class="block h-8 border-black border-1 font-normal dark:bg-custom-202124 dark:text-white dark:border-white">
+                    <select name="type" class="block h-8 border-black border-1 font-normal dark:bg-custom-202124 dark:text-white dark:border-white !p-0">
                         <option value="1" {{ $transaction->type_id == 1 ? 'selected' : '' }}>{{__('profile.outcome')}}</option>
                         <option value="2" {{ $transaction->type_id == 2 ? 'selected' : '' }}>{{__('profile.income')}}</option>
                     </select>
