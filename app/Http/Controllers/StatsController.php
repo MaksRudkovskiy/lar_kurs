@@ -15,6 +15,9 @@ class StatsController extends Controller
         if (!Auth::check()) {
             return Redirect::route('login');
         }
+        if (Auth::User()->role!=='admin') {
+            return Redirect::route('profile');
+        }
 
         $period = $request->input('period', 'last_7_days'); // По умолчанию последние 7 дней
 
