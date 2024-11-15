@@ -22,7 +22,7 @@
                         @if($user->role == 'user')
                     
 
-                        <select name="category" class="text-black h-8 bor-b-bottom dark:bg-custom-202124 dark:text-white dark:border-white">
+                        <select name="category" class="text-black h-8 bor-b-bottom dark:bg-custom-202124 dark:text-white dark:border-white !p-0">
                                 <option value="1" selected>{{__('profile.transport')}}</option>
                                 <option value="2">{{__('profile.groceries')}}</option>
                                 <option value="3">{{__('profile.health')}}</option>
@@ -40,7 +40,7 @@
                         @else
                             @if(count($customCat) == 0)
 
-                            <select name="category" class="text-black h-8 bor-b-bottom dark:bg-custom-202124 dark:text-white dark:border-white">
+                            <select name="category" class="text-black h-8 bor-b-bottom dark:bg-custom-202124 dark:text-white dark:border-white !p-0">
                                 <option value="1" selected>{{__('profile.transport')}}</option>
                                 <option value="2">{{__('profile.groceries')}}</option>
                                 <option value="3">{{__('profile.health')}}</option>
@@ -69,7 +69,7 @@
                                     </label>
 
 
-                                    <select name="category" id="system-select-add" class=" text-black h-8 bor-b-bottom dark:bg-custom-202124 dark:text-white dark:border-white" data-system-category>
+                                    <select name="category" id="system-select-add" class=" text-black h-8 bor-b-bottom dark:bg-custom-202124 dark:text-white dark:border-white !p-0" data-system-category>
                                         <option value="1" selected>{{__('profile.transport')}}</option>
                                         <option value="2">{{__('profile.groceries')}}</option>
                                         <option value="3">{{__('profile.health')}}</option>
@@ -84,7 +84,7 @@
                                         <option value="12">{{__('profile.other')}}</option>
                                     </select>
 
-                                    <select name="custom_category" id="custom-select-add" class="hidden text-black h-8 bor-b-bottom dark:bg-custom-202124 dark:text-white dark:border-white" data-custom-category>
+                                    <select name="custom_category" id="custom-select-add" class="hidden text-black h-8 bor-b-bottom dark:bg-custom-202124 dark:text-white dark:border-white !p-0" data-custom-category>
                                             @foreach($customCat as $cat)
                                                 
                                                 <option value="{{ $cat -> id }}">{{$cat->custom_category_name}}</option>
@@ -109,7 +109,7 @@
 
                 <div class="source">
                     <h2>{{__('profile.choose_source')}}</h2>
-                    <select name="source" class="block h-8 border-black border-1 dark:bg-custom-202124 dark:text-white dark:border-white">
+                    <select name="source" class="block h-8 border-black border-1 dark:bg-custom-202124 dark:text-white dark:border-white !p-0">
                         <option value="1" selected>{{__('profile.bank')}}</option>
                         <option value="2">{{__('profile.cash')}}</option>
                     </select>
@@ -119,7 +119,7 @@
 
                 <div class="type">
                     <h2>{{__('profile.choose_type')}}</h2>
-                    <select name="type" class="block h-8 border-black border-1 dark:bg-custom-202124 dark:text-white dark:border-white">
+                    <select name="type" class="block h-8 border-black border-1 dark:bg-custom-202124 dark:text-white dark:border-white !p-0">
                         <option value="1">{{__('profile.outcome')}}</option>
                         <option value="2">{{__('profile.income')}}</option>
                         

@@ -10,6 +10,11 @@ class StatsController extends Controller
 {
     public function stats(Request $request)
     {
+
+        if (!Auth::check()) {
+            return Redirect::route('login');
+        }
+
         $period = $request->input('period', 'last_7_days'); // По умолчанию последние 7 дней
 
         $userStats = $this->getUserStats($period);
