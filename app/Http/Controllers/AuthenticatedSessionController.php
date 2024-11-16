@@ -11,12 +11,13 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthenticatedSessionController extends Controller
 {
-   public function yandex() // перенаправляем юзера на яндекс Auth
+   public function yandex() 
     {
         return Socialite::driver('yandex')->redirect();
     }
+    // Перенаправление пользователя на яндекс Auth
 
-    public function yandexRedirect() // принимаем возвращаемые данные и работаем с ними
+    public function yandexRedirect() 
     {
         $user = Socialite::driver('yandex')->user();
         $user = User::firstOrCreate([ // используем firstOrCreate для проверки есть ли такие пользователи в нашей БД
@@ -26,7 +27,7 @@ class AuthenticatedSessionController extends Controller
             'name' => $user->user['first_name'],
 
             'surname' => $user->user['last_name'],
-                                                  // остальные переменные можете посмотреть использовав $dd('$user')
+
             'password' => Hash::make(Str::random(24)),
 
             'is_yandex' => 1,
@@ -36,6 +37,7 @@ class AuthenticatedSessionController extends Controller
 
         return redirect()->route('profile');
     }
+    // Данная функция принимает возвращаемые данные Яндексом и после позволяет осуществить вход
 
     private function RegOrUser($user) {
         $existingUser = User::where('email', $user->email)->first();
@@ -59,4 +61,5 @@ class AuthenticatedSessionController extends Controller
             }
         }
     }
+    // Данная функция проводит проверку регистрации пользователя. В случае отсутсвия пользователя с определёнными данными в базе, то его регистрирует.
 }

@@ -11,7 +11,7 @@ use App\Http\Controllers\AuthenticatedSessionController;
 use App\Http\Controllers\StatsController;
 use App\Http\Controllers\ExportController;
 
-Route::middleware(['set.table', 'set.lang'])->group(function () {
+Route::middleware(['set.table', 'set.lang'])->group(function () { // Посредник для запоминания переключённого языка и типа таблицы
 
     Route::post('/set-language', [LanguageController::class, 'setLanguage'])->name('set-language');
     Route::post('/set-type', [LanguageController::class, 'setType'])->name('set-type');
@@ -51,8 +51,6 @@ Route::middleware(['set.table', 'set.lang'])->group(function () {
 
     Route::get('login/yandex', [AuthenticatedSessionController::class, 'yandex'])->name('yandex');
     Route::get('login/yandex/redirect', [AuthenticatedSessionController::class, 'yandexRedirect'])->name('yandexRedirect');
-
-    
 
     Auth::routes();
 });

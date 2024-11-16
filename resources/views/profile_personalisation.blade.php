@@ -14,42 +14,24 @@
         </h2>
 
         <div class="py-8">
-            <h2 class="dark:text-white font-medium text-lg">
-                {{__('profile.color_theme')}}
-            </h2>
 
-            <button id="theme-toggle" type="button" class="flex items-center rounded-lg text-gray-500  dark:text-gray-400 max-h-12 hover:bg-gray-100 dark:hover:bg-gray-700 dark:focus:rounded-lg text-sm p-2.5">
-                <svg id="theme-toggle-dark-icon" class="w-8 h-8 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-                <svg id="theme-toggle-light-icon" class="w-8 h-8 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-            </button>
-
+            @include('components.profile.profile_theme_switch')
+            <!-- Подключение компонента смены системной темы -->
             <hr class="my-4">
 
             @include('components.profile.profile_language_switch')
+            <!-- Подключение компонента смены языка -->
 
             <hr class="my-4">          
 
-            <h2 class="text-lg dark:text-white font-medium">
-                {{__('profile.transaction_table_look')}}
-            </h2>   
-
-            <form action="{{ route('set-type') }}" method="POST">
-                @csrf
-                <select name="type" class="block dark:bg-custom-202124 py-2 px-6 my-2 border-1 dark:text-white dark:border-white outline-white">
-                    @foreach (['alternative' => __('profile.old'), 'default' => __('profile.new')] as $type => $table_type)
-                        <option value="{{ $type }}" {{ Session::get('table_type') == $type ? 'selected' : '' }}>
-                            {{ $table_type }}
-                        </option>
-                    @endforeach
-                </select>
-
-                <button class="dark:text-white block bg-custom-EDF1FF dark:bg-custom-303134 px-4 py-2 rounded text-hover dark:hover:text-custom-4D52BC">{{__('profile.change_look')}}</button>
-            </form>
+            @include('components.profile.profile_table_switch')
+            <!-- Подключение компонента смены типа таблицы -->
 
             <hr class="my-4">
 
             @if($user && ($user->role === 'privelegious_user' || $user->role === 'admin'))
-                @include('components.profile.category_adding')
+                @include('components.profile.profile_category_adding')
+                <!-- Подключение компонента добавления категории -->
             @endif  
         
         </div>

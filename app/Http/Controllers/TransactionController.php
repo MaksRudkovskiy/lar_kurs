@@ -11,7 +11,8 @@ use DOMDocument;
 
 class TransactionController extends Controller
 {
-    public function transactions(Request $request) {
+    public function transactions(Request $request) 
+    { // Данная функция transactions нужна для создания транзакции и занесения её в базу данных, откуда она будет выводиться в представление
         $request->validate([
             'category' => 'integer',
             'date' => 'required|date',
@@ -35,7 +36,7 @@ class TransactionController extends Controller
         return redirect()->back()->with('transactions', $transaction);
     }
 
-    public function category(Request $request)
+    public function category(Request $request) // Данная функция category отвечает за создание пользовательских категорий
     {
         $request->validate([
             'custom_category_name' => 'required|string',
@@ -69,19 +70,20 @@ class TransactionController extends Controller
         return redirect()->back();
     }
 
-    public function DeleteCategory($id) {
+    public function DeleteCategory($id) // Данная функция отвечает за удаление пользовательских категорий
+    {
         CustomCategories::where('id', $id)->delete();
         return redirect()->back();
     }
 
-    public function edit($id)
+    public function edit($id) //  Функция для редактирования транзакции
     {
         $edit = Transaction::findOrFail($id);
 
         return view('profile', ['edit' => $edit]);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $id) // Вспомогательная функция для редактирования транзакции
     {
         $edit = Transaction::findOrFail($id);
 
@@ -96,9 +98,11 @@ class TransactionController extends Controller
 
         return redirect()->back();
     }
-    // Данная функция transactions нужна для создания транзакции и занесения её в базу данных, откуда она будет выводиться в представление
+    
 
-    public function filter(Request $request)
+    public function filter(Request $request) // Данная функция filter нужна для фильтрации транзакций по категориям В данном случае условие проверяет, какие категории выбраны в форме фильтра модального окна
+    // Если выбраны все категории, то она и будет выводить все категории Иначе же будет выводиться какая-то определённая категория 
+    // Переменные $totalIncome и $totalExpense нужны для подсчёта общих расходов и доходов определённого пользователя по пути filter/, который копирует profile/, но необходим для филбтрации.
     {
         if (!Auth::check()) {
             return Redirect::route('login');
@@ -141,33 +145,28 @@ class TransactionController extends Controller
             'paginator' => $paginator,
         ]);
     }
-    // Данная функция filter нужна для фильтрации транзакций по категориям
-    // В данном случае условие проверяет, какие категории выбраны в форме фильтра модального окна
-    // Если выбраны все категории, то она и будет выводить все категории
-    // Иначе же будет выводиться какая-то определённая категория
-    // Переменные $totalIncome и $totalExpense нужны для подсчёта общих расходов и доходов определённого пользователя по пути filter/, который копирует profile/, но необходим для филбтрации.
 
     public function getMonthlyData()
     {
-    $transactions2 = Transaction::where('user_id', Auth::user()->id)
-        ->orderBy('date', 'desc')
-        ->get()
-        ->groupBy(function ($transaction) {
-            $date = Carbon::parse($transaction->date);
-            return $date->format('Y-m');
-        });
+        $transactions2 = Transaction::where('user_id', Auth::user()->id)
+            ->orderBy('date', 'desc')
+            ->get()
+            ->groupBy(function ($transaction) {
+                $date = Carbon::parse($transaction->date);
+                return $date->format('Y-m');
+            });
 
-    $monthlyData = $transactions2->map(function ($transactionsForMonth, $month) {
-        $totalIncome = $transactionsForMonth->where('type_id', '2')->sum('amount');
-        $totalExpense = $transactionsForMonth->where('type_id', '1')->sum('amount');
-        return [
-            'month' => Carbon::parse($month)->translatedFormat('F Y'),
-            'totalIncome' => $totalIncome,
-            'totalExpense' => $totalExpense,
-        ];
-    })->values();
+        $monthlyData = $transactions2->map(function ($transactionsForMonth, $month) {
+            $totalIncome = $transactionsForMonth->where('type_id', '2')->sum('amount');
+            $totalExpense = $transactionsForMonth->where('type_id', '1')->sum('amount');
+            return [
+                'month' => Carbon::parse($month)->translatedFormat('F Y'),
+                'totalIncome' => $totalIncome,
+                'totalExpense' => $totalExpense,
+            ];
+        })->values();
 
-    return $monthlyData;
+        return $monthlyData;
     }
 
 }

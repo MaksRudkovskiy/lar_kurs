@@ -9,7 +9,7 @@ use Auth;
 
 class AdminController extends Controller
 {
-    public function admin()
+    public function admin() // Данная функция возвращает представление profile_admin для отображения страницы администраторской панели
     {   
         if (!Auth::check()) {
             return Redirect::route('login');
@@ -22,13 +22,13 @@ class AdminController extends Controller
         return view('profile_admin', compact('users'));
     }
 
-    public function showUserDetails($id)
+    public function showUserDetails($id) // Данная функция возвращает в представление все данные пользователя, чтобы их потом можно было выводить в таблице пользователей
     {
         $user = User::findOrFail($id);
         return view('admin.user_details', compact('user'));
     }
     
-    public function privelegeUser (Request $request, $id)
+    public function privelegeUser (Request $request, $id) // Функция privelegeUser обеспечивает смену привелегии пользователя между "user" и "privelege_user"
     {
         $user = User::find($id);
 
@@ -42,7 +42,7 @@ class AdminController extends Controller
         return redirect()->route('profile_admin')->with('success', __('profile.user_role_changed'));
     }
 
-    public function search(Request $request)
+    public function search(Request $request) // Функция search позволяет осуществлять поиск на странице админ-панели по определённым параметрам
     {
         $search = $request->input('search');
 
@@ -54,5 +54,5 @@ class AdminController extends Controller
         ->get();
 
         return view('profile_admin', compact('users'));
-    }
+    } 
 }

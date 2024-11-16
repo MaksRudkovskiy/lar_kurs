@@ -12,7 +12,8 @@ use Auth;
 
 class HomeController extends Controller
 {
-    public function index()
+    public function index() // Данная функция index в этом контроллере нужна для передачи класса транзакции в переменную, к которой потом можно будет обращаться в представлении profile и выводить определённые данные из таблицы
+    // Переменные $totalIncome и $totalExpense нужны для подсчёта общих расходов и доходов определённого пользователя.
     {
         if (!Auth::check()) {
             return Redirect::route('login');
@@ -43,10 +44,9 @@ class HomeController extends Controller
             'paginator' => $paginator,
         ]);
     }
-    // Данная функция index в этом контроллере нужна для передачи класса транзакции в переменную, к которой потом можно будет обращаться в представлении profile и выводить определённые данные из таблицы
-    // Переменные $totalIncome и $totalExpense нужны для подсчёта общих расходов и доходов определённого пользователя.
-
-    public function index2()
+    
+ 
+    public function index2() // Данная функция index2 нужна для передачи переменной $user, которая равна классу с данными пользователя. Нужно это для передачи в представление profile_settings данных пользователя
     {
         if (!Auth::check()) {
             return Redirect::route('login');
@@ -55,9 +55,9 @@ class HomeController extends Controller
         $user = Auth::user();
         return view("profile_settings", ['user' => $user]);
     }
-    // Данная функция index2 нужна для передачи переменной $user, которая равна классу с данными пользователя. Нужно это для передачи в представление profile_settings данных пользователя
+    
 
-    public function index3()
+    public function index3() // index3 возвращает представление profile_report и обрабатывает данные транзакций таким образом, что транзакции с одинаковой категорией суммируются и группируются по месяцам
     {
         if (!Auth::check()) {
             return Redirect::route('login');
@@ -65,8 +65,7 @@ class HomeController extends Controller
 
         $user_id = Auth::user()->id;
 
-        // Получаем транзакции с учетом как обычных, так и кастомных категорий
-        $transactions = Transaction::where(function ($query) use ($user_id) {
+        $transactions = Transaction::where(function ($query) use ($user_id) { // Получаем транзакции с учетом как обычных, так и пользовательских категорий
             $query->where('user_id', $user_id)
                 ->where('type_id', '1')
                 ->whereNotNull('category_id')
@@ -78,8 +77,8 @@ class HomeController extends Controller
             return $date->format('Y-m');
         });
 
-        $monthlyData = [];
-        foreach ($transactions->sortKeysDesc()->keys() as $month) {
+        $monthlyData = []; // В этот массив пихаются данные о тратам по категориям за месяца
+        foreach ($transactions->sortKeysDesc()->keys() as $month) { // Цикл foreach, который как раз и "запихивает"
             $categoriesSums = $transactions[$month]->groupBy(function ($transaction) {
                 return $transaction->custom_category_id ?? $transaction->category_id;
             })
@@ -103,7 +102,7 @@ class HomeController extends Controller
         return view("profile_report", ['user' => $user, 'monthlyData' => $monthlyData, 'icons' => $icons, 'custom_categories' => $custom_categories]);
     }
 
-    public function edit_info(Request $request) {
+    public function edit_info(Request $request) { // Данная функция позволяет редактировать данные профиля пользователя.
         $user = Auth::user();
         $user_info = User::where('id', $user->id)->update([
             'name' => $request->name,
@@ -113,27 +112,27 @@ class HomeController extends Controller
             'email' => $request->email,
             'tg_tag' => $request->tg_tag,
         ]);
-        return redirect()->back();
+        return redirect()->back(); // она отправляет запрос на обновление данных в таблице с пользователем, под чьим id отправляется запрос, обновляет данные и возвращает обратно на ту же страницу
     }
+    
 
-    public function edit_info_yandex(Request $request) {
+    public function edit_info_yandex(Request $request) { // Данная функция позволяет редактировать только два параметра пользователя, который зарегистрирован через Яндекс
         $user = Auth::user();
         $user_info = User::where('id', $user->id)->update([
             'fathername' => $request->fathername,
             'tg_tag' => $request->tg_tag,
         ]);
-        return redirect()->back();
+        return redirect()->back(); // она отправляет запрос на обновление данных в таблице с пользователем, под чьим id отправляется запрос, обновляет данные и возвращает обратно на ту же страницу
     }
-    // функция edit_info нужна для редактирования профиля пользователя
-    // она отправляет запрос на обновление данных в таблице с пользователем, под чьим id отправляется запрос, обновляет данные и возвращает обратно на ту же страницу
 
-    public function delete_transaction($id) {
+
+    public function delete_transaction($id) { // Данная функция delete_transaction удаляет транзакцию с соответствующим id и возвращает пользователя обратно на страницу
         Transaction::where('id', $id)->delete();
         return redirect()->back();
     }
-    // Данная функция delete_transaction удаляет транзакцию с соответствующим id и возвращает пользователя обратно на страницу
+    
 
-    public function categorySumm() {
+    public function categorySumm() { // Реализует отображение общих доходов и расходов на странице
         $categories = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
         $user_id = Auth::user()->id;
         $currentMonth = now()->month;
@@ -154,7 +153,7 @@ class HomeController extends Controller
         return $categoriesSums;
     }
 
-    private function getIcons() {
+    private function getIcons() { // Вспомогательная функция для выведения иконок и их названий
         return [
             1 => 'bus.svg',
             2 => 'cart.svg',
@@ -171,25 +170,7 @@ class HomeController extends Controller
         ];
     }
 
-    private function monthRu($month) {
-        $months = [
-            1 => 'январь',
-            2 => 'февраль',
-            3 => 'март',
-            4 => 'апрель',
-            5 => 'май',
-            6 => 'июнь',
-            7 => 'июль',
-            8 => 'август',
-            9 => 'сентябрь',
-            10 => 'октябрь',
-            11 => 'ноябрь',
-            12 => 'декабрь',
-        ];
-        return $months[$month];
-    }
-
-    public function getMonthlyData()
+    public function getMonthlyData() // вспомогательная функция для index3
     {
     $transactions2 = Transaction::where('user_id', Auth::user()->id)
         ->orderBy('date', 'desc')
