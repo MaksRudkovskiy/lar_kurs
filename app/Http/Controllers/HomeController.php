@@ -44,6 +44,13 @@ class HomeController extends Controller
             'paginator' => $paginator,
         ]);
     }
+
+    public function authenticated(Request $request, $user)
+    {
+        $user->update([
+            'last_login_at' => now(),
+        ]);
+    }
     
  
     public function index2() // Данная функция index2 нужна для передачи переменной $user, которая равна классу с данными пользователя. Нужно это для передачи в представление profile_settings данных пользователя

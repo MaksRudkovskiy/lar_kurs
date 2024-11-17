@@ -24,6 +24,7 @@ class User extends Authenticatable
         'password',
         'tg_tag',
         'is_yandex',
+        'last_login_at',
         'email_verified_at',
     ];
 
@@ -35,6 +36,7 @@ class User extends Authenticatable
     protected function casts(): array
     {
         return [
+            'last_login_at' => 'datetime',
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];

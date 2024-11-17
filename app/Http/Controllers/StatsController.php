@@ -8,6 +8,7 @@ use App\Models\Transaction;
 use App\Models\CustomCategories;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\DB;
 use Auth;
 
 class StatsController extends Controller
@@ -28,7 +29,15 @@ class StatsController extends Controller
         $transactionStats = $this->getTransactionStats($period);
         $customCatStats = $this->getCustomCatStats($period);
 
-        return view('profile_stats', compact('userStats', 'transactionStats', 'customCatStats' , 'period'));
+        $lastLoginByDay = $this->getLastLoginByDay();
+
+        return view('profile_stats', compact(
+        'userStats',
+        'transactionStats', 
+        'customCatStats',
+        'lastLoginByDay', 
+        'period'
+        ));
     }
 
     private function getUserStats($period) // Вспомогательная функция получения статистики по пользователям
@@ -136,6 +145,32 @@ class StatsController extends Controller
         return [
             'totalCustomCat' => $totalCustomCat,
             'newCustomCat' => $newCustomCat,
+        ];
+    }
+
+    private function getLastLoginByDay()
+    {
+        $lastLoginByDay = User::select(
+            DB::raw('DATE(last_login_at) as date'),
+            DB::raw('COUNT(*) as count')
+        )
+            ->where('last_login_at', '>=', Carbon::now()->subDays(30))
+            ->groupBy('date')
+            ->orderBy('date')
+            ->get();
+
+        $lastLoginByDayLabels = [];
+        $lastLoginByDayData = [];
+
+        for ($i = 0; $i < 30; $i++) {
+            $date = Carbon::now()->subDays($i)->format('Y-m-d');
+            $lastLoginByDayLabels[] = $date;
+            $lastLoginByDayData[] = $lastLoginByDay->firstWhere('date', $date)->count ?? 0;
+        }
+
+        return [
+            'labels' => array_reverse($lastLoginByDayLabels),
+            'data' => array_reverse($lastLoginByDayData),
         ];
     }
 
