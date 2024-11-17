@@ -10,7 +10,7 @@
 
     <div class="flex w-screen divided-screen">
 
-        @include('components.profile.profile_general_income_outcome')
+        @include('components.profile.profile_main.general_income_outcome')
 
         <div class="right-bar dark:bg-c202124 w-full px-16 bgfbfbfb">
 
@@ -79,19 +79,19 @@
             ];
             @endphp
 
-            @include('components.profile.profile_modal_transaction_add')
+            @include('components.profile.profile_main.modal_transaction_add')
             <!-- Подключение компонента модального окна библиотеки flowbite для добавления транзакции -->
 
-            @include('components.profile.profile_modal_transaction_filter')
+            @include('components.profile.profile_main.modal_transaction_filter')
 
             <!-- Подключение компонента модального окна библиотеки flowbite для фильтрации транзакций -->
 
             @if(Session::get('table_type') == 'default') 
-                @include('components.profile.profile_transaction_table_new')
+                @include('components.profile.profile_main.transaction_table_new')
             @elseif(Session::get('table_type') == 'alternative')
-                @include('components.profile.profile_transaction_table_old')
+                @include('components.profile.profile_main.transaction_table_old')
             @else
-                @include('components.profile.profile_transaction_table_new')
+                @include('components.profile.profile_main.transaction_table_new')
             @endif
             <!-- Подключение компонента таблицы с транзакциями -->
             

@@ -102,6 +102,8 @@
 .uniq-input
 {
     outline: none;
+    padding: 0;
+    border-width: 0px;
     border-bottom: 2px solid rgb(77, 83, 188, 0.3);
     height: 32px;
     width: 400px;

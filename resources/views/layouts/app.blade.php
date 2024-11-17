@@ -25,7 +25,7 @@
 </head>
 <body class="dark:bgc171717 dark:bg-custom-202124">
 
-@include('components.header')
+@include('components.main.header')
 <!-- Подключение компонента шапки сайта -->
 
 <main class="">
@@ -34,7 +34,7 @@
 
 </main>
 
-@include('components.footer')    
+@include('components.main.footer')    
 <!-- Подключение компонента подвала сайта -->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>

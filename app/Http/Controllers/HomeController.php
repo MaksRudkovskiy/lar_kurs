@@ -53,7 +53,7 @@ class HomeController extends Controller
         }
 
         $user = Auth::user();
-        return view("profile_settings", ['user' => $user]);
+        return view("profile_personalisation", ['user' => $user]);
     }
     
 

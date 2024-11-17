@@ -6,9 +6,13 @@
         @if($monthlyData == null || count($monthlyData) === 0)
 
         @else
-        <div>
-            <a href="{{ route('export.word') }}" class="dark:text-white block max-w-48 bg-custom-EDF1FF dark:bg-custom-303134 px-4 py-2 rounded text-hover dark:hover:text-custom-4D52BC">{{__('profile.word')}}</a>
-        </div>
+            @if($user->role !== "user")
+                <div>
+                    <a href="{{ route('export.word') }}" class="dark:text-white block max-w-48 bg-custom-EDF1FF dark:bg-custom-303134 px-4 py-2 rounded text-hover dark:hover:text-custom-4D52BC">{{__('profile.word')}}</a>
+                </div>
+            @else
+            @endif
+
         @endif
     </div>
 

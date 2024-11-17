@@ -13,9 +13,12 @@
             Статистика
         </h2>
     </div>
-    <div class="flex items-center justify-center w-full h-full">
-        @include('components.profile.User_stats', ['userStats' => $userStats, 'period' => $period])
+    <div class="flex justify-center w-full gap-2 mt-6">
+        @include('components.profile.profile_stats.User_stats', ['period' => $period]) <!-- Компонент подсчёта пользователей -->
 
+        @include('components.profile.profile_stats.User_stats2', ['period' => $period]) <!-- Компонент подсчёта транзакций -->
+
+        @include('components.profile.profile_stats.User_stats3', ['period' => $period]) <!-- Компонент подсчёта пользовательских категорий -->
 
     </div>
 </div>

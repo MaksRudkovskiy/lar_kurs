@@ -1,8 +1,8 @@
 <form method="POST" action="{{ route('register') }}">
     @csrf
     <div >
-        <label for="" class="font-medium dark:text-white">Номер телефона</label>
-        <input name="tel" type="tel" id="tel" minlength="11" maxlength="11" required class="block w-full h-12 p-3 dark:text-white dark:border-white border-black border-1 rounded-md">
+        <label for="" class="font-medium dark:text-white ">Номер телефона</label>
+        <input name="tel" type="tel" id="tel" minlength="11" maxlength="11" required class="block w-full h-12 p-3 dark:bg-custom-171717 dark:text-white dark:border-white border-black border-1 rounded-md">
         @error('tel')
             <span class="invalid-feedback" style="color: red;" role="alert">
                 <strong>{{ $message }}</strong>
@@ -12,7 +12,7 @@
 
     <div class="mt-4">
         <label for="" class="font-medium dark:text-white">Эл.почта</label>
-        <input name="email" type="email" id="email" required class="block w-full h-12 p-3 dark:text-white dark:bg-custom-202124 dark:border-white border-black border-1 rounded-md">
+        <input name="email" type="email" id="email" required class="block w-full h-12 p-3 dark:text-white dark:bg-custom-171717 dark:border-white border-black border-1 rounded-md">
         @error('email')
             <span class="invalid-feedback" style="color: red;" role="alert">
                 <strong>{{ $message }}</strong>

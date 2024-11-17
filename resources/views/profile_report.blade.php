@@ -8,7 +8,7 @@
 <!-- Секция с основным изменяемым содержимым -->
 @section('content')
 
-    @include('components.profile.profile_report_screen')
+    @include('components.profile.profile_report.report_screen')
     <!-- Подключение компонента отчёта по категориям за месяца -->
 
 @endsection

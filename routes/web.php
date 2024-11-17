@@ -29,7 +29,7 @@ Route::middleware(['set.table', 'set.lang'])->group(function () { // Посре�
 
     Route::get('/profile', [HomeController::class, 'index'])->name('profile');
     Route::get('/profile_stats', [StatsController::class, 'stats'])->name('profile_stats');
-    Route::get('/profile_settings', [HomeController::class, 'index2'])->name('profile_settings');
+    Route::get('/profile_personalisation', [HomeController::class, 'index2'])->name('profile_settings');
     Route::get('/profile_report', [HomeController::class, 'index3'])->name('profile_report');
     Route::get('/filter', [TransactionController::class, 'filter'])->name('filter');
     Route::get('/filter_custom', [TransactionController::class, 'filter_custom'])->name('filter_custom');
@@ -41,7 +41,7 @@ Route::middleware(['set.table', 'set.lang'])->group(function () { // Посре�
     Route::get('/profile/{id}/edit', [TransactionController::class, 'edit'])->name('transactions.edit');
     Route::put('/profile/{id}', [TransactionController::class, 'update'])->name('transactions.update');
 
-    Route::get('/profile_personalisation', [PersonalisationController::class, 'personalisation'])->name('profile_personalisation');
+    Route::get('/profile_settings', [PersonalisationController::class, 'personalisation'])->name('profile_personalisation');
 
     Route::post('/profile/new_transactions', [TransactionController::class, 'transactions'])->name('new_transaction');
     Route::post('/new-category', [TransactionController::class, 'category'])->name('new_category');

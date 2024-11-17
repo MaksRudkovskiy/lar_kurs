@@ -9,7 +9,7 @@
 @section('content')
     <div class="w-full">
 
-        @include('components.admin.users_table')
+        @include('components.profile.profile_admin.users_table')
         <!-- Подключение компонента таблицы пользователей админ-панели -->
     </div>
 

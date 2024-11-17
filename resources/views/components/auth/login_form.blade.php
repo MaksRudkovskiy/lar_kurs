@@ -2,12 +2,12 @@
     @csrf
     <div class="mt-4">
         <label for="" class="font-medium">Эл.почта</label>
-        <input name="email" type="email" id="email" required class="block w-full h-12 p-3 border-black border-1 dark:border-white rounded-md">
+        <input name="email" type="email" id="email" required class="block w-full h-12 p-3 border-black border-1 dark:bg-custom-171717 dark:border-white rounded-md">
     </div>
 
     <div class="mt-4">
         <label for="" class="font-medium">Пароль</label>
-        <input id="password" name="password" type="password" required autocomplete="current-password" class="block w-full p-3 h-12 dark:border-white border-black border-1 rounded-md">
+        <input id="password" name="password" type="password" required autocomplete="current-password" class="block w-full p-3 h-12 dark:border-white dark:bg-custom-171717 border-black border-1 rounded-md">
             @error('email')
                 <span style="color: red;" class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>

@@ -66,7 +66,7 @@
                                     </div>
                                     <div class="w-36 dark:text-white text-center flex justify-center">
                                         
-                                        @component('components.profile.profile_modal_edit_transaction', [
+                                        @component('components.profile.profile_main.modal_edit_transaction', [
                                             'transaction' => $transaction,
                                             'user' => $user,
                                             'customCat' => $customCat,
