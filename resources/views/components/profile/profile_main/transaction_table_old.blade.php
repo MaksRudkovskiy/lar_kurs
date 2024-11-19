@@ -71,7 +71,7 @@
 
                         <td class="px-10 py-4 flex ml-auto">
 
-                            @component('components.profile.profile_modal_edit_transaction', [
+                            @component('components.profile.profile_main.modal_edit_transaction', [
                                 'transaction' => $transaction,
                                 'user' => $user,
                                 'customCat' => $customCat,
@@ -91,7 +91,7 @@
     </table>
     @if ($paginator->total() > 30)
         <div class="my-2">
-            {{ $paginator->appends(request()->query())->links('components.profile.pagination') }}
+            {{ $paginator->appends(request()->query())->links('components.profile.profile_main.pagination') }}
         </div>
     @else
 

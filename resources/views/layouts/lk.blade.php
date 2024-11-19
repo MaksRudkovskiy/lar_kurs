@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{{ asset('js/app.js') }}">
     <script src="https://yastatic.net/s3/passport-sdk/autofill/v1/sdk-suggest-with-polyfills-latest.js"></script>   
     <script src="https://yastatic.net/s3/passport-sdk/autofill/v1/sdk-suggest-token-with-polyfills-latest.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <!-- Подключение собственных стилей -->
     <script>
     // On page load or when changing themes, best to add inline in `head` to avoid FOUC
@@ -40,7 +41,7 @@
 </main>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
 <!-- Подключение библиотеки flowbite -->
 </body>
 </html>

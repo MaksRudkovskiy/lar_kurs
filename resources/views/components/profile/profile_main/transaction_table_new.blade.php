@@ -83,7 +83,7 @@
                 </div>
                 @if ($paginator->total() > 30)
                 <div class="my-2">
-                    {{ $paginator->appends(request()->query())->links('components.profile.pagination') }}
+                    {{ $paginator->appends(request()->query())->links('components.profile.profile_main.pagination') }}
                 </div>
                 @else
 

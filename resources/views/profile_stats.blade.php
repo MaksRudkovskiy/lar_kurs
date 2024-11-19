@@ -11,9 +11,6 @@
 <!-- Подключение ApexCharts.js -->
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
-<!-- Подключение вашего JavaScript файла -->
-<script src="{{ asset('js/stats.js') }}"></script>
-
 <div class="flex w-full flex-col">
     <div>
         <h2 class="ml-12 mt-12 dark:text-white text-2xl font-semibold">
