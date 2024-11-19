@@ -84,7 +84,7 @@ class HomeController extends Controller
             return $date->format('Y-m');
         });
 
-        $monthlyData = []; // В этот массив пихаются данные о тратам по категориям за месяца
+        $monthlyData = []; // В этот массив пихаются данные о тратах  по категориям за месяца
         foreach ($transactions->sortKeysDesc()->keys() as $month) { // Цикл foreach, который как раз и "запихивает"
             $categoriesSums = $transactions[$month]->groupBy(function ($transaction) {
                 return $transaction->custom_category_id ?? $transaction->category_id;
@@ -103,6 +103,8 @@ class HomeController extends Controller
         }
 
         $custom_categories = CustomCategories::all();
+
+        
 
         $icons = $this->getIcons();
         $user = Auth::user();

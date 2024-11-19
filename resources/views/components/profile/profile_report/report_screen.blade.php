@@ -34,10 +34,10 @@
                                     @else
                                         @foreach($custom_categories as $custom_category)
                                             @if($custom_category->id == $categoryId)
-                                        <svg class="max-w-8 max-h-8">
-                                            <title>{{$custom_category->custom_category_name}}</title>
-                                            {!! $custom_category->icon !!}
-                                        </svg>
+                                                <svg class="max-w-8 max-h-8">
+                                                    <title>{{$custom_category->custom_category_name}}</title>
+                                                    {!! $custom_category->icon !!}
+                                                </svg>
                                             @endif
                                         @endforeach
                                     @endif
