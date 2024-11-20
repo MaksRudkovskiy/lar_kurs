@@ -69,43 +69,52 @@ class HomeController extends Controller
         if (!Auth::check()) {
             return Redirect::route('login');
         }
-
+    
         $user_id = Auth::user()->id;
-
-        $transactions = Transaction::where(function ($query) use ($user_id) { // Получаем транзакции с учетом как обычных, так и пользовательских категорий
-            $query->where('user_id', $user_id)
-                ->where('type_id', '1')
-                ->whereNotNull('category_id')
-                ->orWhereNotNull('custom_category_id');
-        })
-        ->get()
-        ->groupBy(function ($transaction) {
-            $date = Carbon::parse($transaction->date);
-            return $date->format('Y-m');
-        });
-
-        $monthlyData = []; // В этот массив пихаются данные о тратах  по категориям за месяца
-        foreach ($transactions->sortKeysDesc()->keys() as $month) { // Цикл foreach, который как раз и "запихивает"
-            $categoriesSums = $transactions[$month]->groupBy(function ($transaction) {
-                return $transaction->custom_category_id ?? $transaction->category_id;
+    
+        $transactions = Transaction::where('user_id', $user_id)
+            ->where('type_id', '1')
+            ->where(function ($query) {
+                $query->whereNotNull('category_id')
+                    ->orWhereNotNull('custom_category_id');
             })
+            ->get()
+            ->groupBy(function ($transaction) {
+                $date = Carbon::parse($transaction->date);
+                return $date->format('Y-m');
+            });
+    
+        $monthlyData = [];
+        foreach ($transactions->sortKeysDesc()->keys() as $month) {
+            $categoriesSums = $transactions[$month]->filter(function ($transaction) {
+                return $transaction->category_id !== null;
+            })->groupBy('category_id')
             ->mapWithKeys(function ($transactionsForCategory) {
-                $categoryId = $transactionsForCategory->first()->custom_category_id ?? $transactionsForCategory->first()->category_id;
+                $categoryId = $transactionsForCategory->first()->category_id;
                 return [$categoryId => $transactionsForCategory->sum('amount')];
             })
             ->sortByDesc(null, SORT_REGULAR)
             ->all();
-
+    
+            $customCategoriesSums = $transactions[$month]->filter(function ($transaction) {
+                return $transaction->custom_category_id !== null;
+            })->groupBy('custom_category_id')
+            ->mapWithKeys(function ($transactionsForCategory) {
+                $categoryId = $transactionsForCategory->first()->custom_category_id;
+                return [$categoryId => $transactionsForCategory->sum('amount')];
+            })
+            ->sortByDesc(null, SORT_REGULAR)
+            ->all();
+    
             $monthlyData[] = [
                 'month' => Carbon::parse($month)->translatedFormat('F Y'),
                 'categoriesSums' => $categoriesSums,
+                'customCategoriesSums' => $customCategoriesSums,
             ];
         }
-
-        $custom_categories = CustomCategories::all();
-
-        
-
+    
+        $custom_categories = CustomCategories::where('user_id', $user_id)->get();
+    
         $icons = $this->getIcons();
         $user = Auth::user();
         return view("profile_report", ['user' => $user, 'monthlyData' => $monthlyData, 'icons' => $icons, 'custom_categories' => $custom_categories]);

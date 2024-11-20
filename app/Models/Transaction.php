@@ -27,6 +27,10 @@ class Transaction extends Model
     {
         return $this->belongsTo(Category::class);
     }
+    public function customCategory()
+    {
+        return $this->belongsTo(CustomCategories::class);
+    }
 }
 
 

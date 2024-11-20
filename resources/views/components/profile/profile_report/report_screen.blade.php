@@ -26,22 +26,29 @@
                 <div class="mt-3">
                     <div class="flex items-center justify-between text-center">
                         <div class="grid grid-cols-3 w-full">
+                            <!-- Вывод системных категорий -->
                             @foreach($monthData['categoriesSums'] as $categoryId => $sum)
                                 <div class="flex items-center gap-3 mt-5">
                                     @if(isset($icons[$categoryId]))
                                         <img src="{{ asset("content/img/{$icons[$categoryId]}") }}" alt="" class="w-8 dark:hidden">
                                         <img src="{{ asset("content/img-dark/{$icons[$categoryId]}") }}" alt="" class="w-8 hidden dark:block">
-                                    @else
-                                        @foreach($custom_categories as $custom_category)
-                                            @if($custom_category->id == $categoryId)
-                                                <svg class="max-w-8 max-h-8">
-                                                    <title>{{$custom_category->custom_category_name}}</title>
-                                                    {!! $custom_category->icon !!}
-                                                </svg>
-                                            @endif
-                                        @endforeach
                                     @endif
                                     <p> {{ $sum }} {{__('profile.r')}}</p>
+                                </div>
+                            @endforeach
+
+                            <!-- Вывод пользовательских категорий -->
+                            @foreach($monthData['customCategoriesSums'] as $categoryId => $sum)
+                                <div class="flex items-center gap-3 mt-5">
+                                    @foreach($custom_categories as $custom_category)
+                                        @if($custom_category->id == $categoryId)
+                                            <svg class="max-w-8 max-h-8">
+                                                <title>{{$custom_category->custom_category_name}}</title>
+                                                {!! $custom_category->icon !!}
+                                            </svg>
+                                            <p> {{ $sum }} {{__('profile.r')}}</p>
+                                        @endif
+                                    @endforeach
                                 </div>
                             @endforeach
                         </div>
