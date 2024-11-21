@@ -2,7 +2,7 @@
 
 
 @if(Auth::user()->role=='admin')
-<form method="POST" action="{{ route('edit_info') }}"  class="profile-wrapper max-w-1516 h532 px-28 pt-28 pb-14 mx-auto mt-28 cEDF1FF dark:bg-custom-171717">
+<form method="POST" action="{{ route('edit_info') }}"  class="profile-wrapper rounded-lg max-w-1516 h532 px-28 pt-28 pb-14 mx-auto mt-28 cEDF1FF dark:bg-custom-171717">
 <div class="flex justify-between flex-wrap">
     @csrf
     <div class="profile-side dark:hidden">
@@ -55,7 +55,7 @@
 </div>
 </form>
 @elseif($user->is_yandex == 1)
-<form method="POST" action="{{ route('edit_info_yandex') }}"  class="profile-wrapper max-w-1516 h532 px-28 pt-28 pb-14 mx-auto mt-28 cEDF1FF dark:bg-custom-171717">
+<form method="POST" action="{{ route('edit_info_yandex') }}"  class="profile-wrapper rounded-lg max-w-1516 h532 px-28 pt-28 pb-14 mx-auto mt-28 cEDF1FF dark:bg-custom-171717">
     <h2 class="text-center py-2 text-lg dark:text-white">{{ __('profile.ya_auth') }}</h2>
 <div class="flex justify-between flex-wrap">
     @csrf
@@ -114,7 +114,7 @@
 
 </form>
 @else
-<form method="POST" action="{{ route('edit_info') }}"  class="profile-wrapper max-w-1516 h532 px-28 pt-28 pb-14 mx-auto mt-28 cEDF1FF dark:bg-custom-171717">
+<form method="POST" action="{{ route('edit_info') }}"  class="profile-wrapper rounded-lg max-w-1516 h532 px-28 pt-28 pb-14 mx-auto mt-28 cEDF1FF dark:bg-custom-171717">
     <div class="flex justify-between flex-wrap">
         <div class="profile-side dark:hidden">
         @csrf

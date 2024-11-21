@@ -175,26 +175,27 @@ class StatsController extends Controller
     }
 
     private function getTransactionByMonth()
-    {
-        $transactionByMonth = Transaction::select(
-            DB::raw('DATE_FORMAT(created_at, "%Y-%m") as month'),
-            DB::raw('COUNT(*) as count')
-        )
-            ->groupBy('month')
-            ->orderBy('month')
-            ->get();
+{
+    $transactions = Transaction::select(
+        DB::raw('DATE_FORMAT(date, "%Y-%m") as month'),
+        DB::raw('COUNT(*) as count')
+    )
+        ->groupBy('month')
+        ->orderBy('month')
+        ->get();
 
-        $transactionByMonthLabels = [];
-        $transactionByMonthData = [];
+    $transactionByMonthLabels = [];
+    $transactionByMonthData = [];
 
-        foreach ($transactionByMonth as $transaction) {
-            $transactionByMonthLabels[] = $transaction->month;
-            $transactionByMonthData[] = $transaction->count;
-        }
-
-        return [
-            'labels' => $transactionByMonthLabels,
-            'data' => $transactionByMonthData,
-        ];
+    foreach ($transactions as $transaction) {
+        $month = Carbon::parse($transaction->month)->translatedFormat('F Y');
+        $transactionByMonthLabels[] = $month;
+        $transactionByMonthData[] = $transaction->count;
     }
+
+    return [
+        'labels' => $transactionByMonthLabels,
+        'data' => $transactionByMonthData,
+    ];
+}
 }

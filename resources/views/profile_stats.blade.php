@@ -25,8 +25,8 @@
         @include('components.profile.profile_stats.User_stats3', ['period' => $period]) <!-- Компонент подсчёта пользовательских категорий -->
         <div class="flex gap-12 mt-6">
             <div class="bg-white dark:bg-custom-171717 dark:text-white rounded-lg shadow-lg p-6">
-                <h3 class="text-xl font-semibold">Количество Транзакций по месяцам</h3>
-                <div id="postsChart"></div>
+                <h3 class="text-xl font-semibold">Количество транзакций по месяцам</h3>
+                <div id="transactionsChart"></div>
             </div>
 
             <div class="bg-white dark:bg-custom-171717 dark:text-white rounded-lg shadow-lg p-6">
@@ -43,20 +43,20 @@
     const transactionByMonth = {!! json_encode($transactionByMonth) !!};
     const lastLoginByDay = {!! json_encode($lastLoginByDay) !!};
 
-    // График количества постов по месяцам
-    const postsChart = new ApexCharts(document.querySelector("#postsChart"), {
+    // График количества транзакций по месяцам
+    const transactionsChart = new ApexCharts(document.querySelector("#transactionsChart"), {
         chart: {
             type: 'line'
         },
         series: [{
-            name: 'Количество транзакций по месяцам',
+            name: 'Количество транзакций',
             data: transactionByMonth.data
         }],
         xaxis: {
             categories: transactionByMonth.labels
         }
     });
-    postsChart.render();
+    transactionsChart.render();
 
     // График последних входов пользователей по дням
     const lastLoginChart = new ApexCharts(document.querySelector("#lastLoginChart"), {
