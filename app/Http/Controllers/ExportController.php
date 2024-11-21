@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Transaction;
+use App\Models\CustomCategories;
 use Carbon\Carbon;
 use Auth;
 use PhpOffice\PhpWord\PhpWord;
@@ -34,6 +35,7 @@ class ExportController extends Controller
         })->values();
 
         $icons = $this->getIcons();
+        $customCategories = CustomCategories::where('user_id', $user->id)->get();
 
         // Создание нового документа Word
         $phpWord = new PhpWord();
@@ -56,10 +58,11 @@ class ExportController extends Controller
                 foreach ($transactions[$monthKey] as $transaction) {
                     // Преобразуем ID категории в текстовое название
                     $categoryName = $this->getCategoryName($transaction->category_id);
+                    $customCategoryName = $this->getCustomCategoryName($transaction->custom_category_id, $customCategories);
                     
                     $section->addText('                             ');
 
-                    $section->addText('Категория: ' . $categoryName);
+                    $section->addText('Категория: ' . ($customCategoryName ?: $categoryName));
                     $section->addText('Сумма: ' . $transaction->amount);
                     $section->addText('Дата: ' . $transaction->date);
                     $section->addTextBreak();
@@ -139,5 +142,11 @@ class ExportController extends Controller
         ];
 
         return $categories[$categoryId] ?? 'Без категории';
+    }
+
+    private function getCustomCategoryName($customCategoryId, $customCategories)
+    {
+        $customCategory = $customCategories->firstWhere('id', $customCategoryId);
+        return $customCategory ? $customCategory->custom_category_name : null;
     }
 }

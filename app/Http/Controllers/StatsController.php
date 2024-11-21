@@ -15,11 +15,10 @@ class StatsController extends Controller
 {
     public function stats(Request $request) // Отрисовывает страницу статистики и вызывает вспомогательные функции разных графиков, а также задаёт значение по умолчанию у периода
     {
-
         if (!Auth::check()) {
             return Redirect::route('login');
         }
-        if (Auth::User()->role!=='admin') {
+        if (Auth::User()->role !== 'admin') {
             return Redirect::route('profile');
         }
 
@@ -28,15 +27,16 @@ class StatsController extends Controller
         $userStats = $this->getUserStats($period);
         $transactionStats = $this->getTransactionStats($period);
         $customCatStats = $this->getCustomCatStats($period);
-
         $lastLoginByDay = $this->getLastLoginByDay();
+        $transactionByMonth = $this->getTransactionByMonth();
 
         return view('profile_stats', compact(
-        'userStats',
-        'transactionStats', 
-        'customCatStats',
-        'lastLoginByDay', 
-        'period'
+            'userStats',
+            'transactionStats',
+            'customCatStats',
+            'lastLoginByDay',
+            'transactionByMonth',
+            'period'
         ));
     }
 
@@ -174,4 +174,27 @@ class StatsController extends Controller
         ];
     }
 
+    private function getTransactionByMonth()
+    {
+        $transactionByMonth = Transaction::select(
+            DB::raw('DATE_FORMAT(created_at, "%Y-%m") as month'),
+            DB::raw('COUNT(*) as count')
+        )
+            ->groupBy('month')
+            ->orderBy('month')
+            ->get();
+
+        $transactionByMonthLabels = [];
+        $transactionByMonthData = [];
+
+        foreach ($transactionByMonth as $transaction) {
+            $transactionByMonthLabels[] = $transaction->month;
+            $transactionByMonthData[] = $transaction->count;
+        }
+
+        return [
+            'labels' => $transactionByMonthLabels,
+            'data' => $transactionByMonthData,
+        ];
+    }
 }
