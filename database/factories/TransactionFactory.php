@@ -24,8 +24,7 @@ class TransactionFactory extends Factory
         return [
             'user_id' => \App\Models\User::factory(),
             'category_id' => $this->faker->numberBetween(1, 10),
-            'custom_category_id' => $this->faker->numberBetween(1, 10),
-            'date' => $this->faker->date(),
+            'date' => $this->faker->dateTimeBetween('2005-01-01', 'now')->format('Y-m-d'),
             'source_id' => $this->faker->numberBetween(1, 2),
             'type_id' => $this->faker->numberBetween(1, 2),
             'amount' => $this->faker->numberBetween(100, 1000),

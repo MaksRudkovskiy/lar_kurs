@@ -155,7 +155,7 @@ data-modal-toggle="crud-modal-master-{{ $transaction->id }}" title="{{__('profil
 
                 <div class="type">
                     <h2 class="text-start font-normal">{{__('profile.choose_type')}}</h2>
-                    <select name="type" class="block h-8 border-black border-1 font-normal dark:bg-custom-202124 dark:text-white dark:border-white !p-0">
+                    <select name="type" class="block h-8 border-black border-1 font-normal dark:bg-custom-202124 dark:text-white dark:border-white !p-0 !pr-9">
                         <option value="1" {{ $transaction->type_id == 1 ? 'selected' : '' }}>{{__('profile.outcome')}}</option>
                         <option value="2" {{ $transaction->type_id == 2 ? 'selected' : '' }}>{{__('profile.income')}}</option>
                     </select>

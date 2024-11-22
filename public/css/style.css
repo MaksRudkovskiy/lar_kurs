@@ -333,8 +333,6 @@ input
 .transactionBodyContainer
 {
     box-shadow: 2px 4px 16px -1px rgba(0, 0, 0, 0.08);
-    max-height: 790px;
-    overflow-y: auto;
 }
 
 .max-w-1219

@@ -119,7 +119,7 @@
 
                 <div class="type">
                     <h2>{{__('profile.choose_type')}}</h2>
-                    <select name="type" class="block h-8 border-black border-1 dark:bg-custom-202124 dark:text-white dark:border-white !p-0">
+                    <select name="type" class="block h-8 border-black border-1 dark:bg-custom-202124 dark:text-white dark:border-white !p-0 !pr-9">
                         <option value="1">{{__('profile.outcome')}}</option>
                         <option value="2">{{__('profile.income')}}</option>
                         
