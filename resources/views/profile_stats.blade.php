@@ -14,10 +14,14 @@
 <div class="flex w-full flex-col">
     <div>
         <h2 class="ml-12 mt-12 dark:text-white text-2xl font-semibold">
-            Статистика
+            {{__('profile.statistics')}}
         </h2>
+        <div class="ml-12 mt-2">
+            @include('components.profile.profile_stats.period_switch')
+        </div>
     </div>
     <div class="flex justify-center w-full gap-2 mt-6 flex-wrap">
+
         @include('components.profile.profile_stats.User_stats', ['period' => $period]) <!-- Компонент подсчёта пользователей -->
 
         @include('components.profile.profile_stats.User_stats2', ['period' => $period]) <!-- Компонент подсчёта транзакций -->
@@ -25,12 +29,12 @@
         @include('components.profile.profile_stats.User_stats3', ['period' => $period]) <!-- Компонент подсчёта пользовательских категорий -->
         <div class="flex gap-12 mt-6 flex-wrap">
             <div class="bg-white dark:bg-custom-171717 dark:text-white rounded-lg shadow-lg p-6">
-                <h3 class="text-xl font-semibold">Количество транзакций по месяцам</h3>
+                <h3 class="text-xl font-semibold">{{__('profile.transactions_amount_by_month')}}</h3>
                 <div id="transactionsChart"></div>
             </div>
 
             <div class="bg-white dark:bg-custom-171717 dark:text-white rounded-lg shadow-lg p-6">
-                <h3 class="text-xl font-semibold">Последние входы пользователей по дням</h3>
+                <h3 class="text-xl font-semibold">{{__('profile.user_logins')}}</h3>
                 <div id="lastLoginChart"></div>
             </div>
         </div>

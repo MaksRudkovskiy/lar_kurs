@@ -101,7 +101,11 @@ return [
     'not_stated' => 'Not stated',
     'user_not_found' => 'User not found',
     'user_role_changed' => 'User role changed succesfully',
-    
+    'registered_users' => 'Registered users',
+    'total_custom_categories' => 'Total custom categories',
+    'transactions_amount_by_month' => 'Transaction amount by month',
+    'user_logins' => 'User logins',
+    'statistics' => 'Statistics',
 ]; 
 
 ?>
