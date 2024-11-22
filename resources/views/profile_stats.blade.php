@@ -23,7 +23,7 @@
         @include('components.profile.profile_stats.User_stats2', ['period' => $period]) <!-- Компонент подсчёта транзакций -->
 
         @include('components.profile.profile_stats.User_stats3', ['period' => $period]) <!-- Компонент подсчёта пользовательских категорий -->
-        <div class="flex gap-12 mt-6">
+        <div class="flex gap-12 mt-6 flex-wrap">
             <div class="bg-white dark:bg-custom-171717 dark:text-white rounded-lg shadow-lg p-6">
                 <h3 class="text-xl font-semibold">Количество транзакций по месяцам</h3>
                 <div id="transactionsChart"></div>

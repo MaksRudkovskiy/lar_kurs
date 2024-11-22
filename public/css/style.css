@@ -522,4 +522,8 @@ input
     {
         padding: 0;
     }
+    .conjoined-block
+    {
+        overflow-x: auto;
+    }
 }
