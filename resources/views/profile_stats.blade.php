@@ -20,7 +20,7 @@
             @include('components.profile.profile_stats.period_switch')
         </div>
     </div>
-    <div class="flex justify-center w-full gap-2 mt-6 flex-wrap">
+    <div class="flex justify-center w-full gap-6 mt-6 flex-wrap">
 
         @include('components.profile.profile_stats.User_stats', ['period' => $period]) <!-- Компонент подсчёта пользователей -->
 
