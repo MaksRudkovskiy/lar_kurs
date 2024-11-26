@@ -18,7 +18,7 @@ class PersonalisationController extends Controller
 
         $user = Auth::user();
 
-        $custom_categories = CustomCategories::all();
+        $custom_categories = CustomCategories::where('user_id', Auth::id())->get();
 
         $custom_cat_count = CustomCategories::where('user_id', $user->id)->count();
 
