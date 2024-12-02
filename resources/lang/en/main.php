@@ -29,7 +29,7 @@ return [
     'integration' => 'Will there be any bank integration?',
     'nah' => 'No, the web app is designed to allow people to fill out their own transactions. This is done both to allow people to estimate their spending when filling out the form, and because this is not currently possible with the current level of recognition of the web app.',
     'why' => 'Why cant I edit my transactions?',
-    'no_point' => 'This is not provided because there is no point in it. You can simply delete the old transaction and add the same one, but with different data.',
+    'no_point' => 'This is not provided because there is no point in it. You can simply delete the old transaction and add the same one, but with different data or alternatively you can get a Pro privelege for that function!',
     'many_inputs' => 'Why do I have so many input fields in my profile?',
     'necessary' => 'If necessary, you will receive newsletters with ',
     'useful' => 'useful',   

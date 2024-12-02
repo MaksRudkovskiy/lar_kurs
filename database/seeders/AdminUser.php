@@ -6,7 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
-class AdminUser extends Seeder // Убедитесь, что имя класса корректное
+class AdminUser extends Seeder
 {
     public function run()
     {

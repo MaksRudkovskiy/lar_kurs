@@ -152,7 +152,7 @@
 
                 <div class="h-14">
                     <label for="" class="c4D52BC text-xs">{{__('profile.email')}}:</label>
-                    <input value="{{ $user->email }}" name="email" type="text" maxlength="60" maxlength="60" class="uniq-input block text-2xl">
+                    <div class="uniq-input block text-2xl">{{ $user->email }}</div>
                 </div>
 
                 <div class="h-14">
