@@ -127,7 +127,6 @@ class HomeController extends Controller
             'surname' => $request->surname,
             'fathername' => $request->fathername,
             'phone' => $request->phone,
-            'email' => $request->email,
             'tg_tag' => $request->tg_tag,
         ]);
         return redirect()->back(); // она отправляет запрос на обновление данных в таблице с пользователем, под чьим id отправляется запрос, обновляет данные и возвращает обратно на ту же страницу

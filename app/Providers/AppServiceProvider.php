@@ -20,7 +20,7 @@ class AppServiceProvider extends ServiceProvider
      * Bootstrap any application services.
      */
     public function boot(): void
-    {
+    {   
         Event::listen(function (SocialiteWasCalled $event) {
             $event->extendSocialite('yandex', \SocialiteProviders\Yandex\Provider::class);
        });
